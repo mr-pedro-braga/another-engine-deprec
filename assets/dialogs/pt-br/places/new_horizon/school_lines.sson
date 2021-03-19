@@ -1,0 +1,97 @@
+#cheat
+	choice * Cheat Menu
+		Fight (fight):
+			continue
+		Warp (flirt):
+			continue
+		Test Route (ch_bruno):
+			continue
+		Nevermind (wait):
+			continue
+
+#cutscene_2_1
+	Bruno (): *huff huff*
+	Claire (): Ok, got it.
+	bgm restart
+	Bruno (): ¬SHoly damn, did you see THAT?
+	Bruno (): ¬SIt was full of 'em!!
+	Claire (): ah...
+	Claire (): so...¢¢ are we going to stay in this dark room?
+	Bruno (): Any better idea?
+	wait 2.0
+	Claire (): no...
+	Bruno (): We're screwed...
+
+#cutscene_2_2
+	bgm pause
+	Andy (): Yep, we are.
+
+#cutscene_2_3
+	bgm restart
+	Bruno (): ¬SAAAaaaAAaaAa Wha-¢¢\n- Dude!
+	Andy(mild_mad): Don't scream at me.
+	Andy(mild_mad): If anyone should be screaming,¢¢ it is me.
+	Bruno (scared): You almost scared me to death.
+	Andy(mild_mad): ...¢¢\n- You were the ones who jumped into the room.
+	bgm pause
+	Bruno (smile): Mmmm...¢¢¢ You're right.
+	bgm restart
+	move bruno
+		mvadd 0 -32
+		mvto 97 75
+		mvto 161 75
+		goto 1
+	action andy sit
+	Bruno (worried): Oh my...
+	Bruno (worried): What am I gonna do...
+	Bruno (worried): And what's happening...
+	Bruno (worried): Is it... ¢¢Idk,¢¢ a zombie apocalypse?
+	move claire
+		mvspeed 32
+		mvto 198 98
+		wait 0.4
+		turn 4
+		wait 0.5
+		action sit
+	Andy (mild_mad): A zombie apocalypse...
+	Bruno (worried): Cut me some slack, Andy.
+	Bruno (worried): I'm tryn'a think about this.
+	Bruno (worried): Oh, my... what about at home...
+	Bruno (worried): My mom... my sisters...
+	Andy (sad): Hey... walking in circles isn't gonna help.
+	Andy (cool): Let's use our heads.
+	move bruno
+		turn 5
+	Bruno (worried): wha
+	Bruno (confused): How ARE you so calm?
+	Andy (normal): I'm the definition of calmness.
+	move bruno
+		mvspeed 16
+		mvto 160 64
+		wait 0.2
+		turn 2
+		wait 0.5
+		action check
+	Bruno (frisk): "Definition of calmness".
+	Bruno (frisk): Tsc¢¢,\n- I'ma do something useful.
+	Bruno (frisk): 'cause you ain't doing nothing.
+	move andy
+		action sit_look
+	Andy (side): Who's that girl you brought with you?
+	Bruno (worried): I dunno,¢¢ ask her.
+	Andy (side): Psst,¢¢ girl.¢¢¢\n- Who are you?
+		"..." (talk):
+			Andy (side): Ih... cat got your tongue?
+			Andy (side): Alright, alright.
+		"I don't know" (talk):
+			Andy (side): Damn, she doesn't even know who she is.
+		"Claire" (talk):
+			Andy (side): "Claire"?\n- That's a nice name.
+	Andy (side): The name is Andy.
+
+
+
+
+
+
+

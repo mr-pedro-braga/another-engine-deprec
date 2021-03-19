@@ -1,0 +1,13 @@
+@doctype List
+
+#Claire:
+	portrait: Claire
+	voice: andy
+
+#Andy:
+	portrait: Andy
+	voice: andy
+
+#default:
+	portrait: none
+	voice: eliott

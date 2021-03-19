@@ -1,0 +1,46 @@
+#cheat
+	choice * Cheat Menu
+		Fight (fight):
+			continue
+		Warp (flirt):
+			continue
+		Test Route (ch_bruno):
+			continue
+		Nevermind (wait):
+			continue
+
+#cutscene_2_1
+	Bruno (): *huff huff*
+	Claire (): Ok, got it.
+	bgm restart
+	Bruno (): ¬SHoly damn, did you see THAT?
+	Bruno (): ¬SIt was full of 'em!!
+	Claire (): ah...
+	Claire (): so...¢¢ are we going to stay in this dark room?
+	Bruno (): Any better idea?
+	wait 2.0
+	Claire (): no...
+	Bruno (): We're screwed...
+
+#cutscene_2_2
+	bgm pause
+	Andy (): Yep, we are.
+
+#cutscene_2_3
+	bgm restart
+	Bruno (): ¬SAAAaaaAAaaAa Wha-¢¢\n- Dude!
+	Andy(mild_mad): Don't scream at me.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/dialogs/retro_bits_2_white.png" type="Texture" id=1]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _ready():
+	$Camera2D.make_current()
+	SoundtrackCore.bgm_pause()
+	SoundtrackCore.load_music(\"mus_my_little_angel.wav\", \"My Little Angel\")
+	yield(get_tree().create_timer(3.0), \"timeout\")
+	SoundtrackCore.bgm_resume()
+	
+"
+
+[node name="Scene" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="CreditsHolder" type="Node2D" parent="."]
+
+[node name="DirectedBy" type="ReferenceRect" parent="CreditsHolder"]
+margin_left = 20.0
+margin_top = 56.0
+margin_right = 220.0
+margin_bottom = 64.0
+border_color = Color( 1, 0.337255, 0.337255, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+centered = true
+character_scale = 0.8
+text = "In memory of"
+font_texture = ExtResource( 1 )
+char_width = 6
+char_height = 9
+spacing = 1.0
+tab_spaces = 3
+texture_rows = 3
+
+[node name="Pedro Braga" type="ReferenceRect" parent="CreditsHolder/DirectedBy"]
+margin_top = 16.0
+margin_right = 200.0
+margin_bottom = 24.0
+border_color = Color( 1, 0.337255, 0.337255, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+centered = true
+character_scale = 0.8
+text = "     ¬?Ollie Shade¬N"
+font_texture = ExtResource( 1 )
+char_width = 6
+char_height = 9
+spacing = 1.0
+tab_spaces = 3
+texture_rows = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 120, 67 )
