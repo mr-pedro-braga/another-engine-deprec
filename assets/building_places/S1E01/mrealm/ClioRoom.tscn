@@ -1,0 +1,330 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/building_places/Tilemaps/NHOverworld.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/characters/clio/ClioSerious.png" type="Texture" id=2]
+[ext_resource path="res://assets/characters/clio/ClioLaugh.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/clio/ClioHappy.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/clio/ClioWink.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/clio/ClioDark.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/clio/ReginaldDark.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/clio/Reginald.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/clio/ReginaldLaugh.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/clio/ClioRoom.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/clio/black.png" type="Texture" id=11]
+[ext_resource path="res://assets/characters/clio/ha.png" type="Texture" id=12]
+[ext_resource path="res://assets/sounds/sfx_laughtrack.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/characters/clio/ClioMenacing.png" type="Texture" id=14]
+[ext_resource path="res://assets/modular_scenes/Event.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/sounds/SFX_ClioLeave.wav" type="AudioStream" id=16]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends DefaultScene
+
+var claire
+
+func _ready():
+	get_node(\"Camera2D\").make_current()
+	if Gameplay.LOADING:
+		yield(Gameplay, \"LOADING_FINISHED\")
+	Utils.enter_event()
+	claire = get_node(\"3DObjects/claire\")
+	claire.angle = 6
+	yield(get_tree().create_timer(2.0), \"timeout\")
+	var flame = load(\"res://assets/characters/clio/Flame.tscn\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"dark_intro\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	var mean = 0
+	var material = claire.get_node(\"AnimatedSprite\").get_material()
+	var soul = claire.get_node(\"SOUL\")
+	soul.visible = true
+	soul.modulate.a = mean
+	for i in range(8):
+		mean += 0.125
+		soul.modulate.a = mean
+		material.set_shader_param(\"soul_mean\", mean)
+		var f = flame.instance()
+		var a = i * deg2rad(45)
+		get_node(\"Flames\").add_child(f)
+		AudioManager.play(\"SFX_Weapon_Summon\")
+		f.position = Vector2(sin(a), cos(a)) * 32 + Vector2(0, -8)
+		yield(get_tree().create_timer(0.1), \"timeout\")
+	yield(get_tree().create_timer(1.0), \"timeout\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"goodbye\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	yield(get_tree().create_timer(1.0), \"timeout\")
+	var distance = 32
+	for j in range(3):
+		distance -= 4
+		for i in range(8):
+			var a = i * deg2rad(45)
+			get_node(\"Flames\").get_child(i).position = Vector2(sin(a), cos(a)) * distance + Vector2(0, -8)
+		AudioManager.play(\"SFX_Typewriter\", 3.0)
+		yield(get_tree().create_timer(1.0), \"timeout\")
+	AudioManager.play(\"SFX_UT_Soul_Split\")
+	get_node(\"Black/B\").visible = true
+	get_node(\"Flames\").queue_free()
+	yield(get_tree().create_timer(5.0), \"timeout\")
+	get_node(\"Black/B\").visible = false
+	get_node(\"RoomBG\").visible = true
+	var clio = get_node(\"3DObjects/StaticBody2D/Clio\")
+	clio.play(\"laugh\")
+	var cat = get_node(\"3DObjects/StaticBody2D/Cat\")
+	cat.play(\"laugh\")
+	material.set_shader_param(\"soul_mean\", 0)
+	soul.visible = false
+	SoundtrackCore.load_music(\"mus_earthbound2.wav\", \"Clio's Theme\")
+	SoundtrackCore.bgm_resume()
+	get_node(\"Anim\").play(\"Laughter\")
+	yield(get_tree().create_timer(4.0), \"timeout\")
+	
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"make_fun_of\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	clio.play(\"smile\")
+	cat.play(\"normal\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_1\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	clio.play(\"serious\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_2\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	clio.play(\"wink\")
+	get_node(\"Camera2D\").zoom = Vector2(0.6, 0.6)
+	get_node(\"Laughter2\").play()
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_3\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	get_node(\"Camera2D\").zoom = Vector2(1.0, 1.0)
+	clio.play(\"smile\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_4\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_5\"])
+	yield(get_tree().create_timer(1.0), \"timeout\")
+	clio.play(\"wink\")
+	get_node(\"Camera2D\").zoom = Vector2(0.6, 0.6)
+	get_node(\"Laughter2\").play()
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	clio.play(\"smile\")
+	get_node(\"Camera2D\").zoom = Vector2(1.0, 1.0)
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_6\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	get_node(\"RoomBG\").visible = false
+	clio.play(\"danger\")
+	yield(get_tree().create_timer(1.3), \"timeout\")
+	get_node(\"Camera2D\").zoom = Vector2(0.6, 0.6)
+	SoundtrackCore.bgm_pause()
+	yield(get_tree().create_timer(2.7), \"timeout\")
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_7\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	clio.play(\"smile\")
+	get_node(\"RoomBG\").visible = true
+	get_node(\"Camera2D\").zoom = Vector2(1.0, 1.0)
+	SoundtrackCore.bgm_resume()
+	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_8\"])
+	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	get_node(\"3DObjects/StaticBody2D/FlyOut\").play(\"f\")
+	SoundtrackCore.bgm_pause()
+	yield(get_tree().create_timer(3.0), \"timeout\")
+	Utils.leave_event()
+"
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -24, 0 )
+b = Vector2( 24, 0 )
+
+[sub_resource type="Animation" id=3]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Laughter:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, -64 ), Vector2( -520, -64 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 47, 47 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 47, 0, 47, 47 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "danger",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "laugh",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "wink",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "dark",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "serious",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "smile",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 9 )
+region = Rect2( 47, 0, 47, 47 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 47, 47 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "laugh",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "dark",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=10]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24 ), Vector2( 0, -104 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("A:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="Scene" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -131075, 10, 0, -131074, 10, 0, -131073, 10, 0, -196608, 10, 0, -196607, 10, 0, -196606, 10, 0, -65539, 10, 0, -131070, 10, 0, -3, 10, 0, -65534, 10, 0, 65533, 10, 0, 2, 10, 0, 131069, 10, 0, 65538, 10, 0, 196605, 10, 0, 196606, 10, 0, 196607, 10, 0, 131072, 10, 0, 131073, 10, 0, 131074, 10, 0, 262141, 10, 0, 262142, 10, 0, 262143, 10, 0, 196608, 10, 0, 196609, 10, 0, 196610, 10, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -24 )
+
+[node name="RoomBG" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -32 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RoomBG"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBG/StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -49, 40, -55, 40, -55, 18, -55, -29, 54, -29, 54, 44, 27, 44, 27, 67, -26, 67, -26, 44, -49, 44, -49, 40, -22, 40, -22, 52, 21, 52, 21, 40, 48, 40, 48, 18, 27, -2, -29, -2, -49, 19 )
+
+[node name="Event" parent="RoomBG" instance=ExtResource( 15 )]
+position = Vector2( 0, 40 )
+event = "warp"
+parameter = "mrealm/MSC"
+arguments = [ Vector2( 0, 0 ), "fade_black", 2 ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBG/Event"]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Laughter = SubResource( 3 )
+
+[node name="Laughter" type="TextureRect" parent="."]
+margin_left = -520.0
+margin_top = -64.0
+margin_right = -120.0
+margin_bottom = -44.0
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3DObjects" type="YSort" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="3DObjects"]
+position = Vector2( 0, -24 )
+
+[node name="Clio" type="AnimatedSprite" parent="3DObjects/StaticBody2D"]
+position = Vector2( 0.299999, -11.5 )
+frames = SubResource( 6 )
+animation = "dark"
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="3DObjects/StaticBody2D"]
+position = Vector2( 0.299999, -11.5 )
+polygon = PoolVector2Array( -14, 12, 16, 12, 21, 20, -20, 20 )
+
+[node name="Cat" type="AnimatedSprite" parent="3DObjects/StaticBody2D"]
+position = Vector2( 0.299999, -11.5 )
+frames = SubResource( 9 )
+animation = "dark"
+playing = true
+
+[node name="FlyOut" type="AnimationPlayer" parent="3DObjects/StaticBody2D"]
+anims/f = SubResource( 10 )
+
+[node name="A" type="AudioStreamPlayer" parent="3DObjects/StaticBody2D"]
+stream = ExtResource( 16 )
+
+[node name="Flames" type="CanvasLayer" parent="."]
+layer = 4
+follow_viewport_enable = true
+
+[node name="Black" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enable = true
+
+[node name="B" type="Sprite" parent="Black"]
+visible = false
+position = Vector2( 0, -32 )
+texture = ExtResource( 11 )
+
+[node name="Laughter2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )

@@ -1,0 +1,12 @@
+{
+	"subspace": [{"type":"dialog", "speaker":"claire", "content":"* Entrando no subspaço!"}],
+	"light_post": [{"type":"dialog", "speaker":"claire", "content":"* É um poste de luz."}],
+	"locked_door": [{"type":"dialog", "speaker":"claire", "content":"* A porta está,¢ obviamente,¢ trancada."}],
+	"arcade_window": [
+						{"type":"dialog", "speaker":"claire", "content":"* Ah, o fliperama.\n* Sempre cheio de crianças."},
+						{"type":"dialog", "speaker":"claire", "content":"* E adolescentes.^\n* E adultos, também."},
+						{"type":"dialog", "speaker":"claire", "content":"* Claramente, este é um dos melhores\nlugares da cidade."}
+					],
+	"flag": [{"type":"dialog", "speaker":"claire", "content":"* Oh Canadaaaa!"}],
+	"grafitti": [{"type":"dialog", "speaker":"claire", "content":"* Arte."}]
+}

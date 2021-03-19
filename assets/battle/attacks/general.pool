@@ -1,0 +1,19 @@
+{
+	"weak_punch": {
+		"damage": {
+				"amount": 0.1,
+				"element": "physical",
+				"type": "normal"
+			},
+		"pattern": [{
+				"type": "minigame",
+				"source": "SimpleHit"
+			}
+		],
+	},
+	"wait": {
+		"pattern": [{
+			"type": "wait"
+		}]
+	},
+}

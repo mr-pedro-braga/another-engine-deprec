@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_my_little_angel.wav-01d58e0d8d961f07bb521592a783dbaa.sample"
+
+[deps]
+
+source_file="res://assets/music/mus_my_little_angel.wav"
+dest_files=[ "res://.import/mus_my_little_angel.wav-01d58e0d8d961f07bb521592a783dbaa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

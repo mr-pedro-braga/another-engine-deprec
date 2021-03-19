@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_PromotingPawn.wav-5d1068b673baf71ace5380686a8b151d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/SFX_PromotingPawn.wav"
+dest_files=[ "res://.import/SFX_PromotingPawn.wav-5d1068b673baf71ace5380686a8b151d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

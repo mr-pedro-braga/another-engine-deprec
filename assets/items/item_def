@@ -1,0 +1,7 @@
+{
+	"empty_bottle": {
+		"display": "Cheeseburger",
+		"on_use": {"type":"dialog", "content":"* You have to fill it first..."}
+		"on_eat": {"type":"dialog", "content":"* Please don't do that."}
+	}
+}

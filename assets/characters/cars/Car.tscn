@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/characters/cars/car1/walk_right.png" type="Texture" id=1]
+[ext_resource path="res://assets/characters/cars/Vehicle.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 65, 65 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 65, 65 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 65, 0, 65, 65 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 6.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 5.04309
+
+[node name="Car" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="CarSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "idle_right"
+playing = true
+offset = Vector2( 0, -3 )
+
+[node name="PlayerSensor" type="Area2D" parent="."]
+
+[node name="PlayerSensor" type="CollisionShape2D" parent="PlayerSensor"]
+position = Vector2( 22, 4 )
+shape = SubResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -23.8638, 8.42894, 17, 9, 25, 1, -17, 1 )
+[connection signal="body_entered" from="PlayerSensor" to="." method="_on_PlayerSensor_body_entered"]
+[connection signal="body_exited" from="PlayerSensor" to="." method="_on_PlayerSensor_body_exited"]

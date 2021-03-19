@@ -1,0 +1,78 @@
+{
+	"dark_intro": [
+		{"type":"speech_delay", "amount":0.1},
+		{"type":"dialog", "speaker":"claire", "content":"* ..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Olha só¢.¢.¢.¢"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Você¢¢ é uma humana corajosa."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Ouça-me com atenção..."},
+		{"type":"wait", "amount":2.0},
+		{"type":"dialog", "speaker":"narrator", "content":"* Você cometeu um erro grave."},
+		{"type":"dialog", "speaker":"narrator", "content":"* E,¢¢ agora,¢¢ irá pagar por ele."},
+		{"type":"speech_delay", "amount":0.15},
+		{"type":"dialog", "speaker":"narrator", "content":"¢¢¢* Com sua ¬W¬C02ALMA¬C00¬N."},
+	],
+	"goodbye": [
+		{"type":"speech_delay", "amount":0.1},
+		{"type":"dialog", "speaker":"narrator", "content":"* Adeus."},
+	],
+	"make_fun_of": [
+		{"type":"speech_delay", "amount":0.02},
+		{"type":"dialog", "speaker":"pierre", "content":"- Miau!\n- (Você tinha razão, chefe!)"},
+		{"type":"dialog", "speaker":"pierre", "content":"- (Essa foi implacável!)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Bem,¢¢ foi meio previsível...\n¢¢¢* Mas foi boa!"},
+		{"type":"dialog", "speaker":"pierre", "content":"- (Pode até ser mas.¢.¢.¢\n olha como ela tá tremendo de medo!)"},
+		{"type":"dialog", "speaker":"claire", "content":"- ¬Saaaaaaaaaaaaaaaaaa¬N"}
+	],
+	"talk_1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Relaxa¢¢¢, não é a gente que\n vai te matar."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Na verdade,¢¢ somos seu reforço."},
+		{"type":"dialog", "speaker":"claire", "content":"- Ah¢¢.¢¢.¢¢.¢¢ que bom,¢¢ eu acho!\n¢¢¢- Por favor, não faça isso\nnunca mais."},
+		{"type":"dialog", "speaker":"claire", "content":"- Você começou falando\naquilo tudo e..."}
+	],
+	"talk_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Ah,¢¢ mas é tudo verdade, viu?"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Você já deve ter notado como\ntudo lá fora está...\ndiferente."},
+		{"type":"dialog", "speaker":"narrator", "content":"* As paredes,¢¢ o chão,¢¢ tudo um tom terrível de azul marinho."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Ah, e as pessoas com a mente distorcida e tal."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Isso tudo foi por causa do que\n¬C01aconteceu ontem¬C00."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Algo apareceu, e quebrou o mundo,\nbasicamente."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Corrompeu as memórias de todos.\n¢¢* Deixou o mundo todo..."}
+	],
+	"talk_3": [
+		{"type":"dialog", "speaker":"narrator", "content":"* ¬WFragmentado¬N."}
+	],
+	"talk_4": [
+		{"type":"dialog", "speaker":"narrator", "content":"* E ¬C01você¬C00 irá consertar."},
+		{"type":"dialog", "speaker":"claire", "content":"- É... eu..."},
+		{"type":"dialog", "speaker":"claire", "content":"- Eu estou muito confusa..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Relaxa, tá tudo bem ter medo."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Mas pense assim...\n* Você se saiu bem até agora."},
+		{"type":"dialog", "speaker":"narrator", "content":"* E não morreu nenhuma vez!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Se você conseguir consertar isso..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Estará em casa de boa logo logo."},
+		{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢."},
+		{"type":"dialog", "speaker":"claire", "content":"- Eu acho que...\n¢¢¢- Eu posso tentar?"}
+	],
+	"talk_5": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Aí sim!\n¢¢* Esse é o ¬C01espírito¬C00,\ngarota!"}
+	],
+	"talk_6": [
+		{"type":"dialog", "speaker":"claire", "content":"- (De onde está vindo\nessa risada...)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Não se preocupe, Claire."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Você é a adolescente perfeita\npara esse trabalho."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Ir numa jornada, salvar o mundo, é o que adolescentes fazem, né?"},
+		{"type":"dialog", "speaker":"pierre", "content":"- Miau!\n- (Você não quis dizer...)\n¢¢¢- (¬WPurr¬Nfeita?)"},
+	],
+	"talk_7": [
+		{"type":"dialog", "speaker":"narrator", "content":"* ¢¢n¢ã¢o¢."}
+	],
+	"talk_8": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Onde estávamos, querida?¢¢\n* Ah, mas é claro!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Então, eu trouxe o elevador aqui..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Está na hora de você visitar o outro lado."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Pode ser perigoso, mas...¢¢ eh..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Você consegue, só continue dando duro!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Lembre, estamos contando com você, piveta."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Boa sorte."},
+	]
+}

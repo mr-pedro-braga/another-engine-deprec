@@ -1,0 +1,12 @@
+{
+	"subspace": [{"type":"dialog", "speaker":"claire", "content":"* Entering subspace!"}],
+	"light_post": [{"type":"dialog", "speaker":"claire", "content":"* A light pole."}],
+	"locked_door": [{"type":"dialog", "speaker":"claire", "content":"* The door is, ¢¢obviously,¢¢ locked."}],
+	"arcade_window": [
+						{"type":"dialog", "speaker":"claire", "content":"* Ah, the arcade\n* Always full of children."},
+						{"type":"dialog", "speaker":"claire", "content":"* And teenagers.^\n* And adults, too."},
+						{"type":"dialog", "speaker":"claire", "content":"* Clearly, this is the best\nplace in this town."}
+					],
+	"flag": [{"type":"dialog", "speaker":"claire", "content":"* Oh Canadaaaa!"}],
+	"grafitti": [{"type":"dialog", "speaker":"claire", "content":"* Art."}]
+}

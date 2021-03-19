@@ -1,0 +1,102 @@
+{
+	"darwin_encounter": [
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_oh",
+				"content":"- Ah, alguém!"},
+				{"type":"wait", "amount":2.0},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_question",
+				"content":"- Uh... oi?"},
+				{"type":"pose", "character":"darwin", "angle":1, "action":"idle"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- E aí colega-.\n¢¢- Oh não!"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Qual foi dessa cara triste, menina?"},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire",
+				"content":"- Como assim \"o que foi?\""},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_distress",
+				"content":"- Tá tudo...¢ bizzaro,\nquebrado¢¢ e..."},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_question",
+				"content":"- Você¢¢¢ não tá¢¢ vendo?"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Eu tô vendo que cê tá\num pouco mal."},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Mas pó deixa comigo,\nque eu tenho uma ideia."},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Sabe o que sempre melhora meu humor?"},
+				{"type":"sfx", "character":"darwin", "name":"wsummon"},
+				{"type":"pose", "character":"darwin", "action":"summon_weapon", "angle":1},
+				{"type":"wait", "amount":2.0},
+				{"type":"speech_delay", "amount":0.06},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Uma boa batalha!"},
+				{"type":"speech_delay", "amount":0.02},
+			],
+	"darwin_dodge": [ {"type":"dialog", "speaker":"andy", "content":"- Tente ¬C01desviar¬C00 disso!"} ],
+	"darwin_attackme": [ {"type":"dialog", "speaker":"andy", "content":"- Vamos, pode me ¬C01atacar¬C00 sério."} ],
+	"darwin_battle_1": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? ATACA firme!"} ],
+	"darwin_battle_2": [ {"type":"dialog", "speaker":"narrator", "content":"* Cheiro de socos no ar!"} ],
+	"darwin_battle_3": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? está pronto para ATACAR!"} ],
+	"darwin_nospare": [ {"type":"dialog", "speaker":"narrator", "content":"* Ele parece ainda querer LUTAR."} ],
+	"darwin_spare": [
+		{"type":"dialog", "speaker":"andy", "content":"- Pronto, você venceu!"},
+		{"type":"dialog", "speaker":"andy", "content":"- Vixe, até cansei agora."},
+		{"type":"dialog", "speaker":"andy", "content":"- Vou tirar é um cochilo."}
+	],
+	"darwin_spare_end": [
+		{"type":"dialog", "speaker":"andy", "content":"- Aí, sabia que tinha alguma\nforça nesse braço!"},
+		{"type":"dialog", "speaker":"andy", "content":"- Não que seja... muita."},
+		{"type":"dialog", "speaker":"andy", "content":"- Pronto, colega,\nacho que já tá bom."},
+		{"type":"dialog", "speaker":"andy", "content":"- Eu irei te POUPAR."},
+		{"type":"dialog", "speaker":"narrator", "content":"* (Ele está te poupando.)"}
+	],
+	"darwin_sparing": [
+		{"type":"dialog", "speaker":"narrator", "content":"* ??? está te POUPAndo."}
+	],
+	"darwin_spare_please": [
+		{"type":"dialog", "speaker":"andy", "content":"- É... você lembra como se faz, né?"},
+		{"type":"dialog", "speaker":"andy", "content":"- Você parece tímida para AGIR..."},
+		{"type":"dialog", "speaker":"andy", "content":"- Mas é uma ação simples..\n- Pode fazer só um \"legal\" se quiser."},
+	],
+	"claire_help": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você clama por ajuda."},
+		{"type":"dialog", "speaker":"narrator", "content":"* ¢¢.¢¢.¢¢."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Mas ninguém veio."}
+	],
+	
+	"light_switch": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* Um interruptor.\n¢¢ * (Click!)"},
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* Em algum lugar,¢¢ uma luz se acendeu."},
+			],
+	"light_switch_used": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* Um interruptor.\n¢ * Já está ligado."},
+			],
+	
+	"duda_encounter": [
+				{"type":"dialog", "speaker":"claire",
+				"content":"- ..."},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- hm...¢¢ Eu..."},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- posso¢¢... te mostrar uma...¢¢\numa música que eu estava..."},
+				{"type":"choice", "speaker":"claire", "question":"- am...¢¢¢ fazendo...",
+				"icons":["talk_bad", "talk_good"], "choices":["é... não???", "hm, por que não?"], "answers":[]}
+			],
+	"duda_oh": [
+				{"type":"dialog", "speaker":"claire",
+				"content":"- ah..."},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- certo......."},
+			],
+	"duda_ok": [
+				{"type":"dialog", "speaker":"claire",
+				"content":"- Mesmo?¢¢\n- Certo..."},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- um... prepare sua ALMA, então!"},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- Ah...\n- Vai ser emocionante assim?", "portrait":"claire_question"},
+				{"type":"dialog", "speaker":"claire",
+				"content":"- não...¢¢ tipo, ¬C01prepare sua ALMA¬C00.", "portrait":"none"},
+			],
+}

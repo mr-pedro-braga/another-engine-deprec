@@ -1,0 +1,35 @@
+{
+	"attributes":
+		{
+			"MHP": 20,
+			"MSP": 10,
+			
+			"trait": "3300ff",
+			
+			"HP": 20,
+			"SP": 10,
+			
+			"AT": 5,
+			"DF": 5,
+			"AG": 1,
+			"IQ": 3,
+			 
+			"ST": 10,
+			
+			"spell_alias": "qspell"
+		},
+	"attacks":
+		[
+			{"pool": "general", "id":"weak_punch", "icon":"wait"}
+		],
+	"acts":
+		[
+			{"id":"help", "icon":"talk"},
+			{"id":"wait", "icon":"wait"},
+			{"id":"spare", "icon":"spare"}
+		],
+	"spells":
+		[
+			{"id":"bubble_wrap", "icon":"q_bubble_wrap"}
+		],
+}

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/scripts/Gameplay.gd" type="Script" id=1]
+
+[node name="Gameplay" type="Node"]
+script = ExtResource( 1 )
+slider1 = 24.0
+game_beggining = {
+"attacks": "claire.attacks",
+"battle_theme": "Twisted Battle.wav",
+"bgm": "Confrontation Anticipation.wav",
+"character": "s_claire",
+"first_scene": "Introduction",
+"zoom": 1.0
+}
+switches = {
+"introduced": false,
+"phase": 0,
+"player_name": "player",
+"route": 0,
+"stars": 0
+}
+zoom = 1.2

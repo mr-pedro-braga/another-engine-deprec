@@ -1,0 +1,38 @@
+{
+	"attributes":
+		{
+			"MHP": 30,
+			"MSP": 10,
+			
+			"trait": "00AAFF",
+			
+			"HP": 30,
+			"SP": 10,
+			
+			"AT": 4,
+			"DF": 2,
+			"SP": 5,
+			"IQ": 3,
+			 
+			"ST": 10,
+			
+			"spell_alias": "qspell"
+		},
+	"attacks": [
+			{"pool":"twistedhallways", "id":"drip"},
+			{"pool":"twistedhallways", "id":"like"},
+			{"pool":"twistedhallways", "id":"lasso"},
+			{"pool":"twistedhallways", "id":"punches"},
+			{"pool":"twistedhallways", "id":"flappy"}
+		],
+	"acts":
+		[
+			{"id":"help", "icon":"talk"},
+			{"id":"wait", "icon":"wait"},
+			{"id":"spare", "icon":"spare"}
+		],
+	"spells":
+		[
+			{"id":"bubble_wrap", "icon":"q_bubble_wrap"}
+		],
+}

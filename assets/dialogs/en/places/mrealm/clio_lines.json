@@ -1,0 +1,78 @@
+{
+	"dark_intro": [
+		{"type":"speech_delay", "amount":0.1},
+		{"type":"dialog", "speaker":"claire", "content":"* ..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Oh, just look at that¢.¢.¢.¢"},
+		{"type":"dialog", "speaker":"narrator", "content":"* You¢¢ are a brave human."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Listen carefully..."},
+		{"type":"wait", "amount":2.0},
+		{"type":"dialog", "speaker":"narrator", "content":"* You commited a grave mistake."},
+		{"type":"dialog", "speaker":"narrator", "content":"* And,¢¢ now,¢¢ you must pay for it."},
+		{"type":"speech_delay", "amount":0.15},
+		{"type":"dialog", "speaker":"narrator", "content":"¢¢¢* With your ¬W¬C02SOUL¬C00¬N."},
+	],
+	"goodbye": [
+		{"type":"speech_delay", "amount":0.1},
+		{"type":"dialog", "speaker":"narrator", "content":"* Goodbye."},
+	],
+	"make_fun_of": [
+		{"type":"speech_delay", "amount":0.02},
+		{"type":"dialog", "speaker":"pierre", "content":"- Meow!\n- (You were right, boss!)"},
+		{"type":"dialog", "speaker":"pierre", "content":"- (That was priceless!)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Well,¢¢ it was rather obvious...\n¢¢¢* But it WAS funny!"},
+		{"type":"dialog", "speaker":"pierre", "content":"- (It was cheesy, but.¢.¢.\n look at her,\nshaking in her boots!)"},
+		{"type":"dialog", "speaker":"claire", "content":"- aaaaaaaaaaaaaaaaaa"}
+	],
+	"talk_1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Chillax¢¢¢, it ain't us who's\n gonna kill you."},
+		{"type":"dialog", "speaker":"narrator", "content":"* In fact,¢¢ we're here to help ya, darling."},
+		{"type":"dialog", "speaker":"claire", "content":"- Oh¢¢.¢¢.¢¢.¢¢ that's nice,¢¢ I guess!\n¢¢¢- Please don't do\nthat ever again."},
+		{"type":"dialog", "speaker":"claire", "content":"- You started saying all\nthose things and..."}
+	],
+	"talk_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Oh,¢¢ it IS all true."},
+		{"type":"dialog", "speaker":"narrator", "content":"* You must've noticed that\neverything outside is kinda...\ndifferent."},
+		{"type":"dialog", "speaker":"narrator", "content":"* It's all a terrible shade of navy blue."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Oh, and the people with their minds twisted, too."},
+		{"type":"dialog", "speaker":"narrator", "content":"* That's 'cause of\n¬C01yesterday¬C00."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Something happened and\nbroke the world,\nbasically."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Corrupted everyone's memories.\n¢¢* It left the world..."}
+	],
+	"talk_3": [
+		{"type":"dialog", "speaker":"narrator", "content":"* ¬WFragmented¬N."}
+	],
+	"talk_4": [
+		{"type":"dialog", "speaker":"narrator", "content":"* And ¬C01you¬C00 are gonna fix it, of course."},
+		{"type":"dialog", "speaker":"claire", "content":"- Wh-... I..."},
+		{"type":"dialog", "speaker":"claire", "content":"- I am confused..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Don't worry,\nit's okay to worry."},
+		{"type":"dialog", "speaker":"narrator", "content":"* But think like that...\n* You did excellent\nuntil here, didn't ya?"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Didn't even die once!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* If you fix reality now..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* You're gonna be home\nvery soon,¢¢ eh?"},
+		{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢."},
+		{"type":"dialog", "speaker":"claire", "content":"- I...\n¢¢¢- I can try?"}
+	],
+	"talk_5": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Brilliant!\n¢¢* That's the ¬C01SPIRIT¬C00,\ngirl!"}
+	],
+	"talk_6": [
+		{"type":"dialog", "speaker":"claire", "content":"- (Where's that laughter\ncoming from...)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Worry not, Claire."},
+		{"type":"dialog", "speaker":"narrator", "content":"* You're the perfect teenager\nfor this job."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Saving the world,¢¢ that's what teenagers do best, right?"},
+		{"type":"dialog", "speaker":"rodrick", "content":"- Meow!\n- (Wait,¢¢ did you not mean...\n¢¢¢- ¬WPurr¬Nfect?)"},
+	],
+	"talk_7": [
+		{"type":"dialog", "speaker":"narrator", "content":"* ¢¢n¢o¢."}
+	],
+	"talk_8": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Were were we, luv?\n¢¢* Oh, yeah!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* So, I took this lift up here..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* It's time for you to visit the other side."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Might be dangerous, but...¢¢ eh..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* You're doing great, sweetie, just keep up the good work."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Remember,¢¢ we're all counting on ya."},
+		{"type":"dialog", "speaker":"narrator", "content":"* See ya!"},
+	]
+}

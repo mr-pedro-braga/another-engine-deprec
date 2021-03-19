@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_en_tension.wav-3acc6c135f5b28235746b76f952eeb67.sample"
+
+[deps]
+
+source_file="res://assets/music/mus_en_tension.wav"
+dest_files=[ "res://.import/mus_en_tension.wav-3acc6c135f5b28235746b76f952eeb67.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

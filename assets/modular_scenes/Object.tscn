@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/modular_scenes/Event.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scripts/Event.gd" type="Script" id=2]
+
+
+[node name="Object" type="StaticBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+[node name="Event" type="Area2D" parent="." instance=ExtResource( 1 )]
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[connection signal="body_entered" from="Event" to="Event" method="_event_body_entered"]
+[connection signal="body_exited" from="Event" to="Event" method="_event_body_exited"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_syncopation.wav-7f60cfbff9fdda0eceaeff866a3e0606.sample"
+
+[deps]
+
+source_file="res://assets/music/mus_syncopation.wav"
+dest_files=[ "res://.import/mus_syncopation.wav-7f60cfbff9fdda0eceaeff866a3e0606.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

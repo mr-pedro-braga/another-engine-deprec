@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_UT_BattleStart.wav-beb7a708be674491f62909e0601dfd11.sample"
+
+[deps]
+
+source_file="res://assets/sounds/SFX_UT_BattleStart.wav"
+dest_files=[ "res://.import/SFX_UT_BattleStart.wav-beb7a708be674491f62909e0601dfd11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/characters/Start Position.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+export var id = \"default\"
+
+func _ready():
+	if Gameplay.LOADING:
+		var ci = yield(Gameplay, \"LOADING_FINISHED\")
+	Gameplay.playable_character_node.position = position
+	visible = false
+"
+
+[node name="Start" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -12 )
+script = SubResource( 1 )

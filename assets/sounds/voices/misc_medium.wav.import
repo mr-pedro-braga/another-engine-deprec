@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/misc_medium.wav-e795dc66769b7a56bd61afdcef80adef.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/misc_medium.wav"
+dest_files=[ "res://.import/misc_medium.wav-e795dc66769b7a56bd61afdcef80adef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

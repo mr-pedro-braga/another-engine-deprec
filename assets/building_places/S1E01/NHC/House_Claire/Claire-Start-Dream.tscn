@@ -1,0 +1,291 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/modular_scenes/StartPosition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/building_places/Buildings/Claire-Inside-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/building_places/Buildings/Claire-Inside-Emission.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/claire/claire-sleep.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/SFX_Alarm.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/SFX_KnockKnock.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/building_places/Simple Objects/Alarm.png" type="Texture" id=7]
+[ext_resource path="res://assets/music/mus_good_morning.wav" type="AudioStream" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _ready():
+	Gameplay.in_cutscene = true
+	$Camera2D.make_current()
+	Gameplay.update_zoom(1.2)
+	$Camera2D.zoom = Vector2(Gameplay.zoom, Gameplay.zoom)
+	$Cutscene.play(\"c1\")
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"cheat\"):
+		DCCore.choice(
+			\"* Escolha um cartucho:\",
+			[\"Coloured Blocks\", \"Alien Invasion\", \"Paku-paku\", \"Super Maria Sisters\", \"Underneath\", \"Are you sure this is a NESX game?\", \"Begginings\", \"Ping\", \"Outside Combatents\", \"The Legend\", \"Voices from within\"],
+			[\"cart_blocks\", \"cart_aliens\", \"cart_paku\", \"cart_stomp\", \"cart_blast\", \"cart_flappy\", \"cart_mother\", \"cart_ping\", \"cart_fight\", \"cart_legend\", \"cart_meta\"],
+			0, DCCore.dialog_box, 1
+		)
+"
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+//Emission texture
+uniform sampler2D emission;
+uniform float emission_strength = 1.0;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec4 emcol = texture(emission, UV) * emission_strength;
+	if (emcol.a > 0.0)
+		col += emcol;
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/emission_strength = 2.0
+shader_param/emission = ExtResource( 3 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 37, 37 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 148, 0, 37, 37 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 185, 0, 37, 37 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 37, 0, 37, 37 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 74, 0, 37, 37 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 111, 0, 37, 37 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "sleep",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": false,
+"name": "pk_throw",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "pk_grab",
+"speed": 5.0
+} ]
+
+[sub_resource type="ProceduralSky" id=11]
+
+[sub_resource type="Environment" id=12]
+background_mode = 4
+background_sky = SubResource( 11 )
+background_energy = 0.0
+ambient_light_energy = 0.6
+ambient_light_sky_contribution = 0.23
+tonemap_mode = 2
+auto_exposure_scale = 0.9
+auto_exposure_min_luma = 0.61
+auto_exposure_max_luma = 1.79
+auto_exposure_speed = 0.1
+dof_blur_far_distance = 2.08
+dof_blur_near_distance = 1.57
+dof_blur_near_transition = 10.1
+dof_blur_near_quality = 0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/3 = false
+glow_levels/5 = false
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 8.0
+glow_strength = 0.69
+glow_bloom = 1.0
+glow_hdr_threshold = 0.8
+glow_hdr_luminance_cap = 30.0
+glow_hdr_scale = 1.0
+adjustment_enabled = true
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "alarm_on",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "alarm_off",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=18]
+resource_name = "c1"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Alarm:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.1, 3.3, 9, 9.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Alarm:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.1, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Alarm/Beep:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.1, 3.3, 9.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Claire1:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 7, 7.1, 8.9, 9, 10.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "sleep", "sleep", "pk_grab", "pk_grab", "pk_throw", "sleep" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Alarm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 7, 7.1, 7.9, 9, 9.1, 9.4, 9.7 ),
+"transitions": PoolRealArray( 1, 1, 0.25, 1, 1, 1, 2.37842, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 45 ), Vector2( 120, 45 ), Vector2( 120, 45 ), Vector2( 120, 40 ), Vector2( 120, 40 ), Vector2( 98, 40 ), Vector2( 98, 40 ), Vector2( 98, 55 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Alarm/Knock:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 9.1, 9.2, 9.7, 9.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Music:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 11.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Scene" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.286275, 0.27451, 0.27451, 1 )
+
+[node name="World" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="World"]
+material = SubResource( 3 )
+position = Vector2( 120, 67 )
+texture = ExtResource( 2 )
+
+[node name="Claire1" type="AnimatedSprite" parent="."]
+position = Vector2( 161, 73 )
+frames = SubResource( 10 )
+animation = "sleep"
+playing = true
+
+[node name="3DObjects" type="YSort" parent="."]
+visible = false
+
+[node name="Start" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 163, 86 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
+
+[node name="Alarm" type="AnimatedSprite" parent="."]
+position = Vector2( 120, 45 )
+frames = SubResource( 17 )
+animation = "alarm_on"
+
+[node name="Knock" type="AudioStreamPlayer" parent="Alarm"]
+stream = ExtResource( 6 )
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="Alarm"]
+stream = ExtResource( 5 )
+
+[node name="Cutscene" type="AnimationPlayer" parent="."]
+anims/c1 = SubResource( 18 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 120, 68 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )

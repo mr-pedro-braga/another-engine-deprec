@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+export var event = \"\"
+export var parameter = \"\"
+export var arguments = []
+export var trigger_mode: int = 0
+
+var overlapping: bool = false
+
+func _process(_delta):
+	if overlapping:
+		match trigger_mode:
+			1:
+				if Input.is_action_just_pressed(\"ok\"):
+					get_node(\"/root/GameRoot/HUD/Overlay/Minigame\").call(\"evt_\" + event, self, parameter, arguments)
+			0:
+				get_node(\"/root/GameRoot/HUD/Overlay/Minigame\").call(\"evt_\" + event, self, parameter, arguments)
+
+func _on_KuroEvent_body_entered(body):
+	if body.name == \"Kuro\":
+		overlapping = true
+
+func _on_KuroEvent_body_exited(body):
+	if body.name == \"Kuro\":
+		overlapping = false
+"
+
+[node name="KuroEvent" type="Area2D"]
+script = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_KuroEvent_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_KuroEvent_body_exited"]

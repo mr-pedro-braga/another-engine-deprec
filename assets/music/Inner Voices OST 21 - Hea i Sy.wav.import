@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Inner Voices OST 21 - Hea i Sy.wav-9d21c0e44f468d8c5d90dbe3de40f84c.sample"
+
+[deps]
+
+source_file="res://assets/music/Inner Voices OST 21 - Hea i Sy.wav"
+dest_files=[ "res://.import/Inner Voices OST 21 - Hea i Sy.wav-9d21c0e44f468d8c5d90dbe3de40f84c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

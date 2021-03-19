@@ -1,0 +1,123 @@
+# Dancing in the rain
+
+On a rainy day...
+
+The soft light of the sky may make you think...
+
+You're looking trough the window at yourself...
+
+But who's this one you're looking at?
+
+So familiar and yet so mysterious...
+
+&nbsp;
+
+On a rainy day...
+
+It's easy to forget the sun even exists.
+
+The world seems all so dull, devoid of colour...
+
+And a world that's so colourless...
+
+...on secound thought may sound way too familiar...
+
+&nbsp;
+
+I know, it's tough.
+
+I know it isn't fair.
+
+There's nothing I can say to make it easy!
+
+&nbsp;
+
+You WILL feel bad.
+
+And hopeless more than once.
+
+And sometimes you will wish that you were gone.
+
+&nbsp;
+
+### [Choir SOLO]
+
+&nbsp;
+
+I'll tell you a secret!
+
+A powerful spell...
+
+I'll show you the path
+
+to the true freedom!
+
+&nbsp;
+
+With the storm comes thunder
+
+roaring trough the sky.
+
+Face head on your monster;
+
+He's your closest friend.
+
+&nbsp;
+
+Come on, let's jump in the puddles!
+
+Come on, let's be slightly lighter...
+
+You can be stronger when you're hurt!
+
+You can be stronger with this truth:
+
+&nbsp;
+
+There's no better way
+
+to wash out all your pain
+
+than getting out and
+
+dancing in the rain.
+
+&nbsp;
+
+I know it is tough;
+
+there's nothing we can do
+
+but trying to accept
+
+that we're alive!
+
+&nbsp;
+
+
+Get yourself and ask
+
+your own hand for a dance!
+
+Try to practice your moves,
+
+try to practice your stance.
+
+&nbsp;
+
+Living with yourself,
+
+a style of free verse.
+
+And hopefully you will
+
+find your own rhyme~.
+
+
+
+
+
+
+
+
+

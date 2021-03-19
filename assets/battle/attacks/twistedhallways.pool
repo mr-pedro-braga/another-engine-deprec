@@ -1,0 +1,160 @@
+{
+	"flappy": {
+		"pattern": [{
+			"type": "minigame",
+			"source": "FlappyRocket"
+		}]
+	},
+	"radial_escape": {
+		"battle_box_w": 10,
+		"battle_box_h": 10,
+		"damage": {
+			"amount": 1,
+			"element": "physical",
+			"type": "normal"
+		},
+		"battle_box_in": "slide_in_bottom",
+		"battle_box_out": "slide_out_bottom",
+		"pattern": [
+			{
+				"type": "emitter",
+				"emit": "bullet",
+				"bullet_sprite": "bullet",
+				"rate": 1,
+				"one-shot": false,
+				"random_offset": [0, 0],
+				"bullet_count": 32,
+				"angle_offset": 10,
+				"radius_offset": 128,
+				"speed": 64,
+				"speed_rand": 0,
+				"bullet_life": 2,
+				"timeout": 10,
+				"dpos": [0, 0],
+				"rotation": 0
+			}
+		]
+	},
+	"lasso": {
+		"battle_box_w": 7,
+		"battle_box_h": 7,
+		"damage": {
+			"amount": 1,
+			"element": "physical",
+			"type": "normal"
+		},
+		"battle_box_in": "roll_in",
+		"battle_box_out": "roll_out",
+		"pattern": [
+		{
+			"type": "emitter",
+			"emit": "bullet",
+			"bullet_sprite": "bullet",
+			"rate": 6,
+			"one-shot": false,
+			"random_offset": [0, 0],
+			"bullet_count": 1,
+			"angle_offset": 22.5,
+			"radius_offset": 70,
+			"speed": 64,
+			"speed_rand": 0,
+			"bullet_life": 3,
+			"timeout": 5,
+			"dpos": [0, 0],
+			"rotation": 0
+		}
+	]},
+	"punches": {
+		"battle_box_w": 4,
+		"battle_box_h": 4,
+		"damage": {
+			"amount": 1,
+			"element": "physical",
+			"type": "normal"
+		},
+		"battle_box_in": "roll_in",
+		"battle_box_out": "roll_out",
+		"pattern": [
+			{
+				"type": "emitter",
+				"emit": "bullet",
+				"bullet_sprite": "punch",
+				"rate": 1,
+				"one-shot": false,
+				"random_offset": [0, 16],
+				"bullet_count": 1,
+				"angle_offset": 90,
+				"radius_offset": 48,
+				"speed": 48,
+				"speed_rand": 0,
+				"bullet_life": 4,
+				"timeout": 6,
+				"dpos": [0, 0],
+				"rotation": 0,
+				"set_angle": false
+			}
+		]
+	},
+	"drip": {
+		"battle_box_w": 5,
+		"battle_box_h": 2,
+		"damage": {
+			"amount": 1,
+			"element": "magical",
+			"type": "normal"
+		},
+		"battle_box_in": "slide_in_bottom",
+		"battle_box_out": "slide_out_bottom",
+		"pattern": [
+			{
+				"type": "emitter",
+				"emit": "bullet",
+				"bullet_sprite": "droplet",
+				"rate": 2,
+				"one-shot": false,
+				"random_offset": [0, 32],
+				"bullet_count": 1,
+				"angle_offset": 0,
+				"radius_offset": 0,
+				"speed": 48,
+				"speed_rand": 8,
+				"bullet_life": 5,
+				"timeout": 6,
+				"dpos": [0, -96],
+				"rotation": 90,
+				"set_angle": true
+			}
+		]
+	},
+	"like": {
+		"battle_box_w": 5,
+		"battle_box_h": 1,
+		"damage": {
+			"amount": 1,
+			"element": "magical",
+			"type": "normal"
+		},
+		"battle_box_in": "roll_in",
+		"battle_box_out": "roll_out",
+		"pattern": [
+			{
+				"type": "emitter",
+				"emit": "bullet",
+				"bullet_sprite": "like_heart",
+				"rate": 2,
+				"one-shot": false,
+				"random_offset": [0, 32],
+				"bullet_count": 1,
+				"angle_offset": 0,
+				"radius_offset": 0,
+				"speed": 48,
+				"speed_rand": 16,
+				"bullet_life": 5,
+				"timeout": 6,
+				"dpos": [0, 48],
+				"rotation": -90,
+				"set_angle": false
+			}
+		]
+	}
+}

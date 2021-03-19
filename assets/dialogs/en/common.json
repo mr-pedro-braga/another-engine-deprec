@@ -1,0 +1,12 @@
+{
+	"save": [
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- Meow!\n- (You gave your best up to this point...)"},
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- (Would you like to save your progress?)"},
+	],
+	"save_confirm": [
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- Meow!\n- (I wish you strength on your journey.)"},
+	]
+}

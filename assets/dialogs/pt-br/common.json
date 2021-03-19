@@ -1,0 +1,12 @@
+{
+	"save": [
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- Miau!\n- (Você deu seu melhor até aqui...)"},
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- (Gostaria de salvar seu progresso?)"},
+	],
+	"save_confirm": [
+		{"type":"dialog", "speaker":"pierre", "character":"pierre",
+		"content":"- Miau!\n- (Te desejo força em tua jornada.)"},
+	]
+}

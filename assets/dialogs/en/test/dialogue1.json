@@ -1,0 +1,74 @@
+{
+	"1": [
+		{
+		"type": "dialog",
+		"speaker": "rodrick",
+		"content": "- Olá!¢\n- Eu sou uma cópia de você,\naparentemente."
+		},
+		{
+		"type": "dialog",
+		"speaker": "claire",
+		"content": "- Eu vou te contar como se faz\ndiálogos, mas só se você quiser."
+		},
+		{
+		"type": "choice",
+		"question": "- E então, vai querer?",
+		"speaker": "claire",
+		"choices": ["Eu quero", "Eu não quero"],
+		"icons": ["fight", "game"],
+		"answers": [[
+				{
+				"type": "dialog",
+				"speaker": "andy",
+				"content": "- Basicamente tem texto, pau¢¢sas e\nsímbolos."
+				},
+				{
+				"type": "dialog",
+				"speaker": "bruno",
+				"content": "- Tipo, eu posso mandar você apertar #."
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Ou te mandar um beijo♥\n- Ou mandar vc ir ali →."
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Mas também posso fazer vc apertar Z.^- E continuar no mesmo balão."
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Mas sabe o que é legal?\n- ¬WAnimações!"
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Tem a ¬WWoooooo¬N, tem a ¬SAaaaaaa¬N e tem a¬Tpor favor não me mate¬N."
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Pra finalizar... ¬C01C¬C02O¬C03R¬C04E¬C06S¬C00!!!"
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- Posso usar elas pra dar um ¬C04tchans¬C00 ou\nfalar sobre ¬C01algo importante¬C00."
+				},
+				{
+				"type": "dialog",
+				"speaker": "claire",
+				"content": "- E é isso...¢ Até mais!!!"
+				}
+		],[
+			{
+			"type": "dialog",
+			"speaker": "claire",
+			"content": "Até mais, então."
+			}
+		]]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"attributes":
+		{
+			"MHP": 10,
+			"MSP": 10,
+			
+			"trait": "ff7917",
+			
+			"HP": 10,
+			"SP": 10,
+			
+			"AT": 1,
+			"DF": 1,
+			"SP": 1,
+			"IQ": 5,
+			 
+			"ST": 10,
+		},
+	"attacks": [
+			{"pool":"general", "id":"wait"},
+			{"pool":"twistedhallways", "id":"punches"},
+			{"pool":"twistedhallways", "id":"lasso"},
+			{"pool":"twistedhallways", "id":"radial_escape"},
+		]
+	}
+}

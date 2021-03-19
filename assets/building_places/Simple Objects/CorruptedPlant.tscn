@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/modular_scenes/Event.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/building_places/Simple Objects/Corrupted Plant.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+//Emission texture
+uniform sampler2D emission;
+uniform float emission_strength = 1.4;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec4 emcol = texture(emission, UV) * (emission_strength + 0.3 * sin(TIME * 4.0));
+	if (emcol.a > 0.0)
+		col += emcol;
+	COLOR = col;
+}"
+custom_defines = ""
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/Corrupted Plant_Emission.png-02bfcb5a130d510ae52e45e68f21f428.stex"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 1 )
+shader_param/emission_strength = 0.5
+shader_param/emission = SubResource( 2 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 5.0
+height = 6.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 15.1327
+
+[node name="CorruptedPlant1" type="Sprite"]
+material = SubResource( 3 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -16 )
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2( 0, 8 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Event" parent="." instance=ExtResource( 2 )]
+event = "simple_dialogue"
+parameter = "places/new_horizon/school_lines"
+arguments = [ "corrupted_plant" ]
+trigger_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )

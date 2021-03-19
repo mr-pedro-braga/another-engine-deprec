@@ -1,0 +1,11 @@
+{
+	"bite": {
+		"effects": [
+				{
+					"type":"damage_HP", "value": 10
+				}
+			],
+		"script": "bite",
+		"text": "* user deu uma mordida!"
+	}
+}

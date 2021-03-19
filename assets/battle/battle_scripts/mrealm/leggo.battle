@@ -1,0 +1,23 @@
+{
+	"attributes":
+		{
+			"MHP": 10,
+			"MSP": 10,
+			
+			"trait": "ffffff",
+			
+			"HP": 10,
+			"SP": 10,
+			
+			"AT": 1,
+			"DF": 1,
+			"SP": 1,
+			"IQ": 5,
+			 
+			"ST": 10,
+		},
+	"attacks":
+		[
+			{"pool":"twistedhallways", "id":"lasso"},
+		]
+}

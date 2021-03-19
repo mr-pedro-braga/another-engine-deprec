@@ -1,0 +1,663 @@
+{
+	"cheat": [
+		{
+			"type": "choice",
+			"speaker": "narrator",
+			"choices": ["Fight", "Warp", "Test Route", "Nevermind"],
+			"icons": ["fight", "flirt", "ch_bruno", "wait"],
+			"question": "* Cheat Menu",
+			"answers": []
+		}
+	],
+	"cutscene_2_1": [
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- *huff huff*"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- Ok, got it."},
+		
+		{"type":"soundtrack", "action":"restart"},
+		
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬SHoly damn, did you see THAT?¬N"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬SIt was full of 'em!¬N"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ah..."},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- so...¢¢¢ we're gonna stay in this dark room?"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Why¢¢¢, have some better idea?"},
+		{"type":"wait", "amount":2.0},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- no..."},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- We're screwed..."}
+	],
+	"cutscene_2_2": [
+		{"type":"soundtrack", "action":"pause"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Yep, we are."}
+	],
+	"cutscene_2_3": [
+		{"type":"soundtrack", "action":"restart"},
+		
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬SAAAAAAAAH Wha¢¢¢\n- Dude!"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Don't scream at me.", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- If someone should be \nscreaming,¢¢ it is me.", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- You almost scared me to\ndeath!", "portrait":"bruno_scared"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- ...\n- You were the one who\njumped into the room.", "portrait":"andy_mild_mad"},
+		{"type":"soundtrack", "action":"pause"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Mmm...¢¢ you're right.", "portrait":"bruno_smile"},
+		{"type":"soundtrack", "action":"restart"},
+		{"type":"mroute", "character":"bruno", "route":[
+				{"type": "delta", "target": [0, -32]},
+				{"type": "absolute", "target": [97, 75]},
+				{"type": "absolute", "target": [161, 75]},
+				{"type": "goto", "line": 1}
+			]},
+		{"type":"mroute", "character":"andy", "route":[
+				{"type":"action", "action":"sit"}
+			]},
+		{"type":"dialog", "speaker":"bruno", "portrait":"bruno_worried",
+		"content":"- Oh my..."},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- What am I gonna do...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- What's happening...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Is it...¢¢¢\n- Idk, a zombie apocalypse...", "portrait":"bruno_worried"},
+		{"type":"mroute", "character":"claire", "route":[
+				{"type":"speed", "value":32},
+				{"type":"absolute", "target":[198, 98]}, {"type":"wait", "amount":0.4},
+				{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":4}, {"type":"wait", "amount":0.1},
+				{"type":"action", "action":"sit"}
+			]},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- A zombie apocalypse...", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Cut me some slack, Andy,\nI'm trying to think.", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Is it all right at home...\n- My mom, my sisters...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Hey,¢¢ walking in circles\nisn't going to help.", "portrait":"andy_sad"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Let's use our heads.", "portrait":"andy_cool"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- what...", "portrait":"bruno_worried"},
+		{"type":"mroute", "character":"bruno", "route":[{"type":"dir", "angle":5}]},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- How are you so calm...", "portrait":"bruno_confused"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- I'm the definition of\ncalmness.", "portrait":"andy"},
+		{"type":"mroute", "character":"bruno", "route":[
+			{"type":"speed", "value":16},
+			{"type":"absolute", "target":[160, 64]}, {"type":"wait", "amount":0.2},
+			{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+			{"type":"action", "action":"check"}
+		]},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- \"Definition of calmness...\"", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Tsc,¢¢\nIma do something useful...", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Because you ain't doing\nnothing.", "portrait":"bruno_frisk"},
+		{"type":"pose", "character":"andy", "action":"sit_look"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Who's that girl you\nbrought with you?", "portrait":"andy_side"},
+		{"type":"dialog", "speaker":"bruno", "portrait":"bruno_worried",
+		"content":"- Dunno,¢¢¢ ask her."},
+		{
+			"type": "choice",
+			"speaker": "andy",
+			"choices": ["\"...\"", "\"I don't know.\"", "\"Claire.\""],
+			"icons": ["talk", "talk", "talk"],
+			"question": "- Psst,¢¢ girl.¢¢¢\n- Who are you?",
+			"answers": [
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- Ih, cat got your tongue?", "portrait":"andy_side"},
+					{"type":"dialog", "speaker":"andy",
+					"content":"- All right.", "portrait":"andy_smile"}
+				],
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- Damn, she doesn't even\nknow who she is.", "portrait":"andy_side"}
+				],
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- \"Claire\"?¢¢ Nice name.", "portrait":"andy_side"}
+				]
+			],
+			"portrait":"andy_side"
+		},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- My name is ¬C01Andy¬C00.", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Shoot, no data.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Try to calm yours-¢¢\n- Hmm...", "portrait":"andy"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- What?", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- There's three of us now...¢\n- We could go outside.", "portrait":"andy_think"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- I'm not leaving\nthis safe room.", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Alright, alright...", "portrait":"andy"}
+	],
+	"cutscene_2_4": [
+		{"type":"dialog", "speaker":"andy", "content":"- Hey, you think us two\ncould reach the gate?", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- We can just punch the\nbaddies off.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"claire", "content":"- I don't know...", "portrait":"claire"},
+		{"type":"dialog", "speaker":"andy", "content":"- Ah¢, ¢and, If I'm not mistaken,¢¢\nthere's a vending machine\n out there.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- We can go there get some\nsalty¢¢ chippy¢¢ chips.", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"claire", "content":"- I've been convinced.", "portrait":"claire_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- If you two leave I'm\nlocking the door.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"andy", "content":"- We'll come back to fetch you.", "portrait":"andy_confident"}
+	],
+	"cutscene_2_5": [
+		{"type":"dialog", "speaker":"bruno", "content":"- I'll see if I can hack some\nWiFi and call help.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"claire", "content":"- With a videogame?", "portrait":"claire"},
+		{"type":"dialog", "speaker":"bruno", "content":"- Don't be fooled,\nthis is a very powerful\ncomputer.", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"claire", "content":"- How so?", "portrait":"claire_smile"},
+		{"type":"speech_delay", "amount":0.005},
+		{"type":"dialog", "speaker":"bruno", "content":"- This is my ¬C01SOUL Weapon¬C00.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- SOULs have a huge\nprocessing power.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- I can link both via QLNK2\n and then...", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- I have a nice UI\nto read and write QC.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- With programmable ROM\nAND a ton of RAM.", "portrait":"bruno_smile"},
+		{"type":"speech_delay", "amount":0.03},
+		{"type":"dialog", "speaker":"claire", "content":"- I didn't understand a word\nbut,¢¢ but it sounds...\n great.", "portrait":"claire_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- And it is.", "portrait":"bruno_smile"}
+	],
+	"cutscene_2_6": [
+		{
+			"type":"dialog",
+			"speaker":"narrator",
+			"content":"* The face of a true hacker."
+		}
+	],
+	"library_poster": [
+		{
+			"type":"dialog",
+			"speaker":"narrator",
+			"content":"* Two wondeful game series."
+		}
+	],
+	"library_dont_leave": [
+		{
+			"type":"dialog",
+			"speaker":"claire",
+			"content":"- (I'm not going to leave\nby myself.)", "portrait": "claire"
+		},
+		{"type":"mroute", "character":"claire", "route":[ {"type":"delta", "target": [0, -32]} ]}
+	],
+	"library_leave_attack_1": [
+		{"type":"dialog", "speaker":"andy", "content":"- Oh, but pay attention.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- We need to be ready\nfor anything.", "portrait":"andy_confident"},
+		{"type":"dialog", "speaker":"claire", "content":"- Right.¢.¢.¢¢ I'll do a countdown.", "portrait":"claire"},
+		{"type":"soundtrack", "action":"pause"},
+		{"type":"dialog", "speaker":"claire", "content":"- One...¢¢\n- Two...", "portrait":"claire"}
+	],
+	"library_leave_attack_2": [
+		{"type":"dialog", "speaker":"andy", "content":"- ¬SHUYAAAAA!!!!!¬N", "portrait":"andy_attack"},
+		{"type":"dialog", "speaker":"andy", "content":"- ¢¢.¢¢.¢¢.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- They must be taking a nap.", "portrait":"andy_smile"}
+	],
+	"vm_see": [
+			{"type":"dialog", "speaker":"andy", "portrait":"andy",
+			"content":"- There it is!\n¢¢- Do you happen to have\nsome money on you?"},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- No..."},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_think",
+			"content":"- Sad,¢¢¢ hm...¢¢¢\n- We could..."},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- ...break the glass,\nor something like that."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- No!"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- C'mon,\nit's an emergency, right?"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- And, like,¢¢ if we are in a... ¢\n¬Wzombie apocalypse¬N,"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- Someone would do it,\nanyway."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire_smile",
+			"content":"- No,¢¢¢\n- ¬WWe can't let anarchy¢¢\npoison our hearts!!¬N"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- Alright,¢¢¢ you're the boss."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- ..."}
+		],
+	"vm_chips": [
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* There isn't even anything inside.¢¢¢¢\n* Unless...?"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* (You put the hand underneath.)"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* ¢¢.¢¢.¢¢.¢¢¢¢!¢\n* Salty ¬Schippy¬N chips found, oh yeah!"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* (Try pressing [I])."
+			}
+		],
+	"vending_machine": [{"type":"dialog", "speaker":"narrator", "content":"* It's empty, now."}],
+	"avoid": [
+				{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+				"content":"- Called it"},
+				{"type":"dialog", "speaker":"andy", "portrait":"andy",
+				"content":"- Let's be stealthy..."}
+			],
+	"cgoback": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* (It's better to keep a distance,\ndon't you think?)"}
+			],
+	"cgoback2": [
+				{"type":"dialog", "speaker":"andy", "portrait":"andy_eh",
+				"content":"* (Stop wandering around)"}
+			],
+	"careful_wet_floor": [{"type":"dialog", "speaker":"narrator", "content":"* Caution!\n* The floor is ¬C05wet¬C00."}],
+	"poster": [
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* Nothing interesting.",
+				"portrait":"none"
+			},
+			{
+				"type":"dialog",
+				"portrait": "andy_proud",
+				"speaker":"andy",
+				"content":"- Look!\n- It's the ¬W¬C01ExH pride parade!¬C00¬N"
+			},
+			{
+				"type":"dialog",
+				"speaker":"andy",
+				"content":"- I made the poster :)",
+				"portrait":"andy_proud"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* Mildly interesting.",
+				"portrait": "none"
+			}
+		],
+	"locked_locker": [{"type":"dialog", "speaker":"narrator", "content":"* The locker is locked."}],
+	"corrupted_plant": [{"type":"dialog", "speaker":"narrator", "content":"* A glowing¢¢.¢¢.¢¢.¢¢ plant.¢.¢.¢?"},
+	{"type":"dialog", "speaker":"narrator", "content":"* Looks¢¢ ¬C01twisted¬C00."}],
+	"locked_door":
+			[{"type":"dialog", "speaker":"narrator", "content":"* The door is locked."},
+			{"type":"dialog", "portrait": "andy", "speaker":"andy", "content":"- Reasonable.\n¢- They close the doors at night."}],
+	"what_we_do":
+		[
+			{"type":"dialog", "speaker":"claire", "content":"- Andy...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- What, dear?", "portrait":"andy"},
+			{"type":"dialog", "speaker":"claire", "content":"- What are we going to do\nif we find some¢.¢.¢.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Hm...", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- We¢.¢.¢.¢\nmay have to\nengage in a battle.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"claire", "content":"- ¬Thm...¬N", "portrait":"claire_down"},
+			{"type":"dialog", "speaker":"andy", "content":"- Worry not,¢¢\n with me by your side,\nnothing bad can happen.", "portrait":"andy_smile"}
+			
+		],
+	"battle1_0":
+		[
+			{"type":"dialog", "speaker":"claire", "content":"- I'm starting to think that...\n- We should go back...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- We are almost there.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- You were so confident.", "portrait":"andy_confident"},
+			{"type":"pose", "character":"claire", "angle":4},
+			{"type":"dialog", "speaker":"claire", "content":"- Didn't last long, eh?", "portrait":"claire"},
+			{"type":"dialog", "speaker":"claire", "content":"- I have a bad feeling\nabout this.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"claire", "content":"- It's... too quiet.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- True.\n- Doesn't look apocalyptic.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- But that's cause the monsters downstairs.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- Having a slumber party.", "portrait":"andy_smile"},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "content":"- Andy...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Tsc, relax girl.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Btw, got an idea.", "portrait":"andy"},
+			{"type":"mroute", "character":"andy", "route":[
+				{"type":"delta", "target":[0, -16]},
+				{"type":"absolute", "target":[458, -288]},
+				{"type":"delta", "target":[0, 16]},
+				{"type":"dir", "angle":4}
+			]},
+			{"type":"await_mroute", "character":"andy"},
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"dialog", "speaker":"andy", "content":"- I'll just teach you how to\nfight.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- what,¢¢ wait,¢¢ what?", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- First, we must synchronize.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Nonono, wait.\n- Why are we doing that, again?", "portrait":"claire_question"},
+			
+			{"type":"dialog", "speaker":"andy", "content":"- Relaaaax.\n- Listen...", "portrait":"andy_relaax"},
+			{"type":"dialog", "speaker":"andy", "content":"- I'm going to show you\nhow a fight works.", "portrait":"andy_relaax"},
+			{"type":"dialog", "speaker":"andy", "content":"- It's even fun!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Isn't the idea to not fight?", "portrait":"claire_question"},
+			{"type":"dialog", "speaker":"andy", "content":"- Weren't you with a\nbad feeling?", "portrait":"andy_smile"},
+			{"type":"pose", "character":"claire", "angle":2},
+			{"type":"speech_delay", "amount":0.03},
+			{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢.", "portrait":"claire_up"},
+			{"type":"dialog", "speaker":"claire", "content":"- but¢¢ danger...", "portrait":"claire_down"},
+			{"type":"dialog", "speaker":"andy", "content":"- One more reason to get ready.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- C'mon, c'mon.", "portrait":"andy_proud"},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "content":"- ok...¢¢ what should I do?", "portrait":"claire"},
+			{"type":"speech_delay", "amount":0.06},
+			{"type":"dialog", "speaker":"andy", "content":"- First, look in my eyes.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Forget everything else.", "portrait":"andy"}
+		],
+		"battle1_1": [
+			{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Ready?", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"claire", "content":"- no", "portrait":"claire"}
+		],
+	"null":[],
+	"andy_battle_comment":[
+			{"type":"dialog", "speaker":"narrator", "content":"* What ARE you going to do?", "portrait":"none"}
+		],
+	"andy_battle_spared":[
+			{"type":"dialog", "speaker":"narrator", "content":"* Andy is SPARING you.", "portrait":"none"}
+		],
+	"andy_battle_nospare":[
+			{"type":"dialog", "speaker":"narrator", "content":"* The \"opponent\" still wants to fight.", "portrait":"none"},
+			{"type":"dialog", "speaker":"narrator", "content":"* Try to change his mind.", "portrait":"none"}
+		],
+	"andy_battle_spare":[
+			{"type":"dialog", "speaker":"andy", "content":"- Done,¢¢ victory for us!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- This way,¢¢\nnobody gets hurt.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Fair.", "portrait":"claire_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- May we resume the mission,\nchief?", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"claire", "content":"- Yes,¢¢ we may.", "portrait":"claire_smile"}
+		],
+	"andy_battle_hug2":[
+			{"type":"dialog", "speaker":"narrator", "content":"* Andy is great to hug.\n¢¢* ..but enough.", "portrait":"none"}
+		],
+	"andy_battle_offense2":[
+			{"type":"dialog", "speaker":"narrator", "content":"* You don't want to hurt\nhis feelings,¢¢ do you?", "portrait":"none"}
+		],
+	"andy_battle_0":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- See this ¬C07flower¬C00?", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- This is your ¬C07SOUL¬C00,¢¢\n the very culmination\nof your being.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Like,¢¢¢ it ¢¢IS¢¢¢ what you ARE.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- There lies your memories,\n¢¢your fear...", "portrait":"andy_anime"},
+			{"type":"dialog", "speaker":"andy", "content":"- And your willpower!", "portrait":"andy_anime"},
+			{"type":"dialog", "speaker":"andy", "content":"- During a battle,¢¢\n your SOUL and the opponent's", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"  will fight for control.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Now it's your turn!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- So?¢¢\n - What are you going to do?", "portrait":"andy_confident"}
+		],
+	"andy_battle_ouch":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"dialog", "speaker":"andy", "content":"- Ouch, wait, no need to hit me.", "portrait":"andy_sad"},
+			{"type":"dialog", "speaker":"andy", "content":"- Poor monsters,\ndon't have a heart?.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- Try to just shoo me.", "portrait":"andy_smile"}
+		],
+	"andy_battle_hug":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- uh...¢¢\n- so¢¢ cute,¢¢ thanks??", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- but if I were a monster,¢¢\n I would want to stay...", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- screw that?\n- I'm gonna accept this.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- I ¬C01SPARE¬C00 you, miss.", "portrait":"andy"}
+		],
+	"andy_battle_offense":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- *gasp*¢¢.\n- What's that language,\n¢¢ young lady...", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- I don't even wanna fight.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- ¬C01SPARE¬C00 me that behaviour...", "portrait":"andy_confident"}
+		],
+	"andy_battle_hug_of":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- uh...¢¢\n- so¢¢ cute,¢¢ I'll forgive your\ndirty mouth.", "portrait":"andy_smile"}
+		],
+	"andy_battle_offense_hg":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Hugs,¢¢ then that.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- That's how life goes, huh..", "portrait":"andy"}
+		],
+	"andy_battle_1":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- So, in the opponent's turn...", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- You must dodge in the \n¬C02pattern¬C00.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Come on, dodge!", "portrait":"andy_proud"}
+		],
+	"andy_battle_2":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- The idea is to make the opponent\nnot wanna fight anymore.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- And not get harmed, also.", "portrait":"andy"}
+		],
+	"andy_battle_3":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- See? Simple.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Try doing something to win.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Pretend I'm a lil monster.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- ¬SGNHAAAARK¬N", "portrait":"andy_confident"}
+		],
+	"andy_battle_1_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- But, wait, I still need to\nteach you how to dodge.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- You... ¢¢hm...\n¢¢dodge by dodging.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- Just go.", "portrait":"andy_smile"}
+		],
+	"andy_battle_2_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- While you don't SPARE me,\nI'll attack you a bit more.", "portrait":"andy_smile"}
+		],
+	"andy_battle_3_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Just waiting for the SPARE...", "portrait":"andy_smile"}
+		],
+	"locked_door_psy":
+		[{"type":"dialog", "speaker":"narrator", "content":"* \"Psychologist's room.\".¢\n- Locked."}],
+	"locked_door_principal":
+		[{"type":"dialog", "speaker":"narrator", "content":"* \"Director's room\".¢\n- Locked."},
+			{"type":"dialog", "speaker":"andy", "content":"- Locked, eh?", "portrait":"andy"},
+			{"type":"dialog", "speaker":"claire", "content":"- Yeah..", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Step aside.", "portrait":"andy"},
+			{"type":"mroute", "character":"claire", "route":[
+				{"type":"absolute", "target": [472, -318]},
+				{"type":"delta", "target": [2, 0]}
+			]},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"mroute", "character":"andy", "route":[
+				{"type":"absolute", "target": [488, -318]},
+				{"type":"dir", "angle":7},
+				{"type":"wait", "amount":1.0}
+			]},
+			{"type":"await_mroute", "character":"andy"},
+			{"type":"pose", "character":"andy", "action":"kick", "angle":7},
+			{"type":"function", "function":"door_yeet"},
+			{"type":"dialog", "speaker":"andy", "content":"- ¬SHUYAAAAA!!!!!¬N", "portrait":"andy_attack"},
+			{"type":"dialog", "speaker":"andy", "content":"- Okay, let's not destroy\nany more property.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Great,\n because we already bashed\nthree doors now.", "portrait":"claire"},
+			{"type":"pose", "character":"andy", "action":"idle", "angle":4}
+		],
+	"crash_comment":
+		[{"type":"dialog", "speaker":"andy", "content":"- Oh look, we got one!", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"claire", "content":"- ¬Taaaaa¬N.", "portrait":"claire"},],
+	"crash_monster":
+		[{"type":"dialog", "speaker":"andy", "content":"- I have a pretty strong kick, eh?", "portrait":"andy_smile"},],
+	"principal_AC":
+			[{"type":"dialog", "speaker":"narrator", "content":"* An air conditioner.\n* It conditions the air."}],
+	"principal_get_item":
+			[{"type":"dialog", "speaker":"narrator", "content":"* Found Key!¢¢\n* Use it to open the exit door!"}],
+	"principal_got_item":
+			[{"type":"dialog", "speaker":"narrator", "content":"* You should now stop messing\nwith other people's belongings."}],
+	"what_could_go_wrong":
+		[
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- See? That was easy and quick.\n- We basically already escaped."},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire", "content": "- We STILL need to go back through them."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy", "content": "- ...and they're sleeping.\n- It was pretty easy the first time..."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_think", "content": "- We just need to do it again."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- Come on,¢¢ what could go wro¹ng."},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire", "content": "- (Shhhhh).¢¢\n- (Don't¢¢ say¢¢ that!)"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_mild_mad", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_mild_mad", "content": "- \"What could go wrong?\""},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire_up", "content": "- oh no."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_side", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- See?\n¢¢- Let's go now."},
+			{"type":"pose", "character":"claire", "angle":4},
+		],
+	"then_it_goes_wrong":
+		[
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy", "content": "- Well that's pretty bad."},
+		],
+	"locked_door_lab":
+			[{"type":"dialog", "speaker":"narrator", "content":"* \"AURA Lab\".¢\n- Locked."}],
+	"wet_floor_battle": [{"type":"dialog", "speaker":"narrator", "content":"* Caution! The floor is ¬C05wet¬C00."}],
+	
+	"board_move": [
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* Move your SOUL to dodge."}
+		],
+	"board_derivative": [
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* \"The derivative of ln(x) is the \nnverse of x.\""},
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* Obviously."}
+		],
+	"safe_room_1": [
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ..."}
+	],
+	"safe_room_2": [
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno_w",
+		"content":"- ¬TAh- You woke up?¬N"},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- ..."},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- ...it seems like it...?"},
+		{"type":"wait", "amount":2.0},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":2},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Oh, alright."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- That's¢¢ great¢¢¢, I guess."},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- I had a strange dream¢¢.¢¢.\n¢¢- And why is it night?"},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":7},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Don't ask me.\n- I woke up outside;\n¢¢ you were unconscious."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- There's some...\n¬Tvery bizarre stuff\ngoing on out there..."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- I brought you here."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- So, yeah..."},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":2},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Take your time¢¢, there..."}
+	],
+	"safe_room_3": [
+		{"type":"choice", "question":"* (ARROWS to Choose, Z to Confirm.)", "speaker":"narrator",
+		"choices":["What is THAT...?","Who are YOU...?",  "What's the \"STUFF\"...?"],
+		"icons":["game", "ch_bruno", "question"], "answers":[
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- what¢¢\n- oh", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- It's a videogame console.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- I'm trying to find something.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- I don't even know what I'm doing.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- No internet, damn.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Daaaaamn.", "portrait":"bruno"}
+			],
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Bruno.¢¢\nI guess.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- I¢ can't remember\nanything right.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Here it says October 17th,\nso...\n- We have a date.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- What is happening, anyway...", "portrait":"bruno"}
+			],
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Some weird creatures.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Like... all slimey\n¬Tand very scary¬N.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- You will be better off\nnot even seeing them.", "portrait":"bruno"}
+			]
+		]}
+	],
+	"safe_room_4": [
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬WUh...¬N", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Did you¢¢ hear that?", "portrait":"bruno"},
+		{"type":"pose", "character": "claire", "angle": 4, "action": "idle"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ¢¢Uh¢¢, yeah??", "portrait":"claire"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- I just closed the door.", "portrait":"claire"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": -1, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": -1, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- What are you talking about,\nthere is no door here.¬N", "portrait":"bruno"},
+		{"type":"pose", "character": "claire", "angle": 3, "action": "not_crazy"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- I'm not crazy.", "portrait":"claire"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Noone said that.\n- You know what, nevermind.", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- I think I'm almost..."},
+		{"type":"pose", "character":  "bruno", "angle": 6, "action": "idle"},
+		{"type":"pose", "character": "claire", "angle": 6, "action": "idle"}
+	],
+	"safe_room_5": [
+		{"type":"wait", "amount": 2.0},
+		{"type":"dialog", "speaker":"rodrick",
+		"content":"- ¬WOh...¬N"},
+		{"type":"dialog", "speaker":"rodrick",
+		"content":"- This¢¢ isn't the toilet,¢¢ is it?"}
+	]
+}

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/charlie.wav-5f6050aed53e6ac19f0f162bba741087.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/charlie.wav"
+dest_files=[ "res://.import/charlie.wav-5f6050aed53e6ac19f0f162bba741087.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

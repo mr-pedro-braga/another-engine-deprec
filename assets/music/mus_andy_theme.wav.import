@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_andy_theme.wav-118c86a842177dc9b0e864353f60080c.sample"
+
+[deps]
+
+source_file="res://assets/music/mus_andy_theme.wav"
+dest_files=[ "res://.import/mus_andy_theme.wav-118c86a842177dc9b0e864353f60080c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

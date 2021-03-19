@@ -1,0 +1,76 @@
+{
+	"darwin_encounter": [
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_oh",
+				"content":"- Oh somebody!"},
+				{"type":"wait", "amount":2.0},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_question",
+				"content":"- Uh... hi?"},
+				{"type":"pose", "character":"darwin", "angle":1, "action":"idle"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Ayo, how are ya mate!-\n¢¢- Oh no!"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- What's up with your sad expression?"},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire",
+				"content":"- What do you mean, \"what's up?\""},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_distress",
+				"content":"- It's all broken and wrong and..."},
+				{"type":"dialog", "speaker":"claire", "portrait":"claire_question",
+				"content":"- You¢¢¢ can't¢¢ see?"},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- I see you are a little bummed."},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Leave that to me, I'll cheer ya up."},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- Know what always lightens my mood?"},
+				{"type":"sfx", "character":"darwin", "name":"wsummon"},
+				{"type":"pose", "character":"darwin", "action":"summon_weapon", "angle":1},
+				{"type":"wait", "amount":2.0},
+				{"type":"speech_delay", "amount":0.06},
+				{"type":"dialog", "speaker":"andy", "portrait":"none",
+				"content":"- A good ol' fight!"},
+				{"type":"speech_delay", "amount":0.02},
+			],
+	"darwin_dodge": [ {"type":"dialog", "speaker":"andy", "content":"- Dodge this!"} ],
+	"darwin_attackme": [ {"type":"dialog", "speaker":"andy", "content":"- Come on, you can ¬C01attack¬C00 me."} ],
+	"darwin_battle_1": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? ATTACKs fimrly!"} ],
+	"darwin_battle_2": [ {"type":"dialog", "speaker":"narrator", "content":"* Smells like punches!"} ],
+	"darwin_battle_3": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? is ready to ATTACK!"} ],
+	"darwin_nospare": [ {"type":"dialog", "speaker":"narrator", "content":"* Stills want to fight."} ],
+	"darwin_spare": [
+		{"type":"dialog", "speaker":"andy", "content":"- Done, you win mate!"},
+		{"type":"dialog", "speaker":"andy", "content":"- Eeeesh, I even got tired."},
+		{"type":"dialog", "speaker":"andy", "content":"- Ima yeet myself out, cya."}
+	],
+	"darwin_spare_end": [
+		{"type":"dialog", "speaker":"andy", "content":"- Knew there was some strenght\nin those noodly arms!"},
+		{"type":"dialog", "speaker":"andy", "content":"- It isn't... much."},
+		{"type":"dialog", "speaker":"andy", "content":"- I think it's enough."},
+		{"type":"dialog", "speaker":"andy", "content":"- Let's leave it at that."},
+		{"type":"dialog", "speaker":"narrator", "content":"* (He is SPARING you.)"}
+	],
+	"darwin_sparing": [
+		{"type":"dialog", "speaker":"narrator", "content":"* The australian kid is SPARING you."}
+	],
+	"darwin_spare_please": [
+		{"type":"dialog", "speaker":"andy", "content":"- You... remember how you SPARE?"},
+		{"type":"dialog", "speaker":"andy", "content":"- You seem a little shy..."},
+		{"type":"dialog", "speaker":"andy", "content":"- No need for words,¢¢ just give me a thumbs up."},
+	],
+	"claire_help": [
+		{"type":"dialog", "speaker":"narrator", "content":"* You call for help."},
+		{"type":"dialog", "speaker":"narrator", "content":"* ¢¢.¢¢.¢¢."},
+		{"type":"dialog", "speaker":"narrator", "content":"* But nobody came."}
+	],
+	
+	"light_switch": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* A light switch.\n¢¢ * (Click!)"},
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* Somewhere,¢¢ a light was turned on."},
+			],
+	"light_switch_used": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* A light switch.\n¢ * Already turned on."},
+			],
+	
+}

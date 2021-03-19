@@ -1,0 +1,24 @@
+{
+	"attributes":
+		{
+			"MHP": 10,
+			"MSP": 10,
+			
+			"trait": "eb3483",
+			
+			"HP": 10,
+			"SP": 10,
+			
+			"AT": 1,
+			"DF": 3,
+			"SP": 1,
+			"IQ": 2,
+			 
+			"ST": 10,
+		},
+	"attacks": [
+			{"pool":"twistedhallways", "id":"like"},
+			{"pool":"twistedhallways", "id":"flappy"}
+		]
+	}
+}

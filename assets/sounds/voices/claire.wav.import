@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/claire.wav-d6b9fefd1f228b6ad02ef2d4aa1d60de.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/claire.wav"
+dest_files=[ "res://.import/claire.wav-d6b9fefd1f228b6ad02ef2d4aa1d60de.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

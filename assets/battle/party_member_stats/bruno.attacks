@@ -1,0 +1,38 @@
+{
+	"attributes":
+		{
+			"MHP": 10,
+			"MSP": 10,
+			
+			"trait": "ffdd00",
+			
+			"hp-foreground": "2068e4",
+			"hp-background": "0f1f9c",
+			
+			"HP": 10,
+			"SP": 10,
+			
+			"AT": 2,
+			"DF": 3,
+			"AG": 5,
+			"IQ": 5,
+			 
+			"ST": 10,
+			
+			"skill": "game"
+		},
+	"attacks":
+		[
+			{"pool": "general", "id":"weak_punch", "icon":"wait"}
+		],
+	"acts":
+		[
+			{"id":"help", "icon":"talk"},
+			{"id":"wait", "icon":"wait"},
+			{"id":"spare", "icon":"spare"}
+		],
+	"skills":
+		[
+			{"id":"bubble_wrap", "icon":"q_bubble_wrap"}
+		],
+}

@@ -1,0 +1,381 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/user_interface/soul_info_back.png" type="Texture" id=1]
+[ext_resource path="res://assets/user_interface/Soul_Info_names.png" type="Texture" id=2]
+[ext_resource path="res://assets/dialogs/retro-digits-normal.png" type="Texture" id=3]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=4]
+[ext_resource path="res://assets/user_interface/bar-gauge.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var properties:Dictionary
+
+func _ready():
+	setup(name, 20, 3, 10, 07, \"#be29ff\", \"#340d7e\")
+
+func _process(_delta):
+	visible = DCCore.dialog_box.text == \"\"
+
+func setup(name, mhp, hp, msp, sp, hp_foreground, hp_background):
+	$B/MaincharNames.animation = name.to_lower()
+	update_counter(mhp, hp, msp, sp, hp_foreground, hp_background)
+
+onready var hp_label = get_node(\"B/HP\")
+onready var sp_label = get_node(\"B/SP\")
+onready var hp_meter = get_node(\"B/HPbar\")
+onready var sp_meter = get_node(\"B/SPbar\")
+
+var revealed_o:bool
+var revealed_b:bool
+
+func reveal_battle():
+	if not revealed_b:
+		$AnimationPlayer.play(\"slide_battle\")
+		revealed_b = true
+
+func hide_battle():
+	if revealed_b:
+		$AnimationPlayer.play_backwards(\"slide_battle\")
+		revealed_b = false
+
+func reveal():
+	if not revealed_o:
+		$AnimationPlayer.play(\"slide\")
+		revealed_o = true
+
+func hide():
+	if revealed_o:
+		$AnimationPlayer.play_backwards(\"slide\")
+		revealed_o = false
+
+func shake():
+	$AnimationPlayer.play(\"shake\")
+
+func self_update(character):
+	setup(
+		character,
+		Utils.stats[character][\"attributes\"][\"MHP\"],
+		Utils.stats[character][\"attributes\"][\"HP\"],
+		Utils.stats[character][\"attributes\"][\"MSP\"],
+		Utils.stats[character][\"attributes\"][\"SP\"],
+		\"#\"+Utils.stats[character][\"attributes\"][\"hp-foreground\"],
+		\"#\"+Utils.stats[character][\"attributes\"][\"hp-background\"]
+	)
+
+func update_counter(mhp, hp, msp, sp, hp_foreground, hp_background):
+	properties.hp_foreground = hp_foreground
+	properties.hp_background = hp_background
+	properties.name = name
+	properties.mhp = mhp
+	properties.msp = msp
+	properties.hp = hp
+	properties.sp = sp
+	hp_label.text = str(\"%0*d\" % [2, abs(properties.hp)])
+	sp_label.text = str(\"%0*d\" % [2, properties.sp])
+	hp_label.self_modulate = properties.hp_foreground
+	
+	get_node(\"B/HPBack\").self_modulate = hp_background
+	hp_meter.self_modulate = hp_foreground
+	hp_meter.rect_size.x = 30 * clamp(hp/mhp, 0.0, 1.0)
+	sp_meter.rect_size.x = 30 * clamp(sp/msp, 0.0, 1.0)
+"
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 320, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 192, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 160, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 16, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 384, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 288, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 256, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 16, 32, 16 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "andy",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "rodrick",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "sam",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "ollie",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "claire",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "bruno",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "lily",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "trevor",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "alharih",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "elliott",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "miranda",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "valentino",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "ninten",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=15]
+resource_name = "shake"
+length = 0.5
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("B:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 0.075, 0.15, 0.275, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -22, -32 ), Vector2( -23, -29 ), Vector2( -20, -31 ), Vector2( -25, -33 ), Vector2( -23, -35 ), Vector2( -22, -32 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("B:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -22, 32 ), Vector2( -22, -32 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("B:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -22, -16 ), Vector2( -22, -32 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "stfx_fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("B:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 0.574349, 0.287175, 1 ),
+"update": 0,
+"values": [ Vector2( -22, -32 ), Vector2( -22, -28 ), Vector2( -22, -34 ), Vector2( -22, -32 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "stfx_rise"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("B:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 7.72749, 3.86375, 1 ),
+"update": 0,
+"values": [ Vector2( -22, -32 ), Vector2( -22, -36 ), Vector2( -22, -30 ), Vector2( -22, -32 ) ]
+}
+
+[node name="claire" type="Control"]
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B" type="TextureRect" parent="."]
+margin_left = -22.0
+margin_top = 32.0
+margin_right = 22.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaincharNames" type="AnimatedSprite" parent="B"]
+position = Vector2( 22, 23.3536 )
+frames = SubResource( 14 )
+animation = "ninten"
+
+[node name="SP" type="ReferenceRect" parent="B"]
+self_modulate = Color( 1, 0.87451, 0.0705882, 1 )
+margin_left = 25.0
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 11.0
+border_color = Color( 1, 0, 0, 0 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "20 "
+character_set = "0123456789.-+"
+font_texture = ExtResource( 3 )
+char_width = 4
+char_height = 6
+spacing = 1.0
+
+[node name="HP" type="ReferenceRect" parent="B"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 11.0
+border_color = Color( 1, 0, 0, 0 )
+border_width = 0.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "20 "
+character_set = "0123456789.-+"
+font_texture = ExtResource( 3 )
+char_width = 4
+char_height = 6
+spacing = 1.0
+
+[node name="HPBack" type="TextureRect" parent="B"]
+self_modulate = Color( 0.384314, 0.447059, 0.482353, 1 )
+margin_left = 7.0
+margin_top = 12.0
+margin_right = 37.0
+margin_bottom = 15.0
+texture = ExtResource( 5 )
+
+[node name="SPbar" type="TextureRect" parent="B"]
+self_modulate = Color( 1, 0.87451, 0.0705882, 1 )
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 22.0
+margin_bottom = 19.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPbar" type="TextureRect" parent="B"]
+margin_left = 7.0
+margin_top = 12.0
+margin_right = 27.0
+margin_bottom = 15.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shake = SubResource( 15 )
+anims/slide = SubResource( 16 )
+anims/slide_battle = SubResource( 17 )
+anims/stfx_fall = SubResource( 18 )
+anims/stfx_rise = SubResource( 19 )

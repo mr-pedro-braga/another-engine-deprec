@@ -1,0 +1,200 @@
+{
+	"house_4": [
+		{"type":"choice", "question":"- Hm?¢¢\n- Is it the pizza guy?", "speaker":"misc_low",
+		"choices":["Yes", "No"],
+		"icons":["talk_good", "talk_bad"], "answers":[
+			[{"type":"dialog", "speaker":"misc_low", "content":"* Weird, I didn't ask for pizza..."},],
+			[{"type":"dialog", "speaker":"misc_low", "content":"* I could use some pizza right now..."},]
+		]}
+	],
+	"charlie_door": [
+		{"type":"shake"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Aaaaaa!¢¢\n- One minute!"},
+	],
+	"charlie_enc": [
+		{"type":"dialog", "speaker":"charlie", "content":"- Aaaaand... Perfect."},
+		{"type":"dialog", "speaker":"charlie", "content":"- That's enough water for today."},
+		{"type":"dialog", "speaker":"charlie", "content":"- Bye bye, my children."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"dir", "angle":5}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":4}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":1.0},
+			{"type":"absolute", "target":[-96, 256]},
+			{"type":"delta", "target":[-32, 0]}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¢.¢.¢."},
+		{"type":"dialog", "speaker":"charlie", "content":"- Hm¢.¢.¢. This¢¢ aura¢.¢.¢."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":0}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":0}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_down"},
+		{"type":"shake"},
+		{"type":"soundtrack", "action":"resume"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SAaaaaaaaaaa¬N", "portrait":"charlie_aaa"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SMy word, oh my¬N", "portrait":"charlie_aaa"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_oh"},
+		{"type":"dialog", "speaker":"charlie", "content":"- One second..."},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_look"},
+		{
+			"type": "choice",
+			"speaker": "charlie",
+			"choices": ["Yes", "No"],
+			"icons": ["talk_good", "talk_bad"],
+			"question": "- What are you¢.¢.¢.\n- You're a human,¢¢ right?",
+			"answers": [
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- A human person!", "portrait":"charlie_aaa"},
+				],
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- The heck ARE you then?!?!", "portrait":"charlie_aaa"},
+				]
+			], "portrait":"charlie"
+		},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SI'm gonna bloody die...¬N"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_oh"},
+		{"type":"dialog", "speaker":"charlie", "content":"- A-¢¢another second...", "portrait":"charlie"},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_look"},
+		{
+			"type": "choice",
+			"speaker": "charlie",
+			"choices": ["Yes", "No"],
+			"icons": ["talk_good", "talk_bad"],
+			"question": "- Are you like...¢¢\n- Are you real?",
+			"answers": [
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- I'm gonna die, it is real!", "portrait":"charlie_aaa"},
+				],
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- Am I getting MAD???", "portrait":"charlie_aaa"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Is this what isolation does?", "portrait":"charlie_aaa"},
+				]
+			], "portrait":"charlie"
+		},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SAaaaaaaaa¬N", "portrait":"charlie_aaa"},
+		{"type":"mroute", "character":"claire", "route":[
+			{"type":"absolute", "target":[-114, 256]},
+		]},
+		{"type":"dialog", "speaker":"claire", "content":"- I'm not gonna... hurt you...", "portrait":"claire"},
+		{"type":"dialog", "speaker":"claire", "content":"- I'm just lost", "portrait":"claire"},
+		{"type":"pose", "character":"charlie", "action":"scared_look"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Really...?", "portrait":"charlie"},
+		{"type":"dialog", "speaker":"claire", "content":"- Yes...", "portrait":"claire"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_oh"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_look"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_oh"},
+		{"type":"pose", "character":"charlie", "action":"idle"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Aight, good luck there mate."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"delta", "target":[-128, 0]},
+			{"type":"destroy"}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+	],
+	"hcclio": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Ayup, Claire."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Just checking on ya, luv."},
+		{"type":"dialog", "speaker":"narrator", "content":"* See, haven't died yet, have you?"},
+		{"type":"dialog", "speaker":"narrator", "content":"* By the way, experiment pressing\n%KEY_OK% while dodging."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Don't ask why, just do it."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Something, um, real nice\nmight happen."},
+		{"type":"dialog", "speaker":"narrator", "content":"* And if you are ever lost, just call me."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Not like you have my number, hm..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* You got it all figured out, huh?"},
+		{"type":"dialog", "speaker":"narrator", "content":"* Cya later..."},
+	],
+	"hatcat": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nya ha ha!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Wanna bet with moi?"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- To the item get, three times you\nmust find the right hat!"},
+	],
+	"hatcatgotit": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa, ha ha!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- There it is, you did great!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Let's play again, mate!"},
+	],
+	"hatcatlostit": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa, ha ha..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- In another hat the crystal stays!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Let's try again, okay?"},
+	],
+	"hatcatbet_1": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Here's the rarest shiny stone."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- I will shuffle, now it's gone."},
+	],
+	"hatcatbet_2": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Find where it is at, and your prize you will get!"},
+	],
+	"hatcatbet_3": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Oh..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- I don't even wanna rhyme anymore."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- You won, goodbye."},
+	],
+	"hatcatback": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- The shop is closed."},
+	],
+	"sign1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* (Something written in an odd language)."},
+		{"type":"set_kuroi"},
+		{"type":"dialog", "speaker":"narrator", "content":"* lito lit' deriako,\n   merune dare ko vei."},
+		{"type":"set_latin"},
+	],
+	"hallwayleggo": [
+		{"type":"dialog", "speaker":"narrator", "content":"- Yo,¢¢ mind me not,\nI'm just chilling."}
+	],
+	"spri_1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* By second nature, you reach to it..."},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Wassup boss!"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Yooo so much time passed!"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Hm?¢¢ What's with your face?"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Were you expecting ¬C01something else¬C00?"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- I am not shocked.\n- Noone never expects me, huh."},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- I don't even care anymore."},
+	],
+	"spri_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* This lonely city amidst the void\nfills you with...¢¢ something,¢¢ I guess???"}
+	],
+	"bonsy_1": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Hm?"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Oh my,¢¢ it's the hero of SPIRIT!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- You know,¢¢ with all that is\nhappening, it's hard to stay happy..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- That's why I bought this girl-shaped balloon."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- To keep me company."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Until I realized..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- That inside, she is hollow,¢¢ too."},
+	],
+	"bonsy_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Her lifeless eyes stared at the undending black void."},
+	],
+	"statue": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Must be someone important."},
+	],
+	"bush": [
+		{"type":"dialog", "speaker":"narrator", "content":"* A green bush."},
+	],
+}

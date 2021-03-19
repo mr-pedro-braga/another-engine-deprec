@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/user_interface/selection_name.png" type="Texture" id=1]
+[ext_resource path="res://assets/dialogs/retro_bits_2_white.png" type="Texture" id=2]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=3]
+
+[node name="SelNameTag" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -193.0
+margin_bottom = -123.0
+
+[node name="Texture" type="TextureRect" parent="."]
+margin_top = -6.0
+margin_right = 54.0
+margin_bottom = 6.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="ReferenceRect" parent="."]
+margin_left = 6.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 3.0
+border_color = Color( 1, 0.337255, 0.337255, 0 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_scale = 0.7
+text = "Attack"
+font_texture = ExtResource( 2 )
+char_width = 6
+char_height = 9
+spacing = 0.2
+tab_spaces = 3
+texture_rows = 3

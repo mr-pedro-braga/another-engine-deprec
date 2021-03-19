@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+func _ready():
+	get_tree().get_root().set_transparent_background(true)
+	OS.window_per_pixel_transparency_enabled = true
+"
+
+[sub_resource type="Environment" id=1]
+background_energy = 0.0
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

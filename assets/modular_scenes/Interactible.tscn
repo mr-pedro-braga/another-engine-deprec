@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+var overlapping = false
+
+signal entered
+signal left
+signal interacted
+
+func _process(_delta):
+	if overlapping and Input.is_action_just_pressed(\"ok\"):
+		emit_signal(\"interacted\")
+
+func _body_entered(body):
+	if body == Gameplay.playable_character_node:
+		overlapping = true
+		emit_signal(\"entered\")
+
+func _body_exited(body):
+	if body == Gameplay.playable_character_node:
+		overlapping = false
+		emit_signal(\"left\")
+"
+
+[node name="Interactible" type="Area2D"]
+script = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_body_entered"]
+[connection signal="body_exited" from="." to="." method="_body_exited"]

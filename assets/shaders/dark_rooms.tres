@@ -1,0 +1,33 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[resource]
+background_mode = 4
+background_sky = SubResource( 1 )
+background_energy = 0.0
+ambient_light_energy = 0.6
+ambient_light_sky_contribution = 0.23
+tonemap_mode = 2
+tonemap_exposure = 1.5
+auto_exposure_scale = 0.9
+auto_exposure_min_luma = 1.03
+auto_exposure_max_luma = 3.03
+auto_exposure_speed = 1.0
+dof_blur_near_distance = 262.42
+dof_blur_near_transition = 10.1
+dof_blur_near_quality = 0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/3 = false
+glow_levels/4 = true
+glow_levels/5 = false
+glow_levels/7 = true
+glow_intensity = 8.0
+glow_strength = 0.33
+glow_bloom = 0.52
+glow_hdr_luminance_cap = 30.0
+glow_hdr_scale = 1.0
+adjustment_enabled = true
+adjustment_contrast = 1.1

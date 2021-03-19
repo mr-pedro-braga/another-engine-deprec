@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/battle/Kuro.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/modular_scenes/Kuro.gd" type="Script" id=2]
+[ext_resource path="res://addons/sprite_trail/SpriteTrail.gd" type="Script" id=3]
+[ext_resource path="res://assets/battle/particle_dust.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.70317
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	if (texture(TEXTURE, UV - vec2(0.0, 0.025)).a > 0.0 &&
+		col.a == 0.0)
+	{
+		COLOR = vec4(0.0, 0.0, 0.0, 0.5);
+		return;
+	}
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.690196 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 8.27157
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_disable_z = true
+gravity = Vector3( 0, 4, 0 )
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 5.0
+radial_accel_random = 0.5
+scale = 0.3
+scale_random = 0.8
+
+[node name="Kuro" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+character = "andy"
+mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Anim" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 1 )
+animation = "heart"
+playing = true
+
+[node name="SpriteTrail" type="Node2D" parent="Anim"]
+show_behind_parent = true
+script = ExtResource( 3 )
+life_time = 0.3
+copy_period = 0.02
+gradient = SubResource( 4 )
+
+[node name="KuroSensor" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KuroSensor"]
+shape = SubResource( 5 )
+
+[node name="Dust" type="Particles2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( -0.353554, 0.176773 )
+amount = 5
+lifetime = 0.25
+local_coords = false
+process_material = SubResource( 6 )
+texture = ExtResource( 4 )

@@ -1,0 +1,201 @@
+{
+	"house_4": [
+		{"type":"choice", "question":"- Hm?¢¢\n- É o entregador de pizza?", "speaker":"misc_low",
+		"choices":["Sim", "Não"],
+		"icons":["talk_good", "talk_bad"], "answers":[
+			[{"type":"dialog", "speaker":"misc_low", "content":"* Oxe, eu não pedi nenhuma pizza..."},],
+			[{"type":"dialog", "speaker":"misc_low", "content":"* Nossa, eu bem que queria uma..."},]
+		]}
+	],
+	"charlie_door": [
+		{"type":"shake"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Aaaaaa!¢¢\n- Um momento!"},
+	],
+	"charlie_enc": [
+		{"type":"dialog", "speaker":"charlie", "content":"- E.... perfeito!"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Esta foi a úlitma."},
+		{"type":"dialog", "speaker":"charlie", "content":"- Até mais, minhas filhotas."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"dir", "angle":5}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":4}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":1.0},
+			{"type":"absolute", "target":[-96, 256]},
+			{"type":"delta", "target":[-32, 0]}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¢.¢.¢."},
+		{"type":"dialog", "speaker":"charlie", "content":"- Hm¢.¢.¢. Essa¢¢ presença¢.¢.¢."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":0}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":0}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_down"},
+		{"type":"shake"},
+		{"type":"soundtrack", "action":"resume"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SAaaaaaaaaaa¬N", "portrait":"charlie_aaa"},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SMinha nossa, aaaaa¬N", "portrait":"charlie_aaa"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_oh"},
+		{"type":"dialog", "speaker":"charlie", "content":"- Um momento..."},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_look"},
+		{
+			"type": "choice",
+			"speaker": "charlie",
+			"choices": ["Sim", "Não"],
+			"icons": ["talk_good", "talk_bad"],
+			"question": "- O que você é¢.¢.¢.\n- Você é um humano,¢¢ certo?",
+			"answers": [
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- Um humano!", "portrait":"charlie_aaa"},
+				],
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- O que diacho que você é, então?!?!", "portrait":"charlie_aaa"},
+				]
+			], "portrait":"charlie"
+		},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SÉ hoje que eu faleço...¬N"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_oh"},
+		{"type":"dialog", "speaker":"charlie", "content":"- O-¢¢outro momento...", "portrait":"charlie"},
+		{"type":"pose", "character":"charlie", "angle":2, "action":"scared_look"},
+		{
+			"type": "choice",
+			"speaker": "charlie",
+			"choices": ["Sim", "Não"],
+			"icons": ["talk_good", "talk_bad"],
+			"question": "- Assim...¢¢\n- Você é de verdade?",
+			"answers": [
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- Eu vou morrer¢¢¢ e é de verdade!", "portrait":"charlie_aaa"},
+				],
+				[
+					{"type":"pose", "character":"charlie", "action":"scared_down"},
+					{"type":"shake"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- Aaaaaaaaaaaaa¢¢\n- Eu estou ficando maluco???", "portrait":"charlie_aaa"},
+					{"type":"dialog", "speaker":"charlie",
+					"content":"¬S- É isso que o isolamento faz?", "portrait":"charlie_aaa"},
+				]
+			], "portrait":"charlie"
+		},
+		{"type":"dialog", "speaker":"charlie", "content":"- ¬SAaaaaaaaa¬N", "portrait":"charlie_aaa"},
+		{"type":"mroute", "character":"claire", "route":[
+			{"type":"absolute", "target":[-114, 256]},
+		]},
+		{"type":"dialog", "speaker":"claire", "content":"- Ah, não... eu não vou\nte machucar...", "portrait":"claire"},
+		{"type":"dialog", "speaker":"claire", "content":"- Eu só estou perdida...", "portrait":"claire"},
+		{"type":"pose", "character":"charlie", "action":"scared_look"},
+		{"type":"dialog", "speaker":"charlie", "content":"- É...?", "portrait":"charlie"},
+		{"type":"dialog", "speaker":"claire", "content":"- É...", "portrait":"claire"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_oh"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_look"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character":"charlie", "action":"scared_oh"},
+		{"type":"pose", "character":"charlie", "action":"idle"},
+		{"type":"dialog", "speaker":"charlie", "content":"- O.k. boa sorte, aí."},
+		{"type":"mroute", "character":"charlie", "route":[
+			{"type":"delta", "target":[-128, 0]},
+			{"type":"destroy"}
+		]},
+		{"type":"await_mroute", "character":"charlie"},
+	],
+	"hcclio": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Olá."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Eu esqueci de te dizer algo\nimportante."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Em batalhas, quando for desviar,¢¢\nlembre de ativar seu-¢¢\n* Hm..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Digo,¢¢ imagine que existam...¢¢¢ teclas."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Então imagine que aperta\na tecla %KEY_OK%."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Vai lhe ser útil."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Além disso, se sentir-se perdida,\nprocure um chapéu como este."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Eu aparecerei para te auxiliar."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Boa sorte."},
+	],
+	"hatcat": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa, ha ha!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Queres comigo apostar?"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Para o item secreto ganhar,¢¢\ndeverá três vezes\na pedra encontrar!"},
+	],
+	"hatcatgotit": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa, ha ha!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Aqui está, aqui está!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Vamos novamente embaralhar!"},
+	],
+	"hatcatlostit": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa, ha ha..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Em outro chapéu a pedra está!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Que tal novamente tentar?"},
+	],
+	"hatcatbet_1": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Eis a pedra, a brilhar"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Ela irei embaralhar."},
+	],
+	"hatcatbet_2": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Ache onde ela está\npara seu prêmio ganhar!"},
+	],
+	"hatcatbet_3": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Ok, né..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nem quero mais rimar...\n- Já tá na hora de parar."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Vou deixar você ganhar."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Que-¢¢ não consigo parar.^\n- Aaaaaaaaaaaaaaaa."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Vou me retirar."},
+	],
+	"hatcatback": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Nyaa."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Decidi fechar minha banca por hoje."},
+	],
+	"sign1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* (Algo está escrito na placa em uma língua estranha)."},
+		{"type":"set_kuroi"},
+		{"type":"dialog", "speaker":"narrator", "content":"* lito lit' deriako,\n   merune dare ko vei."},
+		{"type":"set_latin"},
+	],
+	"hallwayleggo": [
+		{"type":"dialog", "speaker":"narrator", "content":"- Yo,¢¢ não ligue pra mim,\nestou só de boa."}
+	],
+	"spri_1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Aqui está você, em frente a luz."},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Cofoi chefia!"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Quanto tempo, hein!"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Hm?¢¢ Colé dessa cara?"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Cê tava esperando algo ¬C01diferente¬C00?"},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Oxe, viu.\n- Ninguém nunca espera que seja eu."},
+		{"type":"dialog", "speaker":"misc_lower_sq", "content":"- Tanto faz também."},
+	],
+	"spri_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Esta cidadezinha segura em meio ao vazio\nte enche de¢.¢.¢. algo, eu acho???"}
+	],
+	"bonsy_1": [
+		{"type":"dialog", "speaker":"misc_high", "content":"- Hm?"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Ah minha nossa,¢¢ se não é a heroína do espírito!"},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Sabe,¢¢ com tudo que está acontecendo,é difícil se manter alegre..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Por isso antes de vir eu peguei este balão com formato de menina."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Para me fazer companhia."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Mas então eu percebi..."},
+		{"type":"dialog", "speaker":"misc_high", "content":"- Que no fundo, ela também é vazia."},
+	],
+	"bonsy_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Os olhos sem vida da garota miram profundamente o preto absoluto do vazio."},
+	],
+	"statue": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Deve ser uma pessoa importante."},
+	],
+	"bush": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Um arbusto verde."},
+	],
+}

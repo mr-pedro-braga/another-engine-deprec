@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_hearts_in_sync.wav-19fb6f47a1d745a9bc90fcdc8514495e.sample"
+
+[deps]
+
+source_file="res://assets/music/mus_hearts_in_sync.wav"
+dest_files=[ "res://.import/mus_hearts_in_sync.wav-19fb6f47a1d745a9bc90fcdc8514495e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

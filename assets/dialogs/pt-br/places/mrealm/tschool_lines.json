@@ -1,0 +1,88 @@
+{
+	"out_of_order": [
+		{"type":"dialog", "speaker":"claire", "content":"* Não parece estar funcionando."}
+	],
+	"tap": [
+		{"type":"dialog", "speaker":"narrator", "content":"* (Você bebe um pouco de água\npara se acalmar.)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* (...)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* (Nada aconteceu.)"},
+	],
+	"exh_banner": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Um banner de algum evento."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Talvez você possa ir..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Quando não estiver perdida."}
+	],
+	"exh_board": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Um quadro negro com notas."}
+	],
+	"void_window": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Olhando pela janela...\n nada além de um preto absoluto."},
+	],
+	"empty_bottle_fill": [
+		{"type":"dialog", "speaker":"narrator", "content":"* (Você enche sua garrafa com água.)"},
+		{"type":"dialog", "speaker":"narrator", "content":"* (Agora você tem água portátil!)"},
+	],
+	"wouldnteat": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Mas se eu fosse você\neu não comeria isso."},
+	],
+	"trashcan": [
+		{"type":"dialog", "speaker":"narrator", "content":"* É apenas uma lata de lixo."},
+	],
+	"found%": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você encontrou... %item_name%!"},
+	],
+	
+	"ashley_comment_0": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? desliza pra dentro!"} ],
+	"ashley_comment_1": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? está tirando selfies."} ],
+	"ashley_comment_2": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? parece concentrada."} ],
+	"ashley_comment_3": [ {"type":"dialog", "speaker":"narrator", "content":"* ??? está te mandando mensagens\nao invés de falar."} ],
+	
+	"ashley_convo_0": [ {"type":"dialog", "speaker":"ashley", "content":"- Olha só, você tem estilo!"} ],
+	"ashley_convo_1": [ {"type":"dialog", "speaker":"ashley", "content":"- Amiga,¢¢ essa chave super combina\ncom seu look."} ],
+	"ashley_convo_2": [ {"type":"dialog", "speaker":"ashley", "content":"- Vem, vamo tirar umas fotos\npro seu SB."} ],
+	"ashley_convo_3": [ {"type":"dialog", "speaker":"ashley", "content":"- Rlx, miga.\n- Tu vai ficar ¢m¢a¢r¢a."} ],
+	"ashley_convo_4": [ {"type":"dialog", "speaker":"ashley", "content":"- Só n fala do Bruno perto de mim."} ],
+	"ashley_convo_5": [ {"type":"dialog", "speaker":"ashley", "content":"- Tô com um ranço daquele menino kk..."} ],
+	"ashley_convo_6": [ {"type":"dialog", "speaker":"ashley", "content":"- Acredita que ele disse\nna minha cara-"} ],
+	"ashley_convo_7": [ {"type":"dialog", "speaker":"ashley", "content":"- \"Pra que você trás casaco\nse não usa?\""} ],
+	"ashley_convo_8": [ {"type":"dialog", "speaker":"ashley", "content":"- Querido,¢¢¢ é estilo\nclássico alsjdkan."} ],
+	"ashley_convo_9": [ {"type":"dialog", "speaker":"ashley", "content":"- Coisa que ele não tem."} ],
+	"ashley_convo_10": [ {"type":"dialog", "speaker":"ashley", "content":"- kasdkads\n- n até que tem um pouco."} ],
+	"ashley_convo_11": [ {"type":"dialog", "speaker":"ashley", "content":"- Você devia conhecer ele."} ],
+	"ashley_convo_12": [ {"type":"dialog", "speaker":"ashley", "content":"- Acho que cês podiam ser amigos."} ],
+	"ashley_convo_13": [ {"type":"dialog", "speaker":"ashley", "content":"* Ela manda vários emojis,\nmas essa fonte não suporta."} ],
+	"ashley_convo_13": [ {"type":"dialog", "speaker":"ashley", "content":"* (Ela está distraída vendo suas\npróprias fotos)."} ],
+	
+	"ashley_dislike": [ {"type":"dialog", "speaker":"ashley", "content":"- ;-;"} ],
+	"ashley_flirt_0": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você considera elogiar ela também..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* ...mas não tem habilidade\nsocial para isso."}
+	],
+	"ashley_flirt_1": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você tenta pensar em\nalgo bonito nela."},
+		{"type":"dialog", "speaker":"narrator", "content":"* ...mas seria muito superficial\nfalar de beleza."}
+	],
+	"ashley_flirt_2": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você pensa em um elogio!"},
+		{"type":"dialog", "speaker":"narrator", "content":"* ..."},
+		{"type":"dialog", "speaker":"narrator", "content":"* Pensando bem, este não é muito...\n adequado."},
+	],
+	"ashley_flirt_3": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você fica envergonhada com\nsua própria vergonha..."},
+		{"type":"dialog", "speaker":"claire", "content":"- (Por isso que eu fico na minha...)"}
+	],
+	"ashley_flirt_no": [
+		{"type":"dialog", "speaker":"claire", "content":"- (não)"}
+	],
+	"ashley_comment": [ {"type":"dialog", "speaker":"ashley", "content":"- kajsdkajsknasd."} ],
+	"ashley_nospare": [ {"type":"dialog", "speaker":"narrator", "content":"* Ela está ocupada olhando\npara a tela."} ],
+	"ashley_spare": [
+		{"type":"dialog", "speaker":"ashley", "content":"- Te vejo mais tarde."},
+		{"type":"dialog", "speaker":"ashley", "content":"- Agora me bateu um\ncansaço repentino."},
+	],
+	"ashley_pose": [
+		{"type":"dialog", "speaker":"narrator", "content":"* Você faz uma pose dramática!"},
+		{"type":"dialog", "speaker":"ashley", "content":"- Eita, essa vai, hein!"},
+	],
+}
+

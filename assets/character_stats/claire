@@ -1,0 +1,9 @@
+{
+	"MHP": 10
+	"MMP": 10
+	"HP" : 10
+	"ST" : 0
+	"AT" : 1
+	"skills_alias" : "PSI"
+	"skills" : ["bubble_wrap", "hypnosis", "memoria_clavem"]
+}

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/doug.wav-496af27a4ba8236932618e0126d0faa9.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/doug.wav"
+dest_files=[ "res://.import/doug.wav-496af27a4ba8236932618e0126d0faa9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

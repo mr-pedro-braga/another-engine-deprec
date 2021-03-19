@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=2]
+
+[ext_resource path="res://assets/building_places/Simple Objects/Tap.png" type="Texture" id=1]
+[ext_resource path="res://assets/building_places/Simple Objects/Trash Can 2.png" type="Texture" id=2]
+[ext_resource path="res://assets/building_places/Simple Objects/Trash Can 2 open.png" type="Texture" id=3]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "trash_can_closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "tap",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "trash_can_opened",
+"speed": 5.0
+} ]

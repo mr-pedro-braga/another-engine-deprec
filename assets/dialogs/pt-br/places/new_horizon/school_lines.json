@@ -1,0 +1,666 @@
+{
+	"cheat": [
+		{
+			"type": "choice",
+			"speaker": "narrator",
+			"choices": ["Fight", "Warp", "Test Route", "Nevermind"],
+			"icons": ["fight", "flirt", "ch_bruno", "wait"],
+			"question": "* Cheat Menu",
+			"answers": []
+		}
+	],
+	"cutscene_2_1": [
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- *huff huff*"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- Ah, entendi agora."},
+		
+		{"type":"soundtrack", "action":"restart"},
+		
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬SCaramba, você viu aquilo?¬N"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬STava lotado!¬N"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ah..."},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- então...¢¢¢ nós vamos ficar aqui dentro dessa sala escura?"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Ué¢¢¢, alguma ideia melhor?"},
+		{"type":"wait", "amount":2.0},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- não..."},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- A gente tá lascado..."}
+	],
+	"cutscene_2_2": [
+		{"type":"soundtrack", "action":"pause"},
+		
+		{"type":"dialog", "speaker":"andy",
+		"content":"- É, estamos mesmo."}
+	],
+	"cutscene_2_3": [
+		{"type":"soundtrack", "action":"restart"},
+		
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬SAAAAAAAA Que¢¢¢\n- Cara!"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Não me grite.", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Se alguém devia estar\ngritando, esse alguém sou eu.", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Você quase me mata de susto!", "portrait":"bruno_scared"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- ...\n- Quem entrou correndo foi você,\nnão foi?.", "portrait":"andy_mild_mad"},
+		
+		{"type":"soundtrack", "action":"pause"},
+		
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Mmm...¢¢ tá, você tá certo.", "portrait":"bruno_smile"},
+		
+		{"type":"soundtrack", "action":"restart"},
+		
+		{"type":"mroute", "character":"bruno", "route":[
+				{"type": "delta", "target": [0, -32]},
+				{"type": "absolute", "target": [97, 75]},
+				{"type": "absolute", "target": [161, 75]},
+				{"type": "goto", "line": 1}
+			]},
+		{"type":"mroute", "character":"andy", "route":[
+				{"type":"action", "action":"sit"}
+			]},
+		{"type":"dialog", "speaker":"bruno", "portrait":"bruno_worried",
+		"content":"- Ai caramba..."},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Que que eu vou fazer...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Que que tá acontecendo...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Será que é...¢¢¢\n- Sla, um apocalipse zumbi...", "portrait":"bruno_worried"},
+		{"type":"mroute", "character":"claire", "route":[
+				{"type":"speed", "value":32},
+				{"type":"absolute", "target":[198, 98]}, {"type":"wait", "amount":0.4},
+				{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":3}, {"type":"wait", "amount":0.1},
+				{"type":"dir", "angle":4}, {"type":"wait", "amount":0.1},
+				{"type":"action", "action":"sit"}
+			]},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Um apocalipse zumbi...", "portrait":"andy_mild_mad"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Me dá um tempo, Andy,\ntô tentando pensar.", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Será que tá tudo bem em casa...\n- Minha mãe, minhas irmãs...", "portrait":"bruno_worried"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Ei,¢¢ não adianta ficar\nandando pra lá e pra cá.", "portrait":"andy_sad"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Vamos usar a cabeça.", "portrait":"andy_cool"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- que...", "portrait":"bruno_worried"},
+		{"type":"mroute", "character":"bruno", "route":[{"type":"dir", "angle":5}]},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Como você tá tão calmo...", "portrait":"bruno_confused"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Eu sou a definição de calmo.", "portrait":"andy_sad"},
+		{"type":"mroute", "character":"bruno", "route":[
+			{"type":"speed", "value":16},
+			{"type":"absolute", "target":[160, 64]}, {"type":"wait", "amount":0.2},
+			{"type":"dir", "angle":1}, {"type":"wait", "amount":0.1},
+			{"type":"dir", "angle":2}, {"type":"wait", "amount":0.1},
+			{"type":"action", "action":"check"}
+		]},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- \"Definição de calmo...\"", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- tsc,¢¢ me poupe, viu...", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Você não tá nem fazendo nada.", "portrait":"bruno_frisk"},
+		{"type":"pose", "character":"andy", "action":"sit_look"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- E quem é essa menina\nque você trouxe?", "portrait":"andy_side"},
+		{"type":"dialog", "speaker":"bruno", "portrait":"bruno_worried",
+		"content":"- Sei lá,¢¢¢ pergunte a ela."},
+		{
+			"type": "choice",
+			"speaker": "andy",
+			"choices": ["\"...\"", "\"Não sei.\"", "\"Claire.\""],
+			"icons": ["talk", "talk", "talk"],
+			"question": "- Psst,¢¢ guria.¢¢¢\n- Quem é você?",
+			"answers": [
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- Ih, o gato comeu sua língua?", "portrait":"andy_side"},
+					{"type":"dialog", "speaker":"andy",
+					"content":"- Tudo bem.", "portrait":"andy_smile"}
+				],
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- Ixe, a menina não sabe\nnem quem é.", "portrait":"andy_side"}
+				],
+				[
+					{"type":"dialog", "speaker":"andy",
+					"content":"- \"Claire\"?¢¢ Nome bonito.", "portrait":"andy_side"}
+				]
+			],
+			"portrait":"andy_side"
+		},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Meu nome é ¬C01Andy¬C00.", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Droga, sem sinal.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Tenta se acalmar um pou-¢¢\n- Hm...", "portrait":"andy"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Que foi?", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Agora que tem nós três...¢\n- A gente podia ir lá fora.", "portrait":"andy_think"},
+		{"type":"dialog", "speaker":"bruno_smile",
+		"content":"- Nem a pau que eu\nvou sair daqui.", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"andy",
+		"content":"- Tá bom, então...", "portrait":"andy"}
+	],
+	"cutscene_2_4": [
+		{"type":"dialog", "speaker":"andy", "content":"- Ei, você acha que nós dois\nconseguiríamos chegar no portão?", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- É só a gente meter porrada\ne abrir caminho.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"claire", "content":"- Não sei não...", "portrait":"claire"},
+		{"type":"dialog", "speaker":"andy", "content":"- Ah¢, ¢e, se eu não me engano¢¢\ntem uma máquina de lanches\n lá fora.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- A gente pode passar lá e\npegar umas batatinhas¢¢\n salgadinhas¢¢ gostosinhas.", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"claire", "content":"- É, parece que fui convencida.", "portrait":"claire_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- Se vocês saírem eu vou\nfechar a porta.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"andy", "content":"- A gente volta pra te buscar.", "portrait":"andy_confident"}
+	],
+	"cutscene_2_5": [
+		{"type":"dialog", "speaker":"bruno", "content":"- Eu vou ver se consigo hackear\nalgum WiFi e chamar ajuda.", "portrait":"bruno_frisk"},
+		{"type":"dialog", "speaker":"claire", "content":"- Com um joguinho?", "portrait":"claire"},
+		{"type":"dialog", "speaker":"bruno", "content":"- Não se engane,\nisto é um computador\nmuito poderoso.", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"claire", "content":"- Como assim?", "portrait":"claire_smile"},
+		{"type":"speech_delay", "amount":0.005},
+		{"type":"dialog", "speaker":"bruno", "content":"- Esta é minha ¬C01Arma d'ALMA¬C00.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- Almas tem um poder de\nprocessamento bem alto.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- Eu linko os dois via QLNK2\n e aí...", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- É como uma UI conveniente\npra minha ler e escrever QC.", "portrait":"bruno_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- E com apps, e internet.", "portrait":"bruno_smile"},
+		{"type":"speech_delay", "amount":0.03},
+		{"type":"dialog", "speaker":"claire", "content":"- Não entendi nada que\nvocê disse,¢¢ mas parece\n bom!", "portrait":"claire_smile"},
+		{"type":"dialog", "speaker":"bruno", "content":"- E é.", "portrait":"bruno_smile"}
+	],
+	"cutscene_2_6": [
+		{
+			"type":"dialog",
+			"speaker":"narrator",
+			"content":"* Esta é a face de um verdadeiro\n hacker."
+		}
+	],
+	"library_poster": [
+		{
+			"type":"dialog",
+			"speaker":"narrator",
+			"content":"* Duas séries de jogos maravilhosas."
+		}
+	],
+	"library_dont_leave": [
+		{
+			"type":"dialog",
+			"speaker":"claire",
+			"content":"- (Eu não vou lá sozinha.)", "portrait": "claire"
+		},
+		{"type":"mroute", "character":"claire", "route":[ {"type":"delta", "target": [0, -32]} ]}
+	],
+	"library_leave_attack_1": [
+		{"type":"dialog", "speaker":"andy", "content":"- Ah, mas, preste atenção.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- Temos que estar preparados\npra qualquer coisa.", "portrait":"andy_confident"},
+		{"type":"dialog", "speaker":"claire", "content":"- Certo.¢.¢.¢¢ vamos no três.", "portrait":"claire"},
+		{"type":"soundtrack", "action":"pause"},
+		{"type":"dialog", "speaker":"claire", "content":"- Um...¢¢\n- Dois...", "portrait":"claire"}
+	],
+	"library_leave_attack_2": [
+		{"type":"dialog", "speaker":"andy", "content":"- ¬SHUYAAAAA!!!!!¬N", "portrait":"andy_attack"},
+		{"type":"dialog", "speaker":"andy", "content":"- ¢¢.¢¢.¢¢.", "portrait":"andy"},
+		{"type":"dialog", "speaker":"andy", "content":"- Devem tar tirando um\ncochilo.", "portrait":"andy_smile"}
+	],
+	"vm_see": [
+			{"type":"dialog", "speaker":"andy", "portrait":"andy",
+			"content":"- Aí está ela!\n¢¢- Você tá com dinheiro,\npor acaso?"},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- Não..."},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_think",
+			"content":"- Putz,¢¢¢ hm...¢¢¢\n- Bem que a gente podia..."},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- ...só quebrar o vidro,\nou algo assim."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- Não!"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- Qual é,\né uma emergência, não é?"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- E tipo,¢¢ se estivermos num¢\n¬Wapocalipse zumbi¬N,"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- Alguem iria fazer isso,\nde qualquer forma."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire_smile",
+			"content":"- Nada disso,¢¢¢\n- ¬WNão podemos¢ deixar a¢¢ anarquia¢¢\ntomar conta de nós!!¬N"},
+			{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+			"content":"- Tá,¢¢¢ você quem manda."},
+			{"type":"dialog", "speaker":"claire", "portrait":"claire",
+			"content":"- ..."}
+		],
+	"vm_chips": [
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* Nem tem nada aí dentro.¢¢¢¢\n* Mas,¢¢ quem sabe..."
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* (Você coloca a mão pra ver se tem\nalgo em baixo.)"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* ¢¢.¢¢.¢¢.¢¢¢¢!¢\n* Batatinhas ¬Ssalgadinhas¬N encontradas,\naí sim!"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* (Experimente apertar [I])."
+			}
+		],
+	"vending_machine": [{"type":"dialog", "speaker":"narrator", "content":"* Não tem mais nada aqui."}],
+	"avoid": [
+				{"type":"dialog", "speaker":"andy", "portrait":"andy_smile",
+				"content":"- Não disse?"},
+				{"type":"dialog", "speaker":"andy", "portrait":"andy",
+				"content":"- Vamos passar de fininho..."}
+			],
+	"cgoback": [
+				{"type":"dialog", "speaker":"narrator",
+				"content":"* (Melhor não chegar perto,\nnão acha?)"}
+			],
+	"cgoback2": [
+				{"type":"dialog", "speaker":"andy", "portrait":"andy_eh",
+				"content":"* (Não fique perambulando por aí.)"}
+			],
+	"careful_wet_floor": [{"type":"dialog", "speaker":"narrator", "content":"* Cuidado!\n* Chão ¬C05molhado¬C00."}],
+	"poster": [
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* Nada de interessante."
+			},
+			{
+				"type":"dialog",
+				"portrait": "andy_proud",
+				"speaker":"andy",
+				"content":"- Olha só!\n- É a ¬W¬C01parada de orgulho ExH!¬C00¬N"
+			},
+			{
+				"type":"dialog",
+				"speaker":"andy",
+				"content":"- Eu que fiz esse pôster :)"
+			},
+			{
+				"type":"dialog",
+				"speaker":"narrator",
+				"content":"* Levemente interessante.",
+				"portrait": "none"
+			}
+		],
+	"locked_locker": [{"type":"dialog", "speaker":"narrator", "content":"* O armário está trancado."}],
+	"corrupted_plant": [{"type":"dialog", "speaker":"narrator", "content":"* Uma planta¢¢.¢¢.¢¢.¢¢ brilhando.¢.¢.¢?"},
+	{"type":"dialog", "speaker":"narrator", "content":"* Parece estar¢¢ ¬C01distorcida¬C00."}],
+	"locked_door":
+			[{"type":"dialog", "speaker":"narrator", "content":"* A porta está trancada."},
+			{"type":"dialog", "portrait": "andy", "speaker":"andy", "content":"- Faz sentido.\n¢- Afinal, as portas ficam fechadas\nà noite."}],
+	"what_we_do":
+		[
+			{"type":"dialog", "speaker":"claire", "content":"- Andy...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- O que foi?", "portrait":"andy"},
+			{"type":"dialog", "speaker":"claire", "content":"- O que nós vamos fazer se\nencontrarmos algum¢.¢.¢.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Hm...", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Nós¢.¢.¢.¢\npodemos ter que\nentrar numa batalha.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"claire", "content":"- ¬Thm...¬N", "portrait":"claire_down"},
+			{"type":"dialog", "speaker":"andy", "content":"- Não se preocupe,¢¢\n comigo do seu lado,\nnada vai acontecer de ruim.", "portrait":"andy_smile"}
+			
+		],
+	"battle1_0":
+		[
+			{"type":"dialog", "speaker":"claire", "content":"- Eu tô começando a achar que...\n- A gente devia voltar...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- A gente tá quase lá.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Você estava tão confiante.", "portrait":"andy_confident"},
+			{"type":"pose", "character":"claire", "angle":4},
+			{"type":"dialog", "speaker":"claire", "content":"- Não durou muito, né...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"claire", "content":"- Eu estou sentindo um\nmau pressentimento.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"claire", "content":"- Tá tudo muito quieto.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- É verdade.\n- Onde estão os bicho de\nque vocês estavam falando?", "portrait":"andy_think"},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "content":"- É melhor que a gente\nnem encontre.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Tsc, relaxa guria.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Aliás, tive uma ideia.", "portrait":"andy"},
+			{"type":"mroute", "character":"andy", "route":[
+				{"type":"delta", "target":[0, -16]},
+				{"type":"absolute", "target":[458, -288]},
+				{"type":"delta", "target":[0, 16]},
+				{"type":"dir", "angle":4}
+			]},
+			{"type":"await_mroute", "character":"andy"},
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"dialog", "speaker":"andy", "content":"- Vou te ensinar a lutar.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- que, naao.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Primeiramente, nós temos que\nsincronizar.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Não não, espera aí.\n- Por que a gente tá fazendo\nisso, mesmo?", "portrait":"claire_question"},
+			
+			{"type":"dialog", "speaker":"andy", "content":"- Relaaaaxa.\n- Olha, menina.", "portrait":"andy_relaax"},
+			{"type":"dialog", "speaker":"andy", "content":"- Eu só vou te mostrar\ncomo é uma luta.", "portrait":"andy_relaax"},
+			{"type":"dialog", "speaker":"andy", "content":"- É até divertido!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Mas a ideia não é ¢não¢ lutar?", "portrait":"claire_question"},
+			{"type":"dialog", "speaker":"andy", "content":"- Você não disse que tava\ncom um mau pressentimento?", "portrait":"andy_smile"},
+			{"type":"pose", "character":"claire", "angle":2},
+			{"type":"speech_delay", "amount":0.03},
+			{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢.", "portrait":"claire_up"},
+			{"type":"dialog", "speaker":"claire", "content":"- mas¢¢¢ não é perigoso?", "portrait":"claire_down"},
+			{"type":"dialog", "speaker":"andy", "content":"- Mais um motivo pra se\npreparar.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Bora, bora.", "portrait":"andy_proud"},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "content":"- tá...\n- o que eu tenho que fazer?", "portrait":"claire"},
+			{"type":"speech_delay", "amount":0.06},
+			{"type":"dialog", "speaker":"andy", "content":"- Primeiro,¢¢ olhe nos\nmeus olhos.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- E então esqueça de\ntodo o resto.", "portrait":"andy"}
+		],
+		"battle1_1": [
+			{"type":"dialog", "speaker":"claire", "content":"- ¢¢.¢¢.¢¢.", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Preparada?", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"claire", "content":"- não", "portrait":"claire"}
+		],
+	"null":[],
+	"andy_battle_comment":[
+			{"type":"dialog", "speaker":"narrator", "content":"* O que você irá fazer?", "portrait":"none"}
+		],
+	"andy_battle_spared":[
+			{"type":"dialog", "speaker":"narrator", "content":"* Andy está te POUPANDO.", "portrait":"none"}
+		],
+	"andy_battle_nospare":[
+			{"type":"dialog", "speaker":"narrator", "content":"* O \"oponente\" ainda quer lutar.", "portrait":"none"},
+			{"type":"dialog", "speaker":"narrator", "content":"* Tente fazer algo que faria\nele mudar de ideia.", "portrait":"none"}
+		],
+	"andy_battle_spare":[
+			{"type":"dialog", "speaker":"andy", "content":"- Pronto,¢¢ vitória para\nnós dois!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Desta forma,¢¢\nninguém se machuca.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Justo.", "portrait":"claire_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Podemos continuar a missão,\ncomandante?", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"claire", "content":"- Tá,¢¢ podemos.", "portrait":"claire_smile"}
+		],
+	"andy_battle_hug2":[
+			{"type":"dialog", "speaker":"narrator", "content":"* Andy é bom de abraçar.\n¢¢* ..mas chega.", "portrait":"none"}
+		],
+	"andy_battle_offense2":[
+			{"type":"dialog", "speaker":"narrator", "content":"* Você não quer machucar\nos sentimentos dele,¢¢ quer?", "portrait":"none"}
+		],
+	"andy_battle_0":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Tá vendo esta ¬C07FLOR¬C00?", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Esta é sua ¬C07ALMA¬C00,\n a culminação do seu ser.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Tipo,¢¢¢ ela ¢¢É¢¢¢ o que você É.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Nela estão suas memórias,\nseus medos...", "portrait":"andy_anime"},
+			{"type":"dialog", "speaker":"andy", "content":"- E sua força de vontade!", "portrait":"andy_anime"},
+			{"type":"dialog", "speaker":"andy", "content":"- Durante a batalha,\n a sua ALMA e a do oponente", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"  disputam o controle.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- E agora, é sua vez!", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Então?¢¢\n - O que você irá fazer?", "portrait":"andy_confident"}
+		],
+	"andy_battle_ouch":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Ai, pera, também não precisa bater.", "portrait":"andy_sad"},
+			{"type":"dialog", "speaker":"andy", "content":"- Coitado dos monstros,\nvocê não tem coração?.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- Tenta só espantar.", "portrait":"andy_smile"}
+		],
+	"andy_battle_hug":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- uh...¢¢\n- que¢¢ fofo,¢¢ obrigado??", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- mas se eu fosse um monstro,¢¢\n eu iria querer é ficar...", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- quer saber?\n- eu vou aceitar.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- Irei te ¬C01POUPAR¬C00.", "portrait":"andy"}
+		],
+	"andy_battle_offense":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- *gasp*¢¢.\n- Menina,¢¢ que é isso...", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Quero nem mais lutar.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Me ¬C01POUPE¬C00, viu...", "portrait":"andy_confident"}
+		],
+	"andy_battle_hug_of":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- uh...¢¢\n- que¢¢ fofo,¢¢ eu te perdoo.", "portrait":"andy_smile"}
+		],
+	"andy_battle_offense_hg":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Primeiro abraça,¢¢ depois me xinga.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- É assim mesmo, a vida né..", "portrait":"andy"}
+		],
+	"andy_battle_1":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Na vez do oponente,\nvocê deve desviar", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"  dentro do ¬C02padrão¬C00.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Vamos, desvie!", "portrait":"andy_proud"}
+		],
+	"andy_battle_2":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- A ideia é fazer o oponente\nnão querer mais lutar.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- E não se machucar enquanto\nfaz isso.", "portrait":"andy"}
+		],
+	"andy_battle_3":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Viu? Extremamente simples.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"andy", "content":"- Mas tente fazer algo pra ganhar.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Finja que eu sou um monstrinho.", "portrait":"andy_confident"},
+			{"type":"dialog", "speaker":"andy", "content":"- ¬SGNHAAAARK¬N", "portrait":"andy_confident"}
+		],
+	"andy_battle_1_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Mas, calma, ainda não te\nmostrei como se desvia.", "portrait":"andy"},
+			{"type":"dialog", "speaker":"andy", "content":"- Você... ¢¢hm...\n¢¢desvia desviando.", "portrait":"andy_think"},
+			{"type":"dialog", "speaker":"andy", "content":"- Só vai.", "portrait":"andy_smile"}
+		],
+	"andy_battle_2_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Enquanto você não me POUPA,\nvou te atacar mais um pouquinho.", "portrait":"andy_smile"}
+		],
+	"andy_battle_3_spared":[
+			{"type":"speech_delay", "amount":0.02},
+			{"type":"wait", "amount":1.0},
+			{"type":"dialog", "speaker":"andy", "content":"- Só esperando você me poupar...", "portrait":"andy_smile"}
+		],
+	"locked_door_psy":
+		[{"type":"dialog", "speaker":"narrator", "content":"* \"Sala do psicólogo.\".¢\n- Trancado."}],
+	"locked_door_principal":
+		[{"type":"dialog", "speaker":"narrator", "content":"* \"Sala do diretor\".¢\n- Trancado."},
+			{"type":"dialog", "speaker":"andy", "content":"- Tá trancado, né?", "portrait":"andy"},
+			{"type":"dialog", "speaker":"claire", "content":"- Sim...", "portrait":"claire"},
+			{"type":"dialog", "speaker":"andy", "content":"- Com licencinha.", "portrait":"andy"},
+			{"type":"mroute", "character":"claire", "route":[
+				{"type":"absolute", "target": [472, -318]},
+				{"type":"delta", "target": [2, 0]}
+			]},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"mroute", "character":"andy", "route":[
+				{"type":"absolute", "target": [488, -318]},
+				{"type":"dir", "angle":7},
+				{"type":"wait", "amount":1.0}
+			]},
+			{"type":"await_mroute", "character":"andy"},
+			{"type":"pose", "character":"andy", "action":"kick", "angle":7},
+			{"type":"function", "function":"door_yeet"},
+			{"type":"dialog", "speaker":"andy", "content":"- ¬SHUYAAAAA!!!!!¬N", "portrait":"andy_attack"},
+			{"type":"dialog", "speaker":"andy", "content":"- Tá, vamos tentar não\ndestruir mais nada.", "portrait":"andy_smile"},
+			{"type":"dialog", "speaker":"claire", "content":"- Ótimo, porquê nós já\narrebentamos três portas\naté agora.", "portrait":"claire"},
+			{"type":"pose", "character":"andy", "action":"idle", "angle":4}
+			
+		],
+	"crash_comment":
+		[{"type":"dialog", "speaker":"andy", "content":"- Olha só, pegamos um!", "portrait":"andy_smile"},
+		{"type":"dialog", "speaker":"claire", "content":"- ¬Taaaaa¬N.", "portrait":"claire"},],
+	"crash_monster":
+		[{"type":"dialog", "speaker":"andy", "content":"- Eu tenho um chute bem forte,\nnão acha?", "portrait":"andy_smile"},],
+	"principal_AC":
+			[{"type":"dialog", "speaker":"narrator", "content":"* Um ar-condicionado.\n* Pra condicionar o ar."}],
+	"principal_get_item":
+			[{"type":"dialog", "speaker":"narrator", "content":"* Chave encontrada!¢¢\n* Use-a para abrir a saída!"}],
+	"principal_got_item":
+			[{"type":"dialog", "speaker":"narrator", "content":"* Tá, chega de mexer nas coisas dos outros."}],
+	"what_could_go_wrong":
+		[
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- Viu? Foi bem rápido.\n- A gente basicamente já escapou."},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire", "content": "- Ainda temos que voltar pelo meio deles..."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy", "content": "- ...e eles estão dormindo.\n- Foi bem fácil da primeira vez..."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_think", "content": "- Só precisamos ser ninjas denovo."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- Qual é, o que pode dar erra¹do?"},
+			{"type":"pose", "character":"claire", "angle":0},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire", "content": "- (Shhhhh).¢¢\n- (Não¢¢ diga¢¢ isso!)"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_mild_mad", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_mild_mad", "content": "- \"O que pode dar errado?\""},
+			{"type":"dialog", "speaker":"claire", "character":"claire", "portrait":"claire_up", "content": "- ah meu pai do céu."},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_side", "content": "- .¢¢.¢¢.¢¢"},
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy_smile", "content": "- Viiiu?\n¢¢- Vamos andando."},
+			{"type":"pose", "character":"claire", "angle":4},
+		],
+	"then_it_goes_wrong":
+		[
+			{"type":"dialog", "speaker":"andy", "character":"andy", "portrait":"andy", "content": "- É... Isso foi bem ruim."},
+		],
+	"locked_door_lab":
+			[{"type":"dialog", "speaker":"narrator", "content":"* \"Laboratório de Aura\".¢\n- Trancado."}],
+	"wet_floor_battle": [{"type":"dialog", "speaker":"narrator", "content":"* Cuidado! Chão ¬C05molhado¬C00."}],
+	
+	"board_move": [
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* Lembre-se de ¬C01mover sua ALMA\nem batalhas.¬C00"}
+		],
+	"board_derivative": [
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* \"A derivada de ln(x) é o inverso de x.\""},
+		{"type":"dialog",
+		"speaker":"narrator",
+		"content":"* Obviamente."}
+		],
+	"safe_room_1": [
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ..."}
+	],
+	"safe_room_2": [
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno_w",
+		"content":"- ¬TAh- você acordou?¬N"},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- ..."},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- ...pelo visto...?"},
+		{"type":"wait", "amount":2.0},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":2},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Ah, ótimo."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Que bom¢¢¢, eu acho."},
+		{"type":"dialog", "speaker":"claire", "portrait": "claire",
+		"content":"- Por que que eu estou\nna escola..¢¢¢ de noite?"},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":7},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Ah, nem olhe pra mim.\n- Eu acordei lá fora¢¢¢ e\nvocê estava desacordada."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Tem umas...\n¬Tcoisas muito bizarras¬N\nacontecendo lá fora..."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Aí eu te trouxe aqui."},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Então, é..."},
+		{"type":"pose", "character":"bruno", "action":"idle", "angle":2},
+		{"type":"dialog", "speaker":"bruno", "portrait": "bruno",
+		"content":"- Tome seu tempo, aí..."}
+	],
+	"safe_room_3": [
+		{"type":"choice", "question":"* (SETAS para escolher,\nZ para confirmar.)", "speaker":"narrator",
+		"choices":["O que é isso...?","Quem é você.",  "O que são as... \"coisas\"...?"],
+		"icons":["game", "ch_bruno", "question"], "answers":[
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- que¢¢\n- ah", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- É um console de videogame.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Este negócio aqui é tipo\num mini PC praticamente.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- eu to tentando achar algo aqui,¢ sla, qualquer coisa.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- AFF. Sem internet ainda.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- que droga."}
+			],
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Bruno.¢¢\nEu acho.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Eu¢ não consigo lembrar\nde nada direito.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Aqui no PC diz que é 17 de OUTUBRO.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Que merda que tá acontecendo, véi...", "portrait":"bruno"}
+			],
+			[
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Uns bichos estranhos.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- Meio que de gosma e\n¬Tmuito assustadores¬N.", "portrait":"bruno"},
+				{"type":"dialog", "speaker":"bruno",
+				"content":"- O melhor é que você não dê\nde cara com um.", "portrait":"bruno"}
+			]
+		]}
+	],
+	"safe_room_4": [
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- ¬WUh...¬N", "portrait":"bruno"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Cê¢¢... cê ouviu isso?", "portrait":"bruno"},
+		{"type":"pose", "character": "claire", "angle": 4, "action": "idle"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- ¢¢Ué¢¢, sim.", "portrait":"claire"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- Foi só eu fechando a porta.", "portrait":"claire"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": -1, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": -1, "action": "idle"},
+		{"type":"wait", "amount":1.0},
+		{"type":"pose", "character": "bruno", "angle": 0, "action": "idle"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Do que você tá falando,\nnão tem porta nenhuma aqui.¬N", "portrait":"bruno"},
+		{"type":"pose", "character": "claire", "angle": 3, "action": "not_crazy"},
+		{"type":"dialog", "speaker":"claire",
+		"content":"- Eu não sou maluca.", "portrait":"claire"},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Ninguém disse isso, tá.\n- Quer saber, esquece."},
+		{"type":"dialog", "speaker":"bruno",
+		"content":"- Eu acho que eu to quase."},
+		{"type":"pose", "character":  "bruno", "angle": 6, "action": "idle"},
+		{"type":"pose", "character": "claire", "angle": 6, "action": "idle"}
+	],
+	"safe_room_5": [
+		{"type":"wait", "amount": 2.0},
+		{"type":"dialog", "speaker":"rodrick",
+		"content":"- ¬WPutz...¬N"},
+		{"type":"dialog", "speaker":"rodrick",
+		"content":"- Aqui num é o banheiro não, né?"}
+	]
+}
