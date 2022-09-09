@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mus_worth_and_honor.mp3-29f198a44a3c487ff46eadc1557ce8ff.mp3str"
+
+[deps]
+
+source_file="res://assets/music/mus_worth_and_honor.mp3"
+dest_files=[ "res://.import/mus_worth_and_honor.mp3-29f198a44a3c487ff46eadc1557ce8ff.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

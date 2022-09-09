@@ -9,12 +9,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -193.0
 margin_bottom = -123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Texture" type="TextureRect" parent="."]
+[node name="Texture" type="NinePatchRect" parent="."]
 margin_top = -6.0
-margin_right = 54.0
+margin_right = 48.0
 margin_bottom = 6.0
 texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 54, 12 )
+patch_margin_left = 3
+patch_margin_right = 7
+axis_stretch_horizontal = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

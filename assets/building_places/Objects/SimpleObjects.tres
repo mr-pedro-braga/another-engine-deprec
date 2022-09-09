@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://assets/building_places/Objects/Door-Twisted-Closed.png" type="Texture" id=1]
+[ext_resource path="res://assets/building_places/Objects/Door-Backstage.png" type="Texture" id=2]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "backstage_door",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "twisted_door",
+"speed": 5.0
+} ]

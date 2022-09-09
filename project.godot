@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Camera2D",
 "class": "BetterCamera",
 "language": "GDScript",
-"path": "res://assets/Camera.gd"
+"path": "res://assets/scripts/Camera.gd"
 }, {
 "base": "Node2D",
 "class": "CharChoice",
@@ -28,11 +28,6 @@ _global_script_classes=[ {
 "class": "Character",
 "language": "GDScript",
 "path": "res://assets/modular_scenes/Character.gd"
-}, {
-"base": "Node",
-"class": "CharacterStats",
-"language": "GDScript",
-"path": "res://assets/character_stats/CharacterStats.gd"
 }, {
 "base": "Node2D",
 "class": "Choice",
@@ -54,10 +49,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/scripts/DefaultScene.gd"
 }, {
+"base": "EventReference",
+"class": "DialogEvent",
+"language": "GDScript",
+"path": "res://assets/scripts/Construction/DialogEvent.gd"
+}, {
 "base": "Node",
 "class": "EventEssentials",
 "language": "GDScript",
 "path": "res://assets/scripts/Utilities/EventEssentials.gd"
+}, {
+"base": "Area2D",
+"class": "EventReference",
+"language": "GDScript",
+"path": "res://assets/scripts/Construction/EventReference.gd"
 }, {
 "base": "Node",
 "class": "Inventory",
@@ -69,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/items/Item.gd"
 }, {
-"base": "Node",
-"class": "JSONBeautifier",
-"language": "GDScript",
-"path": "res://addons/json_beautifier/json_beautifier.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Kuro",
 "language": "GDScript",
@@ -84,25 +84,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/scripts/NodeCollection.gd"
 }, {
-"base": "Node",
-"class": "Persistence",
+"base": "EventReference",
+"class": "PathwayEvent",
 "language": "GDScript",
-"path": "res://addons/PersistenceNode/persistence_node.gd"
+"path": "res://assets/scripts/Construction/Pathway.gd"
 }, {
 "base": "Node",
 "class": "PocketGame",
 "language": "GDScript",
 "path": "res://assets/building_places/Special Scenes/PocketGame.gd"
 }, {
-"base": "Area2D",
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://assets/battle/battle_patterns/battle_sub_patterns/bullet.gd"
+}, {
+"base": "Reference",
+"class": "SSEX_Attack",
+"language": "GDScript",
+"path": "res://assets/scripts/SceneScript_Atk.gd"
+}, {
+"base": "EventReference",
 "class": "SceneEvent",
 "language": "GDScript",
-"path": "res://assets/scripts/Event.gd"
+"path": "res://assets/scripts/Construction/Event.gd"
 }, {
 "base": "Reference",
 "class": "SceneScript",
 "language": "GDScript",
 "path": "res://assets/scripts/SceneScript.gd"
+}, {
+"base": "Node2D",
+"class": "ScriptableEmitter",
+"language": "GDScript",
+"path": "res://assets/scripts/ScriptableEmitter.gd"
+}, {
+"base": "Node",
+"class": "SoundManagerModule",
+"language": "GDScript",
+"path": "res://addons/sound_manager/module/internal_scripts/SoundManager_config.gd"
 }, {
 "base": "ReferenceRect",
 "class": "SpriteText",
@@ -114,21 +134,25 @@ _global_script_class_icons={
 "BetterCamera": "",
 "CharChoice": "",
 "Character": "",
-"CharacterStats": "",
 "Choice": "",
 "ChoiceIcon": "",
 "CustomPlayButtonPlugin": "",
 "DefaultScene": "",
+"DialogEvent": "",
 "EventEssentials": "",
+"EventReference": "",
 "Inventory": "",
 "Item": "",
-"JSONBeautifier": "",
 "Kuro": "",
 "NodeCollection": "",
-"Persistence": "res://addons/PersistenceNode/icon.png",
+"PathwayEvent": "",
 "PocketGame": "",
+"Projectile": "",
+"SSEX_Attack": "",
 "SceneEvent": "",
 "SceneScript": "",
+"ScriptableEmitter": "",
+"SoundManagerModule": "",
 "SpriteText": ""
 }
 
@@ -136,13 +160,12 @@ _global_script_class_icons={
 
 config/name="Inner Voices"
 config/description="A psychological fantasy jRPG about the nature of being human and the uniqueness of each human being."
-run/main_scene="res://assets/game_root.tscn"
+run/main_scene="res://assets/scripts/game_root.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Inner_Voices"
-boot_splash/image="res://assets/images/logo.png"
-boot_splash/fullsize=false
+boot_splash/image="res://assets/images/big-cover.png"
 boot_splash/use_filter=false
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://assets/images/icon_32.png"
 config/macos_native_icon="res://assets/images/icon_16.icns"
 config/windows_native_icon="res://assets/images/icon_16.ico"
@@ -161,6 +184,7 @@ MinigameCore="*res://assets/scripts/Gameplay/MinigameCore.gd"
 BattleCore="*res://assets/scripts/Gameplay/BattleCore.gd"
 SceneLoader="*res://assets/scripts/SceneLoader.gd"
 Gameplay="*res://assets/scripts/Gameplay.tscn"
+SpeechSynth="*res://addons/godot-tts/TTS.gd"
 
 [debug]
 
@@ -172,11 +196,10 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=240
 window/size/height=135
-window/size/test_width=1600
-window/size/test_height=900
+window/size/test_width=1280
+window/size/test_height=720
 window/dpi/allow_hidpi=true
 window/vsync/vsync_via_compositor=true
-window/per_pixel_transparency/allowed=true
 mouse_cursor/custom_image="res://assets/user_interface/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 2, 2 )
 window/stretch/mode="2d"
@@ -184,11 +207,15 @@ window/stretch/aspect="keep"
 
 [editor]
 
-search_in_file_extensions=PoolStringArray( "gd", "shader", "json" )
+search_in_file_extensions=PoolStringArray( "gd", "shader", "json", "sson" )
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/CustomDFM/plugin.cfg", "res://addons/fabianlc_custom_play_scene_button/plugin.cfg", "res://addons/folder_node/plugin.cfg", "res://addons/messagebox/plugin.cfg", "res://addons/sprite_trail/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/Chroma SSON Support/plugin.cfg", "res://addons/CommandPalettePopup/plugin.cfg", "res://addons/CursorCoordinates/plugin.cfg", "res://addons/CustomDFM/plugin.cfg", "res://addons/ImportCleaner/plugin.cfg", "res://addons/fabianlc_custom_play_scene_button/plugin.cfg", "res://addons/folder_node/plugin.cfg", "res://addons/messagebox/plugin.cfg", "res://addons/sprite_trail/plugin.cfg", "res://addons/xphere-zone/plugin.cfg" )
+
+[global]
+
+frame=false
 
 [importer_defaults]
 
@@ -239,14 +266,14 @@ move_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
  ]
 }
-run={
+move_run_charge={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
-sneak={
+move_sneak={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
@@ -305,6 +332,15 @@ screenshot={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777245,"unicode":0,"echo":false,"script":null)
  ]
 }
+Sightless_Echo={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
@@ -315,10 +351,10 @@ screenshot={
 
 [rendering]
 
-quality/intended_usage/framebuffer_allocation=0
-quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
 threads/thread_model=2
 batching/options/single_rect_fallback=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/depth/hdr.mobile=true
 environment/default_environment="res://default_env.tres"
+quality/2d/use_pixel_snap=true

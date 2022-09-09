@@ -1,0 +1,98 @@
+--dark_intro
+	speech_delay 0.1
+	Claire (): ...
+	speech_delay 0.07
+	* Poor girl.
+	* Lost, and confused...
+	* But, I must say...
+	* You¢¢ ARE a brave one.
+	* Listen carefully.
+	wait 2.0
+	bgm resume
+	* You have commited a terrible mistake.
+	* And,¢¢ now,¢¢ must pay for it.
+	speech_delay 0.15
+	* ¢¢¢With your ¬W¬C02SOUL¬C00¬N.
+
+--goodbye
+	speech_delay 0.1
+	* Goodbye.
+
+--make_fun_of
+	speech_delay 0.05
+	Pierre(none): Meow!\n- (You were right, boss!)
+	Pierre(none): (That was priceless!)
+	* Well,¢¢ it was rather obvious...\n¢¢¢* But it WAS quite funny!
+	Pierre(none): It was cheesy, but.¢.¢.¢ look at her,\nshaking in her boots!
+	Claire(): aaaaaaaaaaaaa
+
+--talk_1
+	* Chillax mate¢¢¢, it ain't us who's\n gonna kill ya.
+	* In fact,¢¢ we're here to help ya, darling.
+	Claire(none): Oh¢¢.¢¢.¢¢.¢¢ that's nice,¢¢ I guess!\n¢¢¢- Please don't do\nthat ever again.
+	Claire(up): You started saying all\nthose things and...
+--talk_2
+	* Oh,¢¢ it IS all true, in a way.
+	* You must've noticed that\neverything outside is kinda...\ndifferent.
+	* It's all a horrendous shade of navy blue.
+	* Oh, and the people with their minds Twisted,¢¢ too,\npretty nasty if you ask me.
+	Claire(down): Oh... I¹
+	bgm pause
+	* That's cause of \n¬C01yesterday¬C00.
+	* ¬C01Something happened and broke the word,\nbasically.
+	* ¬C01Corrupted everyone's memories.\n¢¢  It left the world...
+	bgm resume
+--talk_3
+	speech_delay 0.08
+	* ¬WFragmented¬N.
+	speech_delay 0.05
+--talk_4
+	* And ¬C01you¬C00 are gonna fix it, of course.
+	Claire(question): Wh-... I...
+	Claire(question): I am confused...
+	* Don't worry,\nit's okay to worry.
+	* But think like that...\n* You did quite good\nup to here, didn't ya?
+	* Didn't even die once!
+	* If you fix this issue with the fabric of reality now...
+	* You're gonna be home\nquite soon,¢¢ eh?
+	* So what do you say?
+		"I can try" (spare):
+			* You can try?
+			* There is absolutely no room for failure here.
+			* We're talking big stakes, Claire.
+		"what do I even have to fix" (talk_eerie):
+			* There's no time to explain it now.
+			* We're in a hurry.
+			* I am a busy person, Claire.
+		"I'm not gonna do this" (talk_bad):
+			* You do realize you have no choice whatsoever,¢¢ right?
+			* It's not like you have somewhere to go.
+			Claire(down): I don't even know you!
+			Claire(): What if you're are a bad person.
+			Claire(): For all I know you could be a zombie.
+			* ...¢¢¢what
+	Claire(): Okay, I'm gonna do it.¢¢ I guess.
+--talk_5
+	* Brilliant!\n¢¢¢* That's the ¬C01SPIRIT¬C00,\ngirl!
+--talk_6
+	pose claire look_up 2
+	Claire(none): (Where's that laughter\ncoming from...)
+	pose claire idle 2
+	pose claire idle 6
+	* Worry not, Claire.
+	* You're the perfect person\nfor this job.
+	* Saving the world,¢¢ that's what teenagers do best, right?
+	* And Pierre, the cat, will help you with incidental support.
+	* He'll be the perfect companion in these trying times.
+	Pierre(none): Meow!\n- (Wait,¢¢ did you not mean...\n¢¢¢- ¬WPurr¬Nfect?)
+--talk_7
+	* ¢¢n¢o¢.
+--talk_8
+	* Where were we, luv?\n¢¢* Oh, yeah!
+	* So, while we were talking I rode the lift up to here...
+	* It's time for you to visit the other side.
+	* Might be dangerous, and a bit... chilly, but...¢¢ eh...
+	* You're a tremendous fighter, sweetie, just keep up the good work,
+	* and you'll end up alright.
+	* Remember, we're all counting on ya.
+	* Cheerios!

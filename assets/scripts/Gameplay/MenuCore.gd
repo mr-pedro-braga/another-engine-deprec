@@ -15,7 +15,7 @@ var in_mmenu = false
 
 ### Toggles a certain menu
 func toggle(menu:String):
-	menu_open["menu"] = !menu_open["menu"]
+	menu_open[menu] = !menu_open[menu]
 
 ### Sets the state of a certain menu
 func set_open(menu:String, open:bool):
@@ -30,8 +30,8 @@ func _process(_delta):
 	
 	if not Gameplay.game_running:
 		return
-	if Input.is_action_just_pressed("item"):
-		if not is_open("item") and not Gameplay.in_ui and not Gameplay.in_dialog:
+	if Input.is_action_just_pressed("item") and not Gameplay.in_dialog and not Gameplay.in_event and Gameplay.GAMEMODE == Gameplay.GM.OVERWORLD:
+		if not is_open("item") and not Gameplay.in_ui:
 			focused_menu = "item"
 			Gameplay.in_ui = true
 			set_open("item", true)
@@ -41,7 +41,7 @@ func _process(_delta):
 			get_node("/root/GameRoot/HUD/black_bars_top").play("menu2_in")
 			AudioServer.set_bus_volume_db(1, -10)
 			#Gameplay.update_zoom(Gameplay.zoom*1.1)
-			AudioManager.play_sound("SFX_Menu_Select")
+			AudioManager.play_sound("UI/SFX_Menu_Rotate", "ogg")
 		else:
 			Gameplay.in_ui = false
 			set_open("item", false)
@@ -50,7 +50,7 @@ func _process(_delta):
 			get_node("/root/GameRoot/HUD/black_bars_top").play("menu2_out")
 			AudioServer.set_bus_volume_db(1, 0)
 			#Gameplay.update_zoom(Gameplay.zoom/1.1)
-			AudioManager.play_sound("SFX_Menu_Cancel")
+			AudioManager.play_sound("UI/SFX_Menu_Rotate", "ogg")
 	if Input.is_action_just_pressed("fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 

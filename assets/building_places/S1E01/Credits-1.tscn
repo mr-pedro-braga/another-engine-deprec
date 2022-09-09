@@ -14,6 +14,9 @@ func _ready():
 	SoundtrackCore.bgm_resume()
 	
 "
+__meta__ = {
+"Scene_Path": "res://assets/building_places/S1E01/Credits-1.tscn"
+}
 
 [node name="Scene" type="Node2D"]
 script = SubResource( 1 )

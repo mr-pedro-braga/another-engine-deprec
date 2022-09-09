@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voice_low.wav-35f1a4ae3e1d313b2f987038246d2739.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/voice_low.wav"
+dest_files=[ "res://.import/voice_low.wav-35f1a4ae3e1d313b2f987038246d2739.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Menu_Pan.ogg-25d65df4b6ccb59a459650df5d59b796.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/UI/SFX_Menu_Pan.ogg"
+dest_files=[ "res://.import/SFX_Menu_Pan.ogg-25d65df4b6ccb59a459650df5d59b796.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voice_superhigh.wav-5598d38f7c9dc8a4c6d1d26b95f8d008.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/voice_superhigh.wav"
+dest_files=[ "res://.import/voice_superhigh.wav-5598d38f7c9dc8a4c6d1d26b95f8d008.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,88 @@
+
+--flappy
+	base_damage 1 physical
+	type minigame
+	source FlappyRocket
+
+--radial_escape
+	base_damage 1 physical
+	
+	type bullets
+	battle_box 10 10 slide_in_bottom slide_out_bottom
+	clock_interval 0.5
+	bullet_count 32
+	script
+		once
+			life_time 2
+			battle_box_size 10 10
+		angle unique_id * TAU/24
+		position 128 * Vector2(cos(angle), sin(angle))
+		process projectile
+
+--lasso
+	base_damage 1 physical
+	
+	type bullets
+	battle_box 5 5 slide_in_bottom slide_out_bottom
+	clock_interval 0.07
+	script
+		once
+			life_time 3
+			speed -24
+			angle unique_id * TAU/32
+			position 48 * Vector2(cos(angle), sin(angle))
+		process projectile
+	bullet_count 1
+
+--punches
+	base_damage 1 physical
+	
+	type bullets
+	battle_box 4 4 roll_in roll_out
+	clock_interval 1
+	script
+		once
+			sprite punch
+			life_time 3
+			angle unique_id * TAU / 4
+			speed -48
+			accel_angle angle
+			accel 128
+			position 20 * rand_range(-1, 1) * Vector2(sin(angle), cos(angle)) - 48 * Vector2(cos(angle), sin(angle))
+		process projectile
+	bullet_count 1
+
+--drip
+	base_damage 1 physical
+	
+	type bullets
+	battle_box 4 1 slide_in_bottom slide_out_bottom
+	clock_interval 0.5
+	script
+		once
+			sprite droplet
+			life_time 3
+			angle TAU/2
+			sprite_angle TAU/4
+			speed 0
+			position Vector2(floor(rand_range(-20, 20)*10)/10, -70)
+		gravity 32 * alive_time
+		process projectile
+	bullet_count 1
+
+--like
+	base_damage 1 physical
+	
+	type bullets
+	battle_box 6 4 roll_in_with_style roll_out
+	clock_interval 0.7
+	script
+		once
+			sprite like_heart
+			life_time 3
+			angle -TAU/4
+			sprite_angle 0
+			speed 48
+			position Vector2(floor(rand_range(-20, 20)*10)/10, 70)
+		process projectile
+	bullet_count 1

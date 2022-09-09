@@ -130,7 +130,7 @@ func setup():
 	colors[5] = Color("#0af");
 	colors[6] = Color.darkgray;
 	colors[7] = Color.purple;
-	colors[8] = Color.azure;
+	colors[8] = Color.black;
 	colors[9] = Color.beige;
 	colors[10] = Color.bisque;
 	colors[11] = Color.burlywood;
@@ -226,7 +226,7 @@ func _draw():
 				oy = rng.randf_range(-0.2,0.2)
 				ox = rng.randf_range(-0.2,0.2)
 			4:
-				oy = cos((anim_timer + (ch_id) * char_height) / char_height)*2;
+				#oy = cos((anim_timer + (ch_id) * char_height) / char_height)*2;
 				ch_id = (ch_id+int(anim_timer))%character_set.length() if ch_id < 89 else ch_id
 		
 		y = floor((ch_id)/wchars)
@@ -238,7 +238,7 @@ func _draw():
 		if centered:
 			draw_texture_rect_region(
 				font_texture,
-				Rect2((i*(char_width+spacing) + ox)*character_scale + (rect_size.x-length*char_width)*0.5,
+				Rect2((i*(char_width+spacing*character_scale) + ox) + (rect_size.x-length*char_width)*0.5,
 						(j*char_height + oy)*character_scale,
 						char_width*character_scale,
 						char_height*character_scale),

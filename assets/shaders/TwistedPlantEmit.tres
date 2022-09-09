@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+//Emission texture
+uniform sampler2D emission;
+uniform float emission_strength = 1.4;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec4 emcol = texture(emission, UV) * (emission_strength + 0.3 * sin(TIME * 4.0));
+	if (emcol.a > 0.0)
+		col += emcol;
+	COLOR = col;
+}"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/Corrupted Plant_Emission.png-02bfcb5a130d510ae52e45e68f21f428.stex"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/emission_strength = 0.8
+shader_param/emission = SubResource( 2 )

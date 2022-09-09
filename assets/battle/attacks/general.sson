@@ -1,0 +1,23 @@
+--weak_punch
+	type minigame
+	base_damage 0.1 physical
+	source SimpleHit
+
+--wait
+	type wait
+
+--circle_of_fire
+	base_damage 0.1 physical
+	type bullets
+	battle_box 7 7 elastic_in roll_out
+	clock_interval 0.5
+	script
+		once
+			sprite punch
+			life_time 300000
+		if burst_id >= 8
+			delete
+		angle TAU/16 * unique_id
+		position (60 * cos(unique_id*TAU/16 + alive_time*TAU/4)) * Vector2(cos(angle), sin(angle))
+		sprite_angle 0
+	bullet_count 1

@@ -18,7 +18,6 @@ auto_exposure_speed = 5.0
 dof_blur_near_distance = 262.42
 dof_blur_near_transition = 10.1
 dof_blur_near_quality = 0
-glow_enabled = true
 glow_levels/1 = true
 glow_levels/2 = true
 glow_levels/3 = false

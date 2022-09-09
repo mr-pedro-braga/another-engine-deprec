@@ -14,10 +14,8 @@ game_beggining = {
 "zoom": 1.0
 }
 switches = {
-"introduced": false,
-"phase": 0,
-"player_name": "player",
-"route": 0,
-"stars": 0
+"player_name": "Player",
+"playtrough": 0,
+"section": 0
 }
 zoom = 1.2

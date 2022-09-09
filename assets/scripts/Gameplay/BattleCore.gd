@@ -27,7 +27,7 @@ func bg_anim (anim):
 			get_node("/root/GameRoot/HUD2/BgAnim").play("battle_start")
 			yield(get_node("/root/GameRoot/HUD2/BgAnim"), "animation_finished")
 			SoundtrackCore.battle_m_player.playing = true
-			yield(Utils.update_soul_meters(), "completed")
+			yield(Utils, "hot_second")
 			for c in Gameplay.party:
 				var info = BattleCore.info_container.get_node(c)
 				info.reveal()
@@ -39,10 +39,10 @@ func bg_anim (anim):
 ### Transpose all battlers to the battle layer
 var transposed := false
 func transpose_characters(characters):
-	var center = Vector2.ZERO
+	var _center = Vector2.ZERO
 	for b in characters:
-		center += b.position
-	center /= characters.size()
+		_center += b.position
+	_center /= characters.size()
 	for i in range(characters.size()):
 		var b = characters[i]
 		b.load_options()
@@ -116,8 +116,6 @@ func request_battle(_opponents, bbg=false, surprise=false):
 	# Load every ally's attacks, acts, spells and stats if not loaded yet
 	turns_per_round = battlers.size()
 	
-	print("\n\nBattle Started!:\n", Gameplay.party, " vs ", _opponents, "\n\n")
-	
 	Utils.update_soul_meters()
 	for info in info_container.get_children():
 		info.reveal()
@@ -134,10 +132,14 @@ func request_battle(_opponents, bbg=false, surprise=false):
 			var i = Gameplay.party_character_nodes[index]
 			Utils.slide_to(i, center + Vector2(-64 - 16 * index, 32 * (index-(Gameplay.party.size()-1)/2.0))  * Vector2(invert, 1.0), 3.0, AnimationInstance.mode.EASE_OUT)
 		for index in range(opponents.size()):
-			index = float(index)
 			var i = opponents[index]
+			index = float(index)
 			Utils.slide_to(i, center + Vector2( 64 + 16 * index, 32 * (index-(opponents.size()-1)/2.0)) * Vector2(invert, 0.0), 3.0, AnimationInstance.mode.EASE_OUT)
 		yield(get_tree().create_timer(0.9), "timeout")
+		
+		# Make the rest of the world invisible to save draw calls!
+		Gameplay.world.get_node("Scene/3DObjects").visible = false
+		
 		battle_loop()
 		return
 	
@@ -157,7 +159,7 @@ var current_battle_line = {
 	"file": "places/mrealm/mrealm_lines",
 	"dialog": "darwin_battle_1"
 }
-var next_attack_name = {"pool":"", "id":""}
+var next_attack_name = {"pool":"general", "id":"circle-of-fire"}
 var next_pattern = ""
 
 ### Load the battle script for an opponent
@@ -171,7 +173,6 @@ func load_battle_script (character):
 	battle_script.aff = character.character_id.to_lower()
 	Utils.battle_scripts[character.character_id.to_lower()] = battle_script
 	character.add_child(battle_script)
-	print("Loaded script for ", character.name)
 
 onready var info_container = get_node("/root/GameRoot/HUD/SoulInfos")
 
@@ -180,7 +181,6 @@ func battle_loop():
 	while(true):
 		
 		var turnch = battlers[battle_turn]
-		print("It's ", turnch.character_id, "'s turn!")
 		if turnch in Gameplay.party_character_nodes:
 			var skill = Utils.character_stats[turnch.character_id]["attributes"]["skill"]
 			
@@ -200,7 +200,6 @@ func battle_loop():
 				-16, 0, 2, question)
 			
 			yield(DCCore, "choice_finished")
-			print(turnch," used ", ["act", "cartdriges", "attack", "item"][DCCore.choice_result], "!", "\n")
 			
 			current_battle_options = Utils.character_stats[battlers[battle_turn].character_id]
 			
@@ -224,7 +223,6 @@ func battle_loop():
 						opponents[0].character_id,
 						acts[DCCore.choice_result]["id"]
 					)
-					print("Claire used ", display_names[DCCore.choice_result], "!!!\n")
 					yield(Utils, "act_finished")
 				1:
 					# Display and ask for which skill to execute!
@@ -236,7 +234,6 @@ func battle_loop():
 						icons.append(attacks[j]["icon"])
 					dialog.simple_choice(display_names, icons, -16, choice_pos, 2)
 					yield(dialog, "dialog_section_finished")
-					print("Claire used ", display_names[DCCore.choice_result], "!!!\n")
 				2:
 					# Display and ask for which attack to execute!
 					var display_names = []
@@ -247,7 +244,6 @@ func battle_loop():
 						icons.append(attacks[j]["icon"])
 					dialog.simple_choice(display_names, icons, -16, choice_pos, 2)
 					yield(DCCore, "choice_finished")
-					print("Claire used ", display_names[DCCore.choice_result], "!!!\n")
 					
 					var targets = opponents
 					dialog.simple_char_choice(targets, 1)
@@ -271,7 +267,7 @@ func battle_loop():
 			if Gameplay.GAMEMODE == Gameplay.GM.OVERWORLD:
 				break
 			battle_target = Gameplay.party_character_nodes[int(rand_range(0.0, Gameplay.party.size()))]
-			var info = info_container.get_node(battle_target.character_id)
+			#var info = info_container.get_node(battle_target.character_id)
 			if not next_attack_name["id"] == "null":
 				Utils.attack(battlers[battle_turn], battle_target.character_id, next_attack_name["pool"], next_attack_name["id"])
 				yield(Utils, "attack_finished")
@@ -284,6 +280,8 @@ func battle_loop():
 			break
 
 func end_battle():
+	# Make the rest of the world visible again so yo[u can play.
+	Gameplay.world.get_node("Scene/3DObjects").visible = false
 	Gameplay.GAMEMODE = Gameplay.GM.OVERWORLD
 	return_characters(battlers)
 	battlers = []

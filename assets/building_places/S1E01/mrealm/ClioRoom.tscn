@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/building_places/Tilemaps/NHOverworld.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/characters/clio/ClioSerious.png" type="Texture" id=2]
@@ -16,13 +16,18 @@
 [ext_resource path="res://assets/characters/clio/ClioMenacing.png" type="Texture" id=14]
 [ext_resource path="res://assets/modular_scenes/Event.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/sounds/SFX_ClioLeave.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/modular_scenes/StartPosition.tscn" type="PackedScene" id=17]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends DefaultScene
 
+export(int, FLAGS, \"water\", \"fire\", \"air\") var resource_test
 var claire
 
 func _ready():
+	
+	SoundtrackCore.load_music(\"mus_copyrighted3.wav\", \"Scary!\")
+	
 	get_node(\"Camera2D\").make_current()
 	if Gameplay.LOADING:
 		yield(Gameplay, \"LOADING_FINISHED\")
@@ -41,7 +46,7 @@ func _ready():
 	for i in range(8):
 		mean += 0.125
 		soul.modulate.a = mean
-		material.set_shader_param(\"soul_mean\", mean)
+		material.set_shader_param(\"soul_effect_intensity\", mean)
 		var f = flame.instance()
 		var a = i * deg2rad(45)
 		get_node(\"Flames\").add_child(f)
@@ -70,9 +75,10 @@ func _ready():
 	clio.play(\"laugh\")
 	var cat = get_node(\"3DObjects/StaticBody2D/Cat\")
 	cat.play(\"laugh\")
-	material.set_shader_param(\"soul_mean\", 0)
+	material.set_shader_param(\"soul_effect_intensity\", 0)
+	get_node(\"Laughter2\").play()
 	soul.visible = false
-	SoundtrackCore.load_music(\"mus_earthbound2.wav\", \"Clio's Theme\")
+	SoundtrackCore.load_music(\"mus_copyrighted3.mp3\", \"Clio's Theme\")
 	SoundtrackCore.bgm_resume()
 	get_node(\"Anim\").play(\"Laughter\")
 	yield(get_tree().create_timer(4.0), \"timeout\")
@@ -95,6 +101,7 @@ func _ready():
 	clio.play(\"smile\")
 	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_4\"])
 	yield(get_node(\"/root/GameRoot/Dialog\"), \"dialog_section_finished\")
+	
 	evt_simple_dialogue(null, \"places/mrealm/clio_lines\", [\"talk_5\"])
 	yield(get_tree().create_timer(1.0), \"timeout\")
 	clio.play(\"wink\")
@@ -124,6 +131,9 @@ func _ready():
 	yield(get_tree().create_timer(3.0), \"timeout\")
 	Utils.leave_event()
 "
+__meta__ = {
+"Scene_Path": "res://assets/building_places/S1E01/mrealm/ClioRoom.tscn"
+}
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -24, 0 )
@@ -154,9 +164,9 @@ region = Rect2( 47, 0, 47, 47 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "danger",
+"name": "serious",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ) ],
@@ -169,19 +179,19 @@ animations = [ {
 "name": "wink",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "dark",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "serious",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "smile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "danger",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "dark",
 "speed": 5.0
 } ]
 
@@ -240,6 +250,7 @@ tracks/1/keys = {
 
 [node name="Scene" type="Node2D"]
 script = SubResource( 1 )
+resource_test = 5
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -328,3 +339,6 @@ texture = ExtResource( 11 )
 
 [node name="Laughter2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
+bus = "SFX"
+
+[node name="Start" parent="." instance=ExtResource( 17 )]

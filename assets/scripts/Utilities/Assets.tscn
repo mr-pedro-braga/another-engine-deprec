@@ -1,27 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scripts/Utilities/Assets.gd" type="Script" id=1]
 [ext_resource path="res://assets/modular_scenes/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/characters/__mother/MotherNinten.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/user_interface/Effects/MISS.res" type="PackedScene" id=4]
 
 [node name="Node" type="Node2D"]
 visible = false
 script = ExtResource( 1 )
+scene_assets = [ ExtResource( 4 ) ]
 
 [node name="s_claire" parent="." instance=ExtResource( 2 )]
 position = Vector2( 10.5, 30.25 )
 alignment = "ALLY"
-route = [ {
-"target": [ -32, 0 ],
-"type": "delta"
-}, {
-"block": "safe_room_1",
-"file": "places/new_horizon/school_lines",
-"type": "dialog"
-}, {
-"target": [ 32, 0 ],
-"type": "delta"
-} ]
 
 [node name="RayCast2D" parent="s_claire" index="3"]
 cast_to = Vector2( 9.18455e-16, 10 )
@@ -29,20 +20,8 @@ cast_to = Vector2( 9.18455e-16, 10 )
 [node name="ninten" parent="." instance=ExtResource( 2 )]
 position = Vector2( 29.5, 30.25 )
 character_id = "ninten"
-local_instance_id = 1
 alignment = "ALLY"
 char_stats_file = "ninten.attacks"
-route = [ {
-"target": [ -32, 0 ],
-"type": "delta"
-}, {
-"block": "safe_room_1",
-"file": "places/new_horizon/school_lines",
-"type": "dialog"
-}, {
-"target": [ 32, 0 ],
-"type": "delta"
-} ]
 
 [node name="Shadow" parent="ninten" index="1"]
 position = Vector2( 0, 0 )

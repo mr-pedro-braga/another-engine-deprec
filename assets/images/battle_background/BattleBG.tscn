@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/images/battle_background/Delta.res" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/battle_background/Alpha.res" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/images/battle_background/Mint.res" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/battle_background/Drama.res" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/battle_background/Omega.res" type="PackedScene" id=6]
+[ext_resource path="res://assets/images/battle_background/Soul.res" type="PackedScene" id=7]
 
 [node name="BattleBG" type="Control"]
 anchor_right = 1.0
@@ -27,7 +28,10 @@ visible = false
 
 [node name="Drama" parent="." instance=ExtResource( 5 )]
 visible = false
-frame = 2
+frame = 0
 
 [node name="Omega" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Soul" parent="." instance=ExtResource( 7 )]
 visible = false

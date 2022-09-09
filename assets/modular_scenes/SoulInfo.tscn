@@ -9,7 +9,7 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-var properties:Dictionary
+var properties:Dictionary = {}
 
 func _ready():
 	setup(name, 20, 3, 10, 07, \"#be29ff\", \"#340d7e\")
@@ -20,11 +20,6 @@ func _process(_delta):
 func setup(name, mhp, hp, msp, sp, hp_foreground, hp_background):
 	$B/MaincharNames.animation = name.to_lower()
 	update_counter(mhp, hp, msp, sp, hp_foreground, hp_background)
-
-onready var hp_label = get_node(\"B/HP\")
-onready var sp_label = get_node(\"B/SP\")
-onready var hp_meter = get_node(\"B/HPbar\")
-onready var sp_meter = get_node(\"B/SPbar\")
 
 var revealed_o:bool
 var revealed_b:bool
@@ -55,12 +50,12 @@ func shake():
 func self_update(character):
 	setup(
 		character,
-		Utils.stats[character][\"attributes\"][\"MHP\"],
-		Utils.stats[character][\"attributes\"][\"HP\"],
-		Utils.stats[character][\"attributes\"][\"MSP\"],
-		Utils.stats[character][\"attributes\"][\"SP\"],
-		\"#\"+Utils.stats[character][\"attributes\"][\"hp-foreground\"],
-		\"#\"+Utils.stats[character][\"attributes\"][\"hp-background\"]
+		Utils.character_stats[character][\"attributes\"][\"MHP\"],
+		Utils.character_stats[character][\"attributes\"][\"HP\"],
+		Utils.character_stats[character][\"attributes\"][\"MSP\"],
+		Utils.character_stats[character][\"attributes\"][\"SP\"],
+		\"#\"+Utils.character_stats[character][\"attributes\"][\"hp-foreground\"],
+		\"#\"+Utils.character_stats[character][\"attributes\"][\"hp-background\"]
 	)
 
 func update_counter(mhp, hp, msp, sp, hp_foreground, hp_background):
@@ -71,27 +66,30 @@ func update_counter(mhp, hp, msp, sp, hp_foreground, hp_background):
 	properties.msp = msp
 	properties.hp = hp
 	properties.sp = sp
-	hp_label.text = str(\"%0*d\" % [2, abs(properties.hp)])
-	sp_label.text = str(\"%0*d\" % [2, properties.sp])
-	hp_label.self_modulate = properties.hp_foreground
+	$B/HP.text = str(\"%0*d\" % [2, abs(properties.hp)])
+	$B/SP.text = str(\"%0*d\" % [2, properties.sp])
+	$B/HP.self_modulate = properties.hp_foreground
 	
 	get_node(\"B/HPBack\").self_modulate = hp_background
-	hp_meter.self_modulate = hp_foreground
-	hp_meter.rect_size.x = 30 * clamp(hp/mhp, 0.0, 1.0)
-	sp_meter.rect_size.x = 30 * clamp(sp/msp, 0.0, 1.0)
+	$B/HPbar.self_modulate = hp_foreground
+	$B/HPbar.rect_size.x = 30 * clamp(hp/mhp, 0.0, 1.0)
+	$B/SPbar.rect_size.x = 30 * clamp(sp/msp, 0.0, 1.0)
 "
+__meta__ = {
+"Scene_Path": "res://assets/modular_scenes/SoulInfo.tscn"
+}
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 32, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 160, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 128, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 320, 64, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
@@ -101,9 +99,9 @@ region = Rect2( 0, 192, 64, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 16 )
+region = Rect2( 0, 320, 64, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
@@ -111,7 +109,7 @@ region = Rect2( 0, 32, 64, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 160, 64, 32 )
+region = Rect2( 96, 0, 32, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
@@ -125,29 +123,29 @@ region = Rect2( 0, 384, 64, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 288, 64, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 256, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
 region = Rect2( 160, 16, 32, 16 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 256, 64, 32 )
+
+[sub_resource type="SpriteFrames" id=26]
 animations = [ {
 "frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "andy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 21 ) ],
 "loop": true,
-"name": "rodrick",
+"name": "trevor",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 22 ) ],
 "loop": true,
-"name": "sam",
+"name": "rodrick",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
@@ -160,9 +158,9 @@ animations = [ {
 "name": "claire",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 23 ) ],
 "loop": true,
-"name": "bruno",
+"name": "sam",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 8 ) ],
@@ -172,7 +170,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
-"name": "trevor",
+"name": "bruno",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ) ],
@@ -190,24 +188,23 @@ animations = [ {
 "name": "elliott",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "miranda",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "valentino",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ) ],
+"frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "ninten",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 25 ) ],
+"loop": true,
+"name": "miranda",
+"speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=15]
-resource_name = "shake"
+[sub_resource type="Animation" id=27]
 length = 0.5
 step = 0.025
 tracks/0/type = "value"
@@ -223,7 +220,7 @@ tracks/0/keys = {
 "values": [ Vector2( -22, -32 ), Vector2( -23, -29 ), Vector2( -20, -31 ), Vector2( -25, -33 ), Vector2( -23, -35 ), Vector2( -22, -32 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=28]
 length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("B:rect_position")
@@ -238,7 +235,7 @@ tracks/0/keys = {
 "values": [ Vector2( -22, 32 ), Vector2( -22, -32 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=29]
 length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("B:rect_position")
@@ -253,8 +250,7 @@ tracks/0/keys = {
 "values": [ Vector2( -22, -16 ), Vector2( -22, -32 ) ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "stfx_fall"
+[sub_resource type="Animation" id=30]
 step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("B:rect_position")
@@ -269,8 +265,7 @@ tracks/0/keys = {
 "values": [ Vector2( -22, -32 ), Vector2( -22, -28 ), Vector2( -22, -34 ), Vector2( -22, -32 ) ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "stfx_rise"
+[sub_resource type="Animation" id=20]
 step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("B:rect_position")
@@ -303,7 +298,7 @@ __meta__ = {
 
 [node name="MaincharNames" type="AnimatedSprite" parent="B"]
 position = Vector2( 22, 23.3536 )
-frames = SubResource( 14 )
+frames = SubResource( 26 )
 animation = "ninten"
 
 [node name="SP" type="ReferenceRect" parent="B"]
@@ -374,8 +369,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/shake = SubResource( 15 )
-anims/slide = SubResource( 16 )
-anims/slide_battle = SubResource( 17 )
-anims/stfx_fall = SubResource( 18 )
-anims/stfx_rise = SubResource( 19 )
+anims/shake = SubResource( 27 )
+anims/slide = SubResource( 28 )
+anims/slide_battle = SubResource( 29 )
+anims/stfx_fall = SubResource( 30 )
+anims/stfx_rise = SubResource( 20 )

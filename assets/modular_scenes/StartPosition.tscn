@@ -1,20 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/characters/Start Position.png" type="Texture" id=1]
+[ext_resource path="res://assets/modular_scenes/StartPosition.res" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/characters/shadow.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends Sprite
+script/source = "extends Node2D
 
 export var id = \"default\"
 
 func _ready():
 	if Gameplay.LOADING:
-		var ci = yield(Gameplay, \"LOADING_FINISHED\")
-	Gameplay.playable_character_node.position = position
+		yield(Gameplay, \"LOADING_FINISHED\")
+	if Utils.time < 10:
+		Gameplay.playable_character_node.position = position
 	visible = false
 "
+__meta__ = {
+"Scene_Path": "res://assets/modular_scenes/StartPosition.tscn"
+}
 
-[node name="Start" type="Sprite"]
-texture = ExtResource( 1 )
-offset = Vector2( 0, -12 )
+[node name="StartPosition" type="Node2D"]
 script = SubResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( -0.5, -1 )
+texture = ExtResource( 3 )
+offset = Vector2( 1, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -24 )
+frames = ExtResource( 1 )
+animation = "Claire"
+frame = 6
+playing = true

@@ -1,49 +1,55 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=2]
+[gd_resource type="SpriteFrames" load_steps=11 format=2]
 
 [ext_resource path="res://assets/battle/battle_patterns/droplet.png" type="Texture" id=1]
 [ext_resource path="res://assets/battle/battle_patterns/mini_bullet.png" type="Texture" id=2]
 [ext_resource path="res://assets/battle/battle_patterns/punch.png" type="Texture" id=3]
 [ext_resource path="res://assets/battle/battle_patterns/like_heart.png" type="Texture" id=4]
+[ext_resource path="res://assets/battle/battle_patterns/note.png" type="Texture" id=5]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 17, 17 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 17, 0, 17, 17 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 17, 0, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 17 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 17, 0, 17, 17 )
-
 [resource]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "like_heart",
 "speed": 4.0
-}, {
-"frames": [ SubResource( 6 ) ],
-"loop": true,
-"name": "droplet",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "punch",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "bullet",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "droplet",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "alien",
 "speed": 5.0
 } ]

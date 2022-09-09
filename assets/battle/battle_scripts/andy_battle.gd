@@ -11,15 +11,16 @@ func battle_join():
 	hugged = false
 	spared = false
 	Utils.change_battle_bg("Mint")
-	Utils.stats[Gameplay.playable_character]["acts"] = [
+	Utils.set_character_acts(Gameplay.playable_character, [
 		{"id" : "bad_talk", "icon" : "talk_bad"},
 		{"id" : "spare", "icon" : "spare"},
 		{"id" : "hug", "icon" : "wait"},
-	]
+	])
 	DCCore.load_dialog_into_cache("places/new_horizon/school_lines")
 	BattleCore.current_battle_line["file"] = "places/new_horizon/school_lines"
 	BattleCore.current_battle_line["dialog"] = "null"
 	print("Entered battle!")
+	BattleCore.battle_round = 1
 
 func battle_turn_select(c: Character, battle_round):
 	if Gameplay.GAMEMODE != Gameplay.GM.BATTLE:
@@ -61,7 +62,7 @@ func battle_turn_select(c: Character, battle_round):
 			BattleCore.end_turn_intro()
 			return
 	
-	var attacks = Utils.stats[c.character_id]["attacks"]
+	var attacks = Utils.character_stats[c.character_id]["attacks"]
 	BattleCore.next_attack_name = attacks[(fposmod(battle_round, attacks.size()))]
 	if spared:
 		match BattleCore.battle_round:

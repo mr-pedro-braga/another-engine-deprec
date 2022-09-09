@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/battle/Kuro.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/modular_scenes/Kuro.gd" type="Script" id=2]
 [ext_resource path="res://addons/sprite_trail/SpriteTrail.gd" type="Script" id=3]
-[ext_resource path="res://assets/battle/particle_dust.png" type="Texture" id=4]
+[ext_resource path="res://assets/battle/sprites/particle_dust.png" type="Texture" id=4]
+[ext_resource path="res://assets/battle/sprites/snek-sprite.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.70317
@@ -44,12 +45,63 @@ radial_accel_random = 0.5
 scale = 0.3
 scale_random = 0.8
 
+[sub_resource type="Animation" id=7]
+resource_name = "Jump"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anim:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.35, 1.4 ), Vector2( 0.778, 0.63 ), Vector2( 0.7, 0.7 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "move_discrete_horizontal"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anim:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.4, 0.35 ), Vector2( 0.63, 0.778 ), Vector2( 0.7, 0.7 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "move_discrete_vertical"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anim:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.35, 1.4 ), Vector2( 0.778, 0.63 ), Vector2( 0.7, 0.7 ) ]
+}
+
 [node name="Kuro" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
 character = "andy"
-mode = 0
+snek_texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -61,7 +113,7 @@ material = SubResource( 3 )
 position = Vector2( 0.25, 0.25 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 1 )
-animation = "heart"
+animation = "ollie"
 playing = true
 
 [node name="SpriteTrail" type="Node2D" parent="Anim"]
@@ -80,7 +132,6 @@ collision_mask = 2
 shape = SubResource( 5 )
 
 [node name="Dust" type="Particles2D" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
 position = Vector2( -0.353554, 0.176773 )
 amount = 5
@@ -88,3 +139,8 @@ lifetime = 0.25
 local_coords = false
 process_material = SubResource( 6 )
 texture = ExtResource( 4 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+anims/Jump = SubResource( 7 )
+anims/move_discrete_horizontal = SubResource( 8 )
+anims/move_discrete_vertical = SubResource( 9 )

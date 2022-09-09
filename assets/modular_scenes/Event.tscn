@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/scripts/Event.gd" type="Script" id=1]
-
+[ext_resource path="res://assets/scripts/Construction/Event.gd" type="Script" id=1]
 
 [node name="Event" type="Area2D"]
 collision_mask = 2
@@ -9,5 +8,3 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-[connection signal="body_entered" from="." to="." method="_event_body_entered"]
-[connection signal="body_exited" from="." to="." method="_event_body_exited"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mus_arcade_starship.mp3-47dc034fac95716bfb21bf68fed4a999.mp3str"
+
+[deps]
+
+source_file="res://assets/music/mus_arcade_starship.mp3"
+dest_files=[ "res://.import/mus_arcade_starship.mp3-47dc034fac95716bfb21bf68fed4a999.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

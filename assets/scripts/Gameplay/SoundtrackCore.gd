@@ -1,6 +1,6 @@
 extends Node
 
-var hearts_in_sync = preload("res://assets/music/mus_hearts_in_kitchen_sink.wav")
+var hearts_in_sync = preload("res://assets/music/mus_hearts_in_bits.wav")
 var test_music = hearts_in_sync #load("res://assets/music/mus_uncanny_valley.wav")
 var harmony_hall = preload("res://assets/music/mus_harmony_hall.wav")
 

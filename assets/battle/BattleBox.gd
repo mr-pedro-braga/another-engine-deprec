@@ -27,7 +27,7 @@ func _process(_delta):
 	border.modulate = Color.white
 	col.disabled = false
 	if Utils.arena_status.hot_border:
-		border.modulate = Color(1, 0.298401, 0.054688).linear_interpolate(Color(1, 0.143311, 0.054688), sin(10*Utils.time)*0.5+0.5)
+		border.modulate = Color(1, 0.652893, 0.054688).linear_interpolate(Color(1, 0.143311, 0.054688), sin(10*Utils.time)*0.5+0.5)
 	if Utils.arena_status.torus_border:
 		border.modulate = Color(0.164063, 0.275085, 1)
 		col.disabled = true
@@ -54,6 +54,6 @@ export var damage = {
 
 func _on_Damage_area_entered(area):
 	if area.name == "KuroSensor":
-		if Utils.hot_border:
-			Utils.damage(Gameplay.battle_target, damage)
+		if Utils.arena_status.hot_border:
+			Utils.damage(BattleCore.battle_target, damage)
 			AudioManager.play_sound("SFX_Hurt")

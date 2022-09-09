@@ -29,7 +29,7 @@ func _ready():
 	scene_bullet = load("res://assets/battle/battle_patterns/battle_sub_patterns/"+emit+".tscn")
 	inverse_rate = 1/rate
 	if one_shot:
-		for i in range(rate):
+		for _i in range(rate):
 			spawn_bullet()
 		queue_free()
 		return

@@ -21,7 +21,7 @@ class_name SceneScript
 #@ Parses a *.sson file into a list of objects
 static func parse_sson_dictionary(raw):
 	var regex = RegEx.new()
-	var error = regex.compile("(?m)^ *#(?<key>\\w+): *(?<block>(?:\\n\\t.*)*)")
+	var error = regex.compile("(?m)^ *--(?<key>\\w+): *(?<block>(?:\\n\\t.*)*)")
 	var results := {}
 	
 	for m in regex.search_all(raw):
@@ -57,7 +57,7 @@ static func parse_dictionary(raw):
 #@ Parses a *.sson file into a list of cutscene objects.
 static func parse_sson_cutscene(raw):
 	var regex = RegEx.new()
-	var error = regex.compile("(?m)^ *#(?<key>[\\w|\\*]+) *((?<value>.*)(?<block>(?:\\n\\t.*)*)?)?")
+	var error = regex.compile("(?m)^ *--(?<key>[\\w|\\*]+) *((?<value>.*)(?<block>(?:\\n\\t.*)*)?)?")
 	
 	var results := {}
 	
@@ -102,12 +102,29 @@ static func parse_cutscene_entry(raw_match):
 	
 	if match_dialog:
 		var match_names = match_dialog.get_names()
-		r = {
-			"type": "dialog",
-			"character": command.to_lower(),
-			"expression": match_dialog.get_string(match_names["expression"]),
-			"content": match_dialog.get_string(match_names["text"]),
-		}
+		if block:
+			var choices = parse_choices(unindent(block))
+			r = {
+				"type": "dialog",
+				"character": command.to_lower(),
+				"expression": match_dialog.get_string(match_names["expression"]),
+				"content": match_dialog.get_string(match_names["text"]),
+				"prefix": "- ",
+				"has_default": false,
+				"icons": choices.icons,
+				"texts": choices.texts,
+				"answers": choices.answers,
+				"has_choice": true,
+			}
+		else:
+			r = {
+				"type": "dialog",
+				"character": command.to_lower(),
+				"expression": match_dialog.get_string(match_names["expression"]),
+				"content": match_dialog.get_string(match_names["text"]),
+				"prefix": "- ",
+				"has_choice": false,
+			}
 		return r
 	
 	# Match Variable Manipulation
@@ -126,14 +143,31 @@ static func parse_cutscene_entry(raw_match):
 	# Match Normal Commands
 	match command:
 		"*":
-			r = {
-				"type": "dialog",
-				"character": "narrator",
-				"expression": "none",
-				"content": params,
-			}
+			if block:
+				var choices = parse_choices(unindent(block))
+				r = {
+					"type": "dialog",
+					"character": "narrator",
+					"expression": "none",
+					"prefix": "* ",
+					"content": params,
+					"has_default": false,
+					"icons": choices.icons,
+					"texts": choices.texts,
+					"answers": choices.answers,
+					"has_choice": true,
+				}
+			else:
+				r = {
+					"type": "dialog",
+					"character": "narrator",
+					"expression": "none",
+					"prefix": "* ",
+					"content": params,
+					"has_choice": false,
+				}
 		"wait":
-			if quick_match(params, "\\d+(\\.\\d+)?)"):
+			if quick_match(params, "\\d+(\\.\\d+)?"):
 				r = {
 					"type": "wait",
 					"amount": float(params)
@@ -191,16 +225,6 @@ static func parse_cutscene_entry(raw_match):
 			r = {
 				"type": "function",
 				"name": params
-			}
-		"choice":
-			var choices = parse_choices(unindent(block))
-			r = {
-				"type": "choice",
-				"has_default": false,
-				"question": params,
-				"icons": choices.icons,
-				"texts": choices.texts,
-				"answers": choices.answers
 			}
 		"menu":
 			var choices = parse_choices(unindent(block))
@@ -300,7 +324,7 @@ static func parse_move_route_entry(raw_match):
 	
 	var command:String = raw_match.get_string(names["command"])
 	var params = raw_match.get_string(names["params"])
-	var block = raw_match.get_string(names["block"])
+	var _block = raw_match.get_string(names["block"])
 	
 	# Match Normal Commands
 	match command:
@@ -353,12 +377,12 @@ static func parse_move_route_entry(raw_match):
 			
 			r = {
 				"type": "action",
-				"angle": terms[0]
+				"value": terms[0]
 			}
 		"anim":
 			r = {
 				"type": "name",
-				"angle": params
+				"value": params
 			}
 		"dialog":
 			var terms = get_terms(params)
@@ -381,7 +405,7 @@ static func parse_move_route_entry(raw_match):
 					"path": params
 				}
 		"destroy":
-			r - {
+			r = {
 				"type": "destroy"
 			}
 		_:

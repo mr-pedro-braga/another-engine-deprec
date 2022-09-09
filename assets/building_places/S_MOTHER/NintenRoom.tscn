@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/building_places/Special Scenes/lamp-0.png" type="Texture" id=4]
 [ext_resource path="res://assets/modular_scenes/StartPosition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/modular_scenes/Character.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Camera.gd" type="Script" id=7]
+[ext_resource path="res://assets/scripts/Camera.gd" type="Script" id=7]
 [ext_resource path="res://assets/building_places/Special Scenes/ninten_room_borders.png" type="Texture" id=8]
 [ext_resource path="res://assets/shaders/ZoneFX.shader" type="Shader" id=10]
 
@@ -60,8 +60,11 @@ func evt_door_1(_id, _parameters, _arguments):
 	
 	#DCCore.leave_cutscene()
 "
+__meta__ = {
+"Scene_Path": "res://assets/building_places/S_MOTHER/NintenRoom.tscn"
+}
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/emission_strength = 1.2
@@ -70,28 +73,28 @@ shader_param/emission_tint = Color( 1, 0.941176, 0.760784, 1 )
 shader_param/emission = ExtResource( 2 )
 shader_param/borders = ExtResource( 8 )
 
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 37, 0, 37, 37 )
+
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 37, 37 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
-region = Rect2( 37, 0, 37, 37 )
-
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "fight_idle",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "idle_0",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "fight_idle",
-"speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "LampAttack"
 length = 3.75
 step = 0.25
@@ -108,7 +111,7 @@ tracks/0/keys = {
 "values": [ Vector2( 141.75, 56 ), Vector2( 141.75, 46 ), Vector2( 85.5, 95.45 ), Vector2( 184.5, 88.95 ), Vector2( 110.75, 85.95 ), Vector2( 161.75, 47.7 ), Vector2( 87.25, 60.45 ), Vector2( 140.25, 83.7 ), Vector2( 72.75, 80.7 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "LampPush"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -135,11 +138,11 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="ProceduralSky" id=9]
+[sub_resource type="ProceduralSky" id=8]
 
-[sub_resource type="Environment" id=10]
+[sub_resource type="Environment" id=9]
 background_mode = 4
-background_sky = SubResource( 9 )
+background_sky = SubResource( 8 )
 background_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 background_energy = 0.0
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -168,7 +171,7 @@ glow_hdr_luminance_cap = 30.0
 glow_hdr_scale = 1.0
 adjustment_enabled = true
 
-[sub_resource type="SegmentShape2D" id=11]
+[sub_resource type="SegmentShape2D" id=10]
 a = Vector2( 4, -5.75 )
 b = Vector2( -6.25, 11.25 )
 
@@ -178,7 +181,7 @@ script = SubResource( 1 )
 [node name="World" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="World"]
-material = SubResource( 3 )
+material = SubResource( 2 )
 position = Vector2( 120, 67 )
 texture = ExtResource( 3 )
 
@@ -218,15 +221,15 @@ route = [ {
 visible = false
 
 [node name="AnimatedSprite" parent="3DObjects/Lamp" index="2"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "idle_0"
 
 [node name="RayCast2D" parent="3DObjects/Lamp" index="3"]
 cast_to = Vector2( 15, 0 )
 
 [node name="Cutscene" type="AnimationPlayer" parent="3DObjects/Lamp"]
-anims/LampAttack = SubResource( 7 )
-anims/LampPush = SubResource( 8 )
+anims/LampAttack = SubResource( 6 )
+anims/LampPush = SubResource( 7 )
 
 [node name="Above" type="CanvasLayer" parent="."]
 layer = 2
@@ -239,7 +242,7 @@ color = Color( 0.403922, 0.4, 0.415686, 1 )
 position = Vector2( 148, 97.75 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 10 )
+environment = SubResource( 9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 120, 67 )
@@ -250,6 +253,6 @@ position = Vector2( 63.75, 77.75 )
 event = "door_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [editable path="3DObjects/Lamp"]

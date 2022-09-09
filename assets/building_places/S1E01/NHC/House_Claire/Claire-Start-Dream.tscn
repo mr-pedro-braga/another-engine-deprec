@@ -28,6 +28,9 @@ func _process(delta):
 			0, DCCore.dialog_box, 1
 		)
 "
+__meta__ = {
+"Scene_Path": "res://assets/building_places/S1E01/NHC/House_Claire/Claire-Start-Dream.tscn"
+}
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -56,23 +59,23 @@ region = Rect2( 0, 0, 37, 37 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 4 )
-region = Rect2( 148, 0, 37, 37 )
+region = Rect2( 37, 0, 37, 37 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 4 )
-region = Rect2( 185, 0, 37, 37 )
+region = Rect2( 74, 0, 37, 37 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 4 )
-region = Rect2( 37, 0, 37, 37 )
+region = Rect2( 111, 0, 37, 37 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 4 )
-region = Rect2( 74, 0, 37, 37 )
+region = Rect2( 148, 0, 37, 37 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 4 )
-region = Rect2( 111, 0, 37, 37 )
+region = Rect2( 185, 0, 37, 37 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
@@ -81,15 +84,15 @@ animations = [ {
 "name": "sleep",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": false,
-"name": "pk_throw",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": false,
 "name": "pk_grab",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "pk_throw",
+"speed": 10.0
 } ]
 
 [sub_resource type="ProceduralSky" id=11]
@@ -144,13 +147,13 @@ region = Rect2( 32, 0, 32, 32 )
 animations = [ {
 "frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
-"name": "alarm_on",
-"speed": 2.0
+"name": "alarm_off",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
-"name": "alarm_off",
-"speed": 5.0
+"name": "alarm_on",
+"speed": 2.0
 } ]
 
 [sub_resource type="Animation" id=18]
@@ -244,6 +247,20 @@ tracks/6/keys = {
 [node name="Scene" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="CanvasLayer"]
+color = Color( 0.286275, 0.27451, 0.27451, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 240.0
+margin_bottom = 135.0
+color = Color( 0.12549, 0.12549, 0.12549, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.286275, 0.27451, 0.27451, 1 )
 
@@ -255,7 +272,7 @@ position = Vector2( 120, 67 )
 texture = ExtResource( 2 )
 
 [node name="Claire1" type="AnimatedSprite" parent="."]
-position = Vector2( 161, 73 )
+position = Vector2( 161, 61 )
 frames = SubResource( 10 )
 animation = "sleep"
 playing = true
@@ -266,6 +283,7 @@ visible = false
 [node name="Start" parent="." instance=ExtResource( 1 )]
 visible = false
 position = Vector2( 163, 86 )
+frame = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )

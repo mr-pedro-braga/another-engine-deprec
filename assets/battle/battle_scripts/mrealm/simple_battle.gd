@@ -11,11 +11,11 @@ func battle_turn_select(c: Character, battle_round):
 	if Gameplay.GAMEMODE != Gameplay.GM.BATTLE:
 		return
 	randomize()
-	if not Utils.stats.has(c.character_id):
+	if not Utils.character_stats.has(c.character_id):
 		print("Character info not loaded into stats!")
 		BattleCore.end_turn_intro()
 		return
-	var attacks = Utils.stats[c.character_id]["attacks"]
+	var attacks = Utils.character_stats[c.character_id]["attacks"]
 	attacks.shuffle()
 	BattleCore.current_battle_line["dialog"] = "darwin_battle_3"
 	BattleCore.next_attack_name = (attacks[0])

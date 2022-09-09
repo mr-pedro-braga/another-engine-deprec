@@ -8,6 +8,8 @@ var minigame_timeout = 6.0
 var minigame_wait_timeout = 2.0
 var minigame_level = 1.0
 
+var target
+
 func _ready():
 	offset = get_parent().position
 

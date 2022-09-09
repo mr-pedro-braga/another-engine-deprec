@@ -1,0 +1,365 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/building_places/Tilemaps/General-Overworld.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/building_places/Tilemaps/General-Overworld-D.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/modular_scenes/StartPosition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/building_places/Simple Objects/Wet Floor.png" type="Texture" id=4]
+[ext_resource path="res://addons/folder_node/folder.gd" type="Script" id=5]
+[ext_resource path="res://assets/scripts/Construction/Pathway.gd" type="Script" id=6]
+[ext_resource path="res://assets/scripts/Construction/CommonBuildingShapes/32x8.tres" type="Shape2D" id=7]
+[ext_resource path="res://assets/scripts/Construction/DialogEvent.gd" type="Script" id=8]
+[ext_resource path="res://assets/scripts/Construction/CommonBuildingShapes/16x8.tres" type="Shape2D" id=9]
+[ext_resource path="res://assets/scripts/Construction/SightlessGuides/BeepAnchor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scripts/Construction/Event.gd" type="Script" id=11]
+[ext_resource path="res://assets/characters/_character_scenes/Bruno.res.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/scripts/Construction/CommonBuildingShapes/8x8.tres" type="Shape2D" id=13]
+[ext_resource path="res://assets/building_places/Simple Objects/Board_Coloured.png" type="Texture" id=14]
+[ext_resource path="res://assets/building_places/Objects/SimpleObjects.tres" type="SpriteFrames" id=15]
+[ext_resource path="res://assets/shaders/simple_glow.tres" type="Environment" id=16]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends EventEssentials
+
+#
+# @ROOM:	Twisted School A 
+# @DESC:	The map where you first meet Bruno and Andy!
+#
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"cheat\"):
+		print(\"Trying to speak!\")
+
+#--------------------------------------------------#
+#   SAFE ROOM!
+#--------------------------------------------------#
+
+export var release := true
+
+func _ready():
+	match Gameplay.switches.section:
+		0: # If the player is in the Safe Room!
+			Gameplay.transition_player.play(\"set_black\" if release else \"set_clear\")
+
+		1: # If the player is in the main hallways! 
+			
+			if not Gameplay.check_switch(\"joke_1\"):
+				# If haven't done that yet, make the \"they must be sleeping joke.\"
+				yield(get_tree().create_timer(2.0), \"timeout\")
+				
+				DCCore.dialog(\"places/new_horizon/school_lines\", \"library_leave_attack_2\")
+				yield(Gameplay.dialog, \"dialog_section_finished\")
+				
+				DCCore.leave_cutscene()
+			SoundtrackCore.load_music(\"mus_vn_tension.wav\", \"Very Necessary Tension\")
+			SoundtrackCore.bgm_restart()
+
+func evt_sroom_start(_id, _parameter, _arguments):
+	
+	if Gameplay.switches.section > 0:
+		return
+	
+	DCCore.enter_cutscene()
+	
+	yield(get_tree().create_timer(1.0), \"timeout\")
+	Gameplay.transition_player.play(\"fade_black_out\")
+	DCCore.dialog(\"places/new_horizon/school_lines\", \"safe_room_wake_up\")
+	yield(Gameplay.dialog, \"dialog_section_finished\")
+	
+	DCCore.leave_cutscene()
+	_id.free()
+
+func evt_sroom_backstage_door_a(_id, _parameter, _arguments):
+	var bdoor = get_node(_arguments[0])
+	
+func evt_sroom_backstage_door_b(_id, _parameter, _arguments):
+	var bdoor = get_node(_arguments[0])
+	
+	print(\"AAAAAA\")
+"
+__meta__ = {
+"Scene_Path": "res://assets/building_places/S1E01/NHC/XHNA/Twisted School A.tscn"
+}
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 32, 24 )
+b = Vector2( -24, 24 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( -40, 0 )
+b = Vector2( -24, 24 )
+
+[node name="Scene" type="Node2D"]
+script = SubResource( 1 )
+release = false
+
+[node name="Environment" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="BG" type="CanvasLayer" parent="Environment"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Environment/BG"]
+margin_left = 0.5
+margin_right = 240.5
+margin_bottom = 135.0
+color = Color( 0.12549, 0.12549, 0.12549, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BG-Darken" type="CanvasModulate" parent="Environment/BG"]
+color = Color( 0.223529, 0.364706, 0.588235, 1 )
+
+[node name="Darken" type="CanvasModulate" parent="Environment"]
+color = Color( 0.223529, 0.364706, 0.588235, 1 )
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -1114101, 2, 0, -1114100, 2, 1, -1114099, 2, 2, -1114098, 2, 2, -1114097, 2, 2, -1114096, 2, 2, -1048566, 2, 0, -1048565, 2, 65536, -1048564, 2, 65537, -1048563, 2, 65538, -1048562, 2, 65538, -1048561, 2, 65538, -1048560, 2, 65538, -983031, 2, 0, -983030, 2, 65536, -983029, 2, 131072, -983028, 2, 131073, -983027, 2, 131073, -983026, 2, 131073, -983025, 2, 131073, -983024, 2, 131073, -983023, 2, 131076, -851970, 2, 131076, -917496, 2, 0, -917495, 2, 65536, -917494, 2, 131072, -917493, 2, 131073, -917492, 2, 131073, -917491, 2, 131073, -917490, 2, 131073, -917489, 2, 131073, -917488, 2, 131073, -917487, 2, 131076, -786434, 2, 131076, -851961, 2, 0, -851960, 2, 65536, -851959, 2, 131072, -851958, 2, 131073, -851957, 2, 131073, -851956, 2, 131073, -851955, 2, 131073, -851954, 2, 131073, -851953, 2, 131073, -851952, 2, 131073, -851951, 2, 2, -851950, 2, 3, -851949, 2, 2, -851948, 2, 2, -851947, 2, 2, -851946, 2, 3, -851945, 2, 2, -851944, 2, 2, -851943, 2, 2, -851942, 2, 3, -851941, 2, 5, -786425, 2, 65536, -786424, 2, 131072, -786423, 2, 131073, -786422, 2, 131074, -786421, 2, 131076, -786420, 2, 131076, -786419, 2, 131076, -786418, 2, 131076, -786417, 2, 131073, -786416, 2, 131073, -786415, 2, 65538, -786414, 2, 65539, -786413, 2, 65538, -786412, 2, 65538, -786411, 2, 65538, -786410, 2, 65539, -786409, 2, 65538, -786408, 2, 65538, -786407, 2, 65538, -786406, 2, 65539, -786405, 2, 65541, -720889, 2, 131072, -720888, 2, 131073, -720887, 2, 131074, -720882, 2, 131076, -720881, 2, 131073, -720880, 2, 131073, -720879, 2, 131073, -720878, 2, 131073, -720877, 2, 131073, -720876, 2, 131073, -720875, 2, 131073, -720874, 2, 131073, -720873, 2, 131073, -720872, 2, 131073, -720871, 2, 131073, -720870, 2, 131073, -720869, 2, 131074, -589826, 2, 131076, -589825, 2, 131076, -655360, 2, 131076, -655359, 2, 131076, -655358, 2, 131076, -655357, 2, 131076, -655356, 2, 131076, -655355, 2, 131076, -655354, 2, 131076, -655346, 2, 131076, -655345, 2, 131073, -655344, 2, 131073, -655343, 2, 131073, -655342, 2, 131073, -655341, 2, 131073, -655340, 2, 131073, -655339, 2, 131073, -655338, 2, 131073, -655337, 2, 131073, -655336, 2, 131073, -655335, 2, 131073, -655334, 2, 131074, -589809, 2, 131076, -589808, 2, 131076, -589807, 2, 131076, -589806, 2, 131076, -589805, 2, 131076, -589804, 2, 131076, -589803, 2, 131076, -589802, 2, 131076, -589801, 2, 131076, -589800, 2, 131076, -589799, 2, 131076, -524286, 2, 0, -458751, 2, 0, -458750, 2, 65536, -393216, 2, 0, -393215, 2, 65536, -393214, 2, 131072, -393213, 2, 131073, -393212, 2, 131074, -262145, 2, 0, -327680, 2, 65536, -327679, 2, 131072, -327678, 2, 131073, -327677, 2, 131074, -196610, 2, 0, -196609, 2, 65536, -262144, 2, 131072, -262143, 2, 131073, -262142, 2, 131074, -131075, 2, 0, -131074, 2, 65536, -131073, 2, 131072, -196608, 2, 131073, -196607, 2, 131074, -65540, 2, 0, -65539, 2, 65536, -65538, 2, 131072, -65537, 2, 131073, -131072, 2, 131074, -7, 2, 0, -6, 2, 2, -5, 2, 2, -4, 2, 65536, -3, 2, 131072, -2, 2, 131073, -1, 2, 131074, 65525, 2, 0, 65526, 2, 2, 65527, 2, 3, 65528, 2, 2, 65529, 2, 65536, 65530, 2, 65538, 65531, 2, 65538, 65532, 2, 131072, 65533, 2, 131073, 65534, 2, 131074, 65535, 2, 131076, 0, 2, 131076, 1, 2, 131076, 131060, 2, 0, 131061, 2, 65536, 131062, 2, 65538, 131063, 2, 65539, 131064, 2, 65538, 131065, 2, 131072, 131066, 2, 131073, 131067, 2, 131073, 131068, 2, 131073, 131069, 2, 131073, 131070, 2, 131073, 131071, 2, 131073, 65536, 2, 131076, 65537, 2, 131076, 196596, 2, 65536, 196597, 2, 131072, 196598, 2, 131073, 196599, 2, 131073, 196600, 2, 131073, 196601, 2, 131073, 196602, 2, 131073, 196603, 2, 131073, 196604, 2, 131073, 196605, 2, 131073, 196606, 2, 131073, 196607, 2, 131073, 131072, 2, 4, 131073, 2, 2, 131074, 2, 2, 131075, 2, 2, 131076, 2, 2, 131077, 2, 2, 131078, 2, 2, 131079, 2, 2, 131080, 2, 2, 131081, 2, 3, 131082, 2, 2, 131083, 2, 2, 131084, 2, 1, 131085, 2, 2, 131086, 2, 5, 262132, 2, 131072, 262133, 2, 131073, 262134, 2, 131073, 262135, 2, 131073, 262136, 2, 131073, 262137, 2, 131073, 262138, 2, 131073, 262139, 2, 131073, 262140, 2, 131073, 262141, 2, 131073, 262142, 2, 131073, 262143, 2, 131073, 196608, 2, 65540, 196609, 2, 65538, 196610, 2, 65537, 196611, 2, 65537, 196612, 2, 65537, 196613, 2, 65537, 196614, 2, 65537, 196615, 2, 65537, 196616, 2, 65538, 196617, 2, 65539, 196618, 2, 65538, 196619, 2, 65538, 196620, 2, 65538, 196621, 2, 65538, 196622, 2, 65541, 327668, 2, 131076, 327669, 2, 131076, 327670, 2, 131076, 327671, 2, 131076, 327672, 2, 131076, 327673, 2, 131076, 327674, 2, 131076, 327675, 2, 131076, 327676, 2, 131076, 327677, 2, 131076, 327678, 2, 131073, 327679, 2, 131073, 262144, 2, 131073, 262145, 2, 131073, 262146, 2, 131073, 262147, 2, 131073, 262148, 2, 131073, 262149, 2, 131073, 262150, 2, 131073, 262151, 2, 131073, 262152, 2, 131073, 262153, 2, 131073, 262154, 2, 131073, 262155, 2, 131073, 262156, 2, 131073, 262157, 2, 131073, 262158, 2, 131074, 393213, 2, 131076, 393214, 2, 131073, 393215, 2, 131073, 327680, 2, 131073, 327681, 2, 131073, 327682, 2, 131073, 327683, 2, 131073, 327684, 2, 131073, 327685, 2, 131073, 327686, 2, 131073, 327687, 2, 131073, 327688, 2, 131073, 327689, 2, 131073, 327690, 2, 131073, 327691, 2, 131073, 327692, 2, 131073, 327693, 2, 131074, 458750, 2, 131076, 458751, 2, 131076, 393216, 2, 131076, 393217, 2, 131076, 393218, 2, 131076, 393219, 2, 131076, 393220, 2, 131073, 393221, 2, 131073, 393222, 2, 131076, 393223, 2, 131076, 393224, 2, 131076, 393225, 2, 131076, 393226, 2, 131076, 393227, 2, 131076, 393228, 2, 131076, 458755, 2, 131076, 458756, 2, 131073, 458757, 2, 131073, 458758, 2, 131076, 589823, 2, 0, 524288, 2, 2, 524289, 2, 3, 524290, 2, 2, 524291, 2, 2, 524292, 2, 131073, 524293, 2, 131073, 524294, 2, 2, 524295, 2, 2, 524296, 2, 3, 524297, 2, 2, 524298, 2, 2, 524299, 2, 5, 524307, 2, 0, 524308, 2, 1, 524309, 2, 2, 524310, 2, 2, 524311, 2, 2, 524312, 2, 2, 524313, 2, 2, 524314, 2, 2, 524315, 2, 2, 524316, 2, 5, 655358, 2, 0, 655359, 2, 65536, 589824, 2, 65538, 589825, 2, 65539, 589826, 2, 65538, 589827, 2, 65538, 589828, 2, 131073, 589829, 2, 131073, 589830, 2, 65538, 589831, 2, 65538, 589832, 2, 65539, 589833, 2, 65538, 589834, 2, 65538, 589835, 2, 65541, 589842, 2, 0, 589843, 2, 65536, 589844, 2, 65537, 589845, 2, 65538, 589846, 2, 65538, 589847, 2, 65538, 589848, 2, 65538, 589849, 2, 65538, 589850, 2, 65538, 589851, 2, 65538, 589852, 2, 65541, 720894, 2, 65536, 720895, 2, 131072, 655360, 2, 131073, 655361, 2, 131073, 655362, 2, 131073, 655363, 2, 131073, 655364, 2, 131073, 655365, 2, 131073, 655366, 2, 131073, 655367, 2, 131073, 655368, 2, 131073, 655369, 2, 131073, 655370, 2, 131073, 655371, 2, 131074, 655378, 2, 65536, 655379, 2, 131072, 655380, 2, 131073, 655381, 2, 131073, 655382, 2, 131073, 655383, 2, 131073, 655384, 2, 131073, 655385, 2, 131073, 655386, 2, 131073, 655387, 2, 131073, 655388, 2, 131074, 786430, 2, 131072, 786431, 2, 131073, 720896, 2, 131073, 720897, 2, 131073, 720898, 2, 131073, 720899, 2, 131073, 720900, 2, 131073, 720901, 2, 131073, 720902, 2, 131073, 720903, 2, 131073, 720904, 2, 131073, 720905, 2, 131073, 720906, 2, 131074, 720914, 2, 131072, 720915, 2, 131073, 720916, 2, 131073, 720917, 2, 131073, 720918, 2, 131073, 720919, 2, 131073, 720920, 2, 131073, 720921, 2, 131073, 720922, 2, 131073, 720923, 2, 131074, 851966, 2, 131076, 851967, 2, 131076, 786432, 2, 131076, 786433, 2, 131076, 786434, 2, 131076, 786435, 2, 131076, 786436, 2, 131073, 786437, 2, 131073, 786438, 2, 131076, 786439, 2, 131076, 786440, 2, 131076, 786441, 2, 131076, 786450, 2, 131075, 786451, 2, 131074, 786452, 2, 131076, 786453, 2, 131076, 786454, 2, 131076, 786455, 2, 131076, 786456, 2, 131076, 786457, 2, 131076, 786458, 2, 131076, 851972, 2, 131076, 851973, 2, 131076 )
+
+[node name="TextureRect" type="TextureRect" parent="Floor"]
+margin_left = 580.534
+margin_top = 283.196
+margin_right = 644.534
+margin_bottom = 347.196
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WetWater" type="Sprite" parent="Floor"]
+position = Vector2( -88, 88 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -2 )
+
+[node name="Start" parent="." instance=ExtResource( 3 )]
+position = Vector2( 672, 328 )
+
+[node name="3DObjects" type="YSort" parent="."]
+
+[node name="Decoration" type="TileMap" parent="3DObjects"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 32
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -2097126, 8, 1, -2097122, 8, 0, 196598, 11, 0, 327660, 11, 0, 327665, 11, 0, 393209, 9, 0, 524265, 11, 0, 524316, 11, 0, 786429, 11, 0, 720921, 11, 0, 1179661, 8, 1, 1179693, 8, 0, 1179696, 8, 1, 1310720, 11, 0, 1310727, 11, 0, 1310732, 11, 0, 1310742, 11, 0, 1310764, 10, 0, 1310766, 10, 0, 1310768, 10, 0, 1310770, 10, 0, 1376299, 10, 0, 1376301, 10, 0, 1376303, 10, 0, 1376305, 10, 0, 1441834, 10, 0, 1441836, 10, 0, 1441838, 10, 0, 1441840, 10, 0, 1572861, 11, 0, 1507347, 11, 0, 1507381, 11, 0 )
+
+[node name="BackstageDoor" type="AnimatedSprite" parent="3DObjects"]
+position = Vector2( 872, 296 )
+frames = ExtResource( 15 )
+animation = "backstage_door"
+
+[node name="bruno" parent="3DObjects" instance=ExtResource( 12 )]
+position = Vector2( 648.5, 335.5 )
+
+[node name="Question1" type="Area2D" parent="3DObjects/bruno"]
+script = ExtResource( 8 )
+trigger_mode = 1
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "safe_room_bruno_talk" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/bruno/Question1"]
+visible = false
+position = Vector2( 0, 4.24265 )
+shape = ExtResource( 13 )
+
+[node name="Locked Door 1" type="Area2D" parent="3DObjects"]
+position = Vector2( 40.8593, 317.303 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+trigger_mode = 1
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "pride_parade_poster", "pride_parade_poster2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Locked Door 1"]
+visible = false
+position = Vector2( 8, 0 )
+shape = ExtResource( 9 )
+
+[node name="Door" type="AnimatedSprite" parent="3DObjects/Locked Door 1"]
+position = Vector2( 7.1407, -29.303 )
+frames = ExtResource( 15 )
+animation = "twisted_door"
+
+[node name="Safe-Room" type="Node" parent="3DObjects"]
+script = ExtResource( 5 )
+
+[node name="Events" type="Node" parent="3DObjects/Safe-Room"]
+script = ExtResource( 5 )
+
+[node name="SceneStart" type="Area2D" parent="3DObjects/Safe-Room/Events"]
+position = Vector2( 660.791, 322.794 )
+script = ExtResource( 11 )
+event = "sroom_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/SceneStart"]
+visible = false
+shape = ExtResource( 9 )
+
+[node name="BackstageDoor" type="Area2D" parent="3DObjects/Safe-Room/Events"]
+position = Vector2( 872, 320 )
+script = ExtResource( 11 )
+trigger_mode = 2
+min_facing_angle = 6
+max_facing_angle = 6
+event = "sroom_backstage_door_a"
+arguments = [ NodePath("../../../BackstageDoor") ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/BackstageDoor"]
+visible = false
+shape = ExtResource( 9 )
+
+[node name="BackstageBack" type="Area2D" parent="3DObjects/Safe-Room/Events"]
+position = Vector2( 872, 320 )
+script = ExtResource( 11 )
+event = "sroom_backstage_door_b"
+arguments = [ NodePath("../../../BackstageDoor") ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/BackstageBack"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/BackstageBack"]
+shape = SubResource( 3 )
+
+[node name="BoardA" type="Area2D" parent="3DObjects/Safe-Room/Events"]
+position = Vector2( 615.536, 342.593 )
+rotation = -0.785398
+script = ExtResource( 8 )
+trigger_mode = 1
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "safe_room_bigboard1", "safe_room_bigboard2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/BoardA"]
+visible = false
+shape = ExtResource( 9 )
+
+[node name="CantExitYet" type="Area2D" parent="3DObjects/Safe-Room/Events"]
+position = Vector2( 621.9, 389.262 )
+script = ExtResource( 8 )
+trigger_mode = 1
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "safe_room_bigboard1", "safe_room_bigboard2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Safe-Room/Events/CantExitYet"]
+visible = false
+shape = ExtResource( 9 )
+
+[node name="Main-Hallways" type="Node" parent="3DObjects"]
+script = ExtResource( 5 )
+
+[node name="Events" type="Node" parent="3DObjects/Main-Hallways"]
+script = ExtResource( 5 )
+
+[node name="Hallway-Upstairs" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( -8, -56 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+target_scene = null
+target_position = Vector2( 288, -352 )
+target_facing_direction = 7
+
+[node name="32x8" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/Hallway-Upstairs"]
+visible = false
+shape = ExtResource( 7 )
+
+[node name="Hallway-SafeRoom" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( 290, 308 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+target_scene = null
+target_position = Vector2( 631, 374 )
+target_facing_direction = 7
+
+[node name="32x8" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/Hallway-SafeRoom"]
+visible = false
+shape = ExtResource( 7 )
+
+[node name="SafeRoom-Hallway" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( 617.5, 396 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+target_scene = null
+target_position = Vector2( 263, 328 )
+target_facing_direction = 3
+
+[node name="32x8" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/SafeRoom-Hallway"]
+visible = false
+shape = ExtResource( 7 )
+
+[node name="Hallway-Downstairs" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( 264, -328 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+target_scene = null
+target_position = Vector2( -32, -32 )
+target_facing_direction = 1
+
+[node name="32x8" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/Hallway-Downstairs"]
+visible = false
+shape = ExtResource( 7 )
+
+[node name="Pride Parade Poster" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( 224, 320 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+trigger_mode = 1
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "pride_parade_poster", "pride_parade_poster2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/Pride Parade Poster"]
+visible = false
+position = Vector2( 8, 0 )
+shape = ExtResource( 9 )
+
+[node name="See Vending Machine" type="Area2D" parent="3DObjects/Main-Hallways/Events"]
+position = Vector2( 46, 151 )
+rotation = 1.5708
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+one_shot = true
+dialog_sson_file = "res://assets/dialogs/en/places/new_horizon/school_lines.sson"
+dialog_keys = [ "vending_machine" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3DObjects/Main-Hallways/Events/See Vending Machine"]
+visible = false
+position = Vector2( 8, 0 )
+shape = ExtResource( 7 )
+
+[node name="Principal-Room" type="Node" parent="3DObjects"]
+script = ExtResource( 5 )
+
+[node name="Helpers" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Beep" parent="Helpers" instance=ExtResource( 10 )]
+position = Vector2( 120, 328 )
+
+[node name="Beep2" parent="Helpers" instance=ExtResource( 10 )]
+position = Vector2( 200, 328 )
+
+[node name="Beep3" parent="Helpers" instance=ExtResource( 10 )]
+position = Vector2( 232, 328 )
+
+[node name="Beep4" parent="Helpers" instance=ExtResource( 10 )]
+position = Vector2( 160, 128 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 16 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_Menu_Accept.wav-eaabf0b945d0f0e20339ec7876714589.sample"
+
+[deps]
+
+source_file="res://assets/sounds/UI/SFX_Menu_Accept.wav"
+dest_files=[ "res://.import/SFX_Menu_Accept.wav-eaabf0b945d0f0e20339ec7876714589.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,13 +1,21 @@
 @doctype List
 
-#Claire:
-	portrait: Claire
-	voice: andy
-
-#Andy:
-	portrait: Andy
-	voice: andy
-
-#default:
+--narrator:
 	portrait: none
-	voice: eliott
+	voice: narrator
+
+--claire:
+	portrait: claire
+	voice: voice_mediumhigh
+
+--andy:
+	portrait: andy
+	voice: voice_medium
+
+--bruno:
+	portrait: young_claire
+	voice: voice_mediumlow
+
+--default:
+	portrait: none
+	voice: voice_medium

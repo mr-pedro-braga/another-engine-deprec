@@ -4,10 +4,12 @@ extends Node
 const kuro_scene = preload("res://assets/battle/Kuro.tscn")
 const info_scene = preload("res://assets/modular_scenes/SoulInfo.tscn")
 
+export(Array, PackedScene) var scene_assets
+
 onready var choice_nametag = load("res://assets/modular_scenes/SelectionNametag.tscn")
 
 ### The transition player located at game_root
-onready var transition_player = get_node("/root/GameRoot/Transition/TransitionPlayer")
+onready var transition_player: AnimationPlayer = get_node("/root/GameRoot/Transition/TransitionPlayer")
 
 ### The box that shows the content of choices
 onready var selected_choice_box: SpriteText = get_node("/root/GameRoot/HUD/ChoiceDisplay")

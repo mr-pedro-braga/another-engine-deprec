@@ -25,10 +25,14 @@ func _process(_delta):
 		choice_index += 1
 		AudioManager.play_sound("SFX_Menu_Rotate")
 		selected_char.set_highlited(false)
+		if Utils.is_narrating:
+			Utils.speak(choice_index%choices_chars)
 	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_up"):
 		choice_index -= 1
 		AudioManager.play_sound("SFX_Menu_Rotate")
 		selected_char.set_highlited(false)
+		if Utils.is_narrating:
+			Utils.speak(choice_index%choices_chars)
 	if Input.is_action_just_pressed("ok"):
 		Assets.selected_choice_box.text = ""
 		DCCore.dialog_box.text = ""

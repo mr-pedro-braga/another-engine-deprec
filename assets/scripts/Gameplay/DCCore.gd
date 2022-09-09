@@ -31,7 +31,11 @@ func update_speaking_character_anim(value):
 	if Gameplay.map_characters.has(speaking_character):
 		Gameplay.map_characters[speaking_character].update_anim_talk()
 
-### Request Dialog from file.
+### Request Dialog from file!
+func dialog_by_file(file:String, sub_id:String):
+	dialog(file.replace("res://assets/dialogs/" + "en" + "/", "").replace(".sson", ""), sub_id)
+
+### Request Dialog from id.
 func dialog(id, sub_id):
 	#get_node("/root/GameRoot/HUD/black_bars2").play("menu_in")
 	if not Gameplay.GAMEMODE == Gameplay.GM.BATTLE and not in_cutscene and not MenuCore.in_mmenu:

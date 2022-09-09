@@ -1,0 +1,73 @@
+{
+
+	"_supported_extensions": {
+		"sc": "screenscript", "sson": "scenescript",
+		"c": "c",
+		"cpp": "c++",
+		"ps": "proto-script-api",
+		"js": "javascript",
+		"json": "json",
+		"jsav": "json",
+		"gd": "gdscript",
+		"html": "xml",
+		"css": "css",
+		"cmd": "batch",
+		"md": "markdown"
+	},
+
+	"gdscript": {
+		"primary": ["func", "const", "var", "enum", "class", "class_name", "tool",
+		"extends", "yield", "await", "print", "match", "for", "in", "as", "while",
+		"range", "as", "is", "and", "not", "or", "if", "else", "elif", "return",
+		"void", "int", "float", "char", "bool", "export", "static", "pass",
+		"true", "false", "self", "super", "await", "master", "puppet", "match",
+		"mastersync", "puppetsync", "setget", "signal", "continue",],
+		"secondary": ["Vector2", "Vector3"],
+		"terciary": [],
+	},
+	"json": {"primary":["true", "false"], "secondary":[], "terciary":[]},
+	"javascript": {"primary":["alert", "public", "private", "static", "function", "void", "int", "char", "boolean",
+		"float", "document", "require", "import", "window", "var", "switch", "case",
+		"in", "for", "while", "break", "continue", "if", "else", "return",
+		"this", "try", "catch", "let", "true", "false"], "secondary":[], "terciary":[]
+	},
+	
+	"scenescript": {
+		"color_regions": [
+			{"start": "#", "end": "", "color":"keyword"},
+		],
+		"primary": [
+			"move", "choice", "mvto", "mvadd", "wait", "turn", "pose",
+			"anim", "action", "face", "call", "switch", "var", "important",
+			"continue", "back", "goto", "await",
+			"and", "or", "xor", "not", "if", "unless", "elif", "else",
+			"compare", "case", "menu", "default",
+			"item", "give", "take", "doctype", "bgm", "pause", "resume", "restart",
+			"path", "append", "lock", "unlock",
+			"text_mode", "speech_delay", "sfx", "camera", "shake",
+			
+			"base_damage", "source",
+			"beatcode_tempo", "beatcode_script",
+			
+			"process", "damage_mode", "damage_scale", "type",
+			"script", "minigame",
+			"clock_interval", "sprite",
+			"battle_box",
+			"position", "angle", "sprite_angle", "accel_angle", "moving_angle",
+			"speed", "accel",
+			
+		],
+		"secondary": [
+			"static", "projectile", "minigame", "bullets", "animation",
+			"physical", "spirit", "magic", "light", "darkness", "pure",
+			"normal", "when_moving", "when_idle",
+			"randf", "randi", "rand_range", "min", "max", "clamp",
+			"floor", "ceil", "round", "vector2", "sin", "cos", "tan", "atan", "asin", "acos", 
+			"Vector2",
+		],
+		"terciary": [
+			"once", "true", "false", "yes", "no", "on", "off",
+			"PLAYER_POS", "TAU", "PI", "e",
+		],
+	}
+}

@@ -1,10 +1,12 @@
-#
+#--------------------------------------------------------#
 #
 #		Another Series Gameplay
 #	
 #	Takes care of the CORE gameplay
 #	sucha as loading worlds, scenes, and managing
 #	game states.
+#
+#--------------------------------------------------------#
 
 
 extends Node
@@ -25,7 +27,8 @@ export var slider1 = 0.0
 var _Assets
 onready var main_camera = get_node("/root/GameRoot/World/Camera")	# Reference to the main camera
 onready var world = get_node("/root/GameRoot/World") 				# Reference to the map container
-
+onready var transition_player = get_node("/root/GameRoot/Transition/TransitionPlayer") # Reference to the transition player
+onready var dialog = get_node("/root/GameRoot/Dialog") # Reference to the dialog container
 
 var setup_complete:bool # Setup finished
 
@@ -49,23 +52,24 @@ export var game_beggining = {
 
 ### Switches, variables that can be created and destroyed at any time for easy saving.
 export var switches:Dictionary = {
-	"introduced": false,
-	"route": 0,
-	"player_name": "player",
-	"phase": 0,
-	"stars": 0,
+	"player_name": "Player",
+	"playtrough": 0,
+	"section": 0,
 }
 ### Quick switches
 export var quick_switches:Dictionary = {}
 
 #@ Setters and getters for switches
-func check_switch(switch):
+func check_switch(switch:String):
 	return (switches.has(switch) and switches[switch]) or (quick_switches.has(switch) and quick_switches[switch])
 
-func switch(switch, state=true):
+func switch_exists(switch:String):
+	return switches.has(switch)
+
+func switch(switch:String, state=true):
 	switches[switch] = state
 
-func quick_switch(switch, state=true):
+func quick_switch(switch:String, state:bool=true):
 	quick_switches[switch] = state
 
 func clear_quick_switches():
@@ -79,22 +83,20 @@ func clear_quick_switches():
 
 ### The current character ID and node
 var playable_character:String = "ninten"
-var playable_character_node
+var playable_character_node:Node2D
 
 ### If the main character is currently moving
 var mainchar_moving:bool = false
 
 ### The main character position
-var playable_character_position = Vector2.ZERO
-
+var playable_character_position := Vector2.ZERO
 
 ### All the party member character IDs and nodes
 export var party = [""]
 var party_character_nodes = []
 
 ### The positions walked by the playable character that will be retraced by the party followers
-var party_follower_positions = []
-
+onready var party_follower_path: Path2D
 
 ### All the characters present on the current map
 var map_characters: Dictionary = {}
@@ -148,15 +150,15 @@ func setup_overworld():
 	var new_scene
 	
 	if ProjectSettings.get_setting("application/run/custom_first_scene") == "":
-		new_scene = Utils.async_load("res://assets/building_places/"+scene_space+"/"+game_beggining["first_scene"]+".tscn", {"id":"scene"})
+		Utils.async_load("res://assets/building_places/"+scene_space+"/"+game_beggining["first_scene"]+".tscn", {"id":"scene"})
 	else:
-		new_scene = Utils.async_load(ProjectSettings.get_setting("application/run/custom_first_scene"), {"id":"scene"})
-	new_scene = new_scene.instance()
+		Utils.async_load(ProjectSettings.get_setting("application/run/custom_first_scene"), {"id":"scene"})
+	new_scene = yield(Utils, "scene_loaded").instance
 	
 	LOADING = true
 	
 	### Let's create the main character!
-	var ci:Character = Assets.get_asset("ninten")
+	var ci:Character = Assets.get_asset(game_beggining.character)
 	ci.get_parent().remove_child(ci)
 	print(Assets.name)
 	
@@ -176,18 +178,18 @@ func setup_overworld():
 	### Set its name
 	ci.name = ci.character_id
 	Gameplay.party = []
-	add_party_member(ci.character_id)
-	
-	### Update the zoom
-	update_zoom(game_beggining["zoom"])
 	
 	### Update the playable character
 	playable_character = ci.character_id
 	playable_character_node = ci
 	map_characters[playable_character] = ci
+	party_follower_path = get_node("/root/GameRoot/World/FollowerPath")
+	party_follower_path.get_curve().set_point_position(0, ci.position)
 	
-	### Update the party
-	update_party()
+	add_party_member(ci.character_id)
+	
+	### Update the zoom
+	update_zoom_instant(game_beggining["zoom"])
 	
 	### Update inventory
 	MenuCore.update_items()
@@ -210,21 +212,28 @@ func setup_overworld():
 
 ### The current zoom level
 export var zoom = 1.0 setget update_zoom
+var zoom_drag = 1.0
 
 ### Update the zoom, only when the game is perfecly set up.
 func update_zoom(_zoom):
 	zoom = _zoom
-	if setup_complete:
-		main_camera.zoom = Vector2(zoom, zoom)
+
+### Update the zoom, only when the game is perfecly set up.
+func update_zoom_instant(_zoom):
+	zoom = _zoom
+	zoom_drag = zoom
 
 var character_camera_offset = -16
 var camera_position = Vector2.ZERO
 func _process(_delta):
 	# Camera
+	if setup_complete:
+		zoom_drag = lerp(zoom_drag, zoom, max(20 * _delta, 0.1))
+		main_camera.zoom = Vector2(zoom_drag, zoom_drag)
 	if overworld:
 		match GAMEMODE:
 			GM.OVERWORLD:
-				if playable_character_node != null:
+				if not LOADING and playable_character_node != null:
 					character_camera_offset = - 16
 					camera_position = playable_character_node.position + Vector2(0, character_camera_offset)
 			GM.BATTLE:
@@ -261,19 +270,23 @@ onready var GAMEMODE = GM.OVERWORLD
 # @ Party manipulation
 #
 
-func add_follower_point(point: Vector2):
-	party_follower_positions.append(point)
-	if party_follower_positions.size() > 300:
-		party_follower_positions.pop_front()
-
 func add_party_member(member):
 	if not party.has(member):
+		var c = map_characters[member]
+		if not c == playable_character_node:
+			c.get_node("CollisionShape2D").disabled = true
+		c.is_party_member = true
+		c.party_index = party.size()
 		party.append(member)
 		update_party()
 
 func remove_party_member(member):
 	if party.has(member):
-		map_characters[member].stop()
+		var c = map_characters[member]
+		c.stop()
+		c.get_node("CollisionShape2D").disabled = false
+		c.is_party_member = false
+		c.party_index = 0
 		party.erase(member)
 		update_party()
 
@@ -293,8 +306,18 @@ func update_party():
 
 ### Warp between scenes or within a scene
 func warp(scene:String, location:Vector2, transition="slide_black", angle=-1):
+	Utils.async_load("res://assets/building_places/"+scene_space+"/"+scene+".tscn")
 	warp_scene(
-		load("res://assets/building_places/"+scene_space+"/"+scene+".tscn"),
+		yield(Utils, "scene_loaded").loader,
+		location,
+		transition,
+		angle
+	)
+
+func warp_by_path(path:String, location:Vector2, transition="slide_black", angle=-1):
+	Utils.async_load(path)
+	warp_scene(
+		yield(Utils, "scene_loaded").loader,
 		location,
 		transition,
 		angle
@@ -303,43 +326,46 @@ func warp(scene:String, location:Vector2, transition="slide_black", angle=-1):
 func warp_scene(scene:PackedScene, location:Vector2, transition="slide_black", angle=1):
 	LOADING = true
 	map_characters = {}
-	party_follower_positions.clear()
-	var transplayer = get_node("/root/GameRoot/Transition/TransitionPlayer")
-	transplayer.play(transition)
+	party_follower_path.get_curve().clear_points()
+	
+	transition_player.play(transition)
 	playable_character_node.enabled = false
-	yield(transplayer, "animation_finished")
+	yield(transition_player, "animation_finished")
+	
 	for i in range(party_character_nodes.size()):
-		var c = party_character_nodes[i]
-		c.get_parent().remove_child(c)
+		var c:Node = party_character_nodes[i]
+		if c.get_parent() != null:
+			c.get_parent().remove_child(c)
 	
 	yield(get_tree().create_timer(0.25), "timeout")
 	var new_scene = scene.instance()
 	world.remove_child(get_node("/root/GameRoot/World/Scene"))
 	new_scene.name = "Scene"
 	world.add_child(new_scene)
-	transplayer.play(transition+"_out")
 	var w = new_scene.get_node("3DObjects")
-	
-	for index in range(party_character_nodes.size()):
-		var i = party_character_nodes[index]
-		party_character_nodes[index].target = Gameplay.playable_character_node.position
-		i.name = i.character_id
-		w.add_child(i)
-		Gameplay.map_characters[i.character_id] = i
-		i.position = location
-		i.target = i.position
-		i.input_vector = Vector2.ZERO
-		i.velocity = Vector2.ZERO
-	if new_scene.has_method("scene_ready"):
-		new_scene.scene_ready()
-	main_camera.make_current()
-	main_camera.position = playable_character_node.position
-	party_follower_positions = []
-	if not angle == -1:
-		playable_character_node.angle = angle
-	yield(get_tree().create_timer(0.25),"timeout")
-	playable_character_node.update_reference()
-	playable_character_node.enabled = true
+	if w:
+		for index in range(party_character_nodes.size()):
+			var i = party_character_nodes[index]
+			i.name = i.character_id
+			#Add in the new character
+			w.add_child(i)
+			Gameplay.map_characters[i.character_id] = i
+			i.position = location
+			i.mv_target = i.position
+			i.input_vector = Vector2.ZERO
+			i.velocity = Vector2.ZERO
+		if new_scene.has_method("scene_ready"):
+			new_scene.scene_ready()
+		main_camera.make_current()
+		main_camera.position = playable_character_node.position
+		party_follower_path.get_curve().clear_points()
+		if not angle == -1:
+			playable_character_node.angle = angle
+		
+		transition_player.play(transition+"_out")
+		
+		playable_character_node.update_reference()
+		playable_character_node.enabled = true
 	emit_signal("LOADING_FINISHED")
 	emit_signal("warp_completed")
 	LOADING = false
@@ -353,16 +379,15 @@ func teleport(location, transition="slide_black", angle=-1):
 	playable_character_node.enabled = false
 	yield(get_tree().create_timer(0.25), "timeout")
 	for i in range(party_character_nodes.size()):
-		party_character_nodes[i].target = location
+		party_character_nodes[i].mv_target = location
 		party_character_nodes[i].position = location
-	party_follower_positions.clear()
+	party_follower_path.get_curve().clear_points()
 	main_camera.position = location - Vector2(0, 16)
 	playable_character_node.enabled = true
 	if not angle == -1:
 		for c in Gameplay.party_character_nodes:
 			c.angle = angle
-	playable_character_node.update_reference()
 	yield(get_tree().create_timer(0.25), "timeout")
 	t.play(transition+"_out")
-	emit_signal("warp_completed")
-	emit_signal("LOADING_FINISHED")
+	#emit_signal("warp_completed")
+	#emit_signal("LOADING_FINISHED")

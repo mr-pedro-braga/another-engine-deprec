@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voice_typewriter.wav-6006334886ff6b2c3ac2c7e3030f0b98.sample"
+
+[deps]
+
+source_file="res://assets/sounds/voices/voice_typewriter.wav"
+dest_files=[ "res://.import/voice_typewriter.wav-6006334886ff6b2c3ac2c7e3030f0b98.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -237,6 +237,7 @@ offset = Vector2( 0, 8 )
 
 [node name="Start" parent="." instance=ExtResource( 3 )]
 position = Vector2( 81, 58 )
+frame = 6
 
 [node name="ScreenFX" type="CanvasLayer" parent="."]
 layer = -1

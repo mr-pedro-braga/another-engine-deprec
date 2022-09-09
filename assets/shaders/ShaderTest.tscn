@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/shaders/light-circle.png" type="Texture" id=1]
+[ext_resource path="res://assets/shaders/white.jpg" type="Texture" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 88, 24, 128, 24, 128, 64, 88, 64 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="white" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+texture = ExtResource( 2 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.0862745, 0.133333, 0.180392, 1 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+position = Vector2( 96, 64 )
+scale = Vector2( 1, 0.5 )
+occluder = SubResource( 1 )
+
+[node name="Wall" type="ColorRect" parent="LightOccluder2D3"]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 64.0
+color = Color( 0.701961, 0.701961, 0.701961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2( 120, -32 )
+occluder = SubResource( 1 )
+
+[node name="Wall" type="ColorRect" parent="LightOccluder2D2"]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 64.0
+color = Color( 0.701961, 0.701961, 0.701961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -16, 32 )
+occluder = SubResource( 1 )
+
+[node name="Wall" type="ColorRect" parent="LightOccluder2D"]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 64.0
+color = Color( 0.701961, 0.701961, 0.701961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 284.303, -51.2929 )
+texture = ExtResource( 1 )
+texture_scale = 0.8
+color = Color( 0.678431, 1, 0.780392, 1 )
+energy = 0.5
+shadow_enabled = true
+shadow_gradient_length = 10.0
+shadow_filter = 3
+shadow_filter_smooth = 9.3
+
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( 146.213, 183.192 )
+texture = ExtResource( 1 )
+color = Color( 0.941176, 0.270588, 0.270588, 1 )
+energy = 0.5
+shadow_enabled = true
+shadow_gradient_length = 10.0
+shadow_filter = 3
+shadow_filter_smooth = 9.3
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -14.8076, 1.76093 )
+editor_only = true
+texture = ExtResource( 1 )
+texture_scale = 0.9
+color = Color( 0.411765, 0.941176, 1, 1 )
+energy = 0.6
+shadow_enabled = true
+shadow_gradient_length = 10.0
+shadow_filter = 3
+shadow_filter_smooth = 9.3
